@@ -193,7 +193,44 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── 3. Ansatz ── */}
+        {/* ── 3. Zitat ── */}
+        <section
+          className="w-full bg-black text-white"
+          style={{
+            paddingTop: px(64, 96),
+            paddingBottom: px(64, 96),
+            paddingLeft: sidePad,
+            paddingRight: sidePad,
+          }}
+        >
+          <p
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 300,
+              fontSize: 'clamp(23px, 3vw, 40px)',
+              lineHeight: 1.2,
+              letterSpacing: '-0.02em',
+              maxWidth: '820px',
+            }}
+          >
+            „Design is the silent ambassador of your brand."
+          </p>
+          <p
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 700,
+              fontSize: '14px',
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              color: '#0044FF',
+              marginTop: px(16, 24),
+            }}
+          >
+            Paul Rand
+          </p>
+        </section>
+
+        {/* ── 4. Ansatz ── */}
         <section
           className="w-full bg-white text-black"
           style={{
