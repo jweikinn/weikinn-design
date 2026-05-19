@@ -144,7 +144,7 @@ export function Footer() {
         </div>
 
         {/* ── Row 2: Divider (full span) ── */}
-        <div style={{ gridColumn: '1 / -1', height: '1px', backgroundColor: 'rgba(255,255,255,0.4)', marginBottom: px(32, 120) }} />
+        <div style={{ gridColumn: '1 / -1', height: '1px', backgroundColor: 'rgba(255,255,255,0.4)', marginBottom: px(32, 120), marginRight: sidePad }} />
 
         {/* ── Row 3 left: Weikinn.Design wordmark ── */}
         <p

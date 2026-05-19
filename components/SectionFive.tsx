@@ -177,8 +177,15 @@ function CTABlock({
   )
 }
 
+const slideUp: React.CSSProperties = {
+  opacity: 0,
+  transform: 'translateY(48px)',
+  transition: 'opacity 0.75s ease, transform 0.75s cubic-bezier(0.4, 0, 0.2, 1)',
+}
+
 export function SectionFive() {
   const wordRefs = useRef<(HTMLSpanElement | null)[]>([])
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const sidePad = px(16, 32)
 
   useEffect(() => {
@@ -194,6 +201,24 @@ export function SectionFive() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target as HTMLElement
+            el.style.opacity = '1'
+            el.style.transform = 'translateY(0)'
+            observer.unobserve(el)
+          }
+        })
+      },
+      { threshold: 0.08 }
+    )
+    cardRefs.current.forEach((el) => { if (el) observer.observe(el) })
+    return () => observer.disconnect()
   }, [])
 
   return (
@@ -255,20 +280,26 @@ export function SectionFive() {
       {/* ── Desktop: zwei Spalten ── */}
       <div className="hidden md:flex items-end" style={{ gap: '24px' }}>
         <div className="flex-1 self-stretch flex flex-col justify-between">
-          <ProjectCard
-            title="Praxis für Psychotherapie"
-            tags={['Webdesign', 'Branding', 'Key Visual']}
-            image={IMG_PRAXIS}
-            aspectRatio="676/744"
-            cropOffsetX="-43.55%"
-          />
-          <ProjectCard
-            title="Webdesign – SAAS"
-            tags={['Social Media', 'Photography']}
-            image={IMG_SAAS}
-            aspectRatio="676/699"
-          />
-          <CTABlock desktop startIdx={20} wordRefs={wordRefs} />
+          <div ref={el => { cardRefs.current[0] = el }} style={slideUp}>
+            <ProjectCard
+              title="Praxis für Psychotherapie"
+              tags={['Webdesign', 'Branding', 'Key Visual']}
+              image={IMG_PRAXIS}
+              aspectRatio="676/744"
+              cropOffsetX="-43.55%"
+            />
+          </div>
+          <div ref={el => { cardRefs.current[1] = el }} style={slideUp}>
+            <ProjectCard
+              title="Webdesign – SAAS"
+              tags={['Social Media', 'Photography']}
+              image={IMG_SAAS}
+              aspectRatio="676/699"
+            />
+          </div>
+          <div ref={el => { cardRefs.current[2] = el }} style={slideUp}>
+            <CTABlock desktop startIdx={20} wordRefs={wordRefs} />
+          </div>
         </div>
 
         <div
@@ -278,6 +309,46 @@ export function SectionFive() {
             paddingTop: 'clamp(0px, 16.67vw, 240px)',
           }}
         >
+          <div ref={el => { cardRefs.current[3] = el }} style={slideUp}>
+            <ProjectCard
+              title={`Erscheinungsbild\nund Office Dokumente`}
+              tags={['Branding', 'Office Documents']}
+              image={IMG_IMAC}
+              image2={IMG_OFFICE}
+              aspectRatio="676/699"
+            />
+          </div>
+          <div ref={el => { cardRefs.current[4] = el }} style={slideUp}>
+            <ProjectCard
+              title="Broschüre"
+              tags={['Social Media', 'Photography']}
+              image={IMG_BROCHURE}
+              aspectRatio="676/744"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* ── Mobil: eine Spalte ── */}
+      <div className="flex flex-col md:hidden" style={{ gap: px(32, 0) }}>
+        <div ref={el => { cardRefs.current[5] = el }} style={slideUp}>
+          <ProjectCard
+            title="Praxis für Psychotherapie"
+            tags={['Webdesign', 'Branding', 'Key Visual']}
+            image={IMG_PRAXIS}
+            aspectRatio="676/744"
+            cropOffsetX="-43.55%"
+          />
+        </div>
+        <div ref={el => { cardRefs.current[6] = el }} style={slideUp}>
+          <ProjectCard
+            title="Webdesign – SAAS"
+            tags={['Social Media', 'Photography']}
+            image={IMG_SAAS}
+            aspectRatio="676/699"
+          />
+        </div>
+        <div ref={el => { cardRefs.current[7] = el }} style={slideUp}>
           <ProjectCard
             title={`Erscheinungsbild\nund Office Dokumente`}
             tags={['Branding', 'Office Documents']}
@@ -285,6 +356,8 @@ export function SectionFive() {
             image2={IMG_OFFICE}
             aspectRatio="676/699"
           />
+        </div>
+        <div ref={el => { cardRefs.current[8] = el }} style={slideUp}>
           <ProjectCard
             title="Broschüre"
             tags={['Social Media', 'Photography']}
@@ -292,37 +365,9 @@ export function SectionFive() {
             aspectRatio="676/744"
           />
         </div>
-      </div>
-
-      {/* ── Mobil: eine Spalte ── */}
-      <div className="flex flex-col md:hidden" style={{ gap: px(32, 0) }}>
-        <ProjectCard
-          title="Praxis für Psychotherapie"
-          tags={['Webdesign', 'Branding', 'Key Visual']}
-          image={IMG_PRAXIS}
-          aspectRatio="676/744"
-          cropOffsetX="-43.55%"
-        />
-        <ProjectCard
-          title="Webdesign – SAAS"
-          tags={['Social Media', 'Photography']}
-          image={IMG_SAAS}
-          aspectRatio="676/699"
-        />
-        <ProjectCard
-          title={`Erscheinungsbild\nund Office Dokumente`}
-          tags={['Branding', 'Office Documents']}
-          image={IMG_IMAC}
-          image2={IMG_OFFICE}
-          aspectRatio="676/699"
-        />
-        <ProjectCard
-          title="Broschüre"
-          tags={['Social Media', 'Photography']}
-          image={IMG_BROCHURE}
-          aspectRatio="676/744"
-        />
-        <CTABlock startIdx={36} wordRefs={wordRefs} />
+        <div ref={el => { cardRefs.current[9] = el }} style={slideUp}>
+          <CTABlock startIdx={36} wordRefs={wordRefs} />
+        </div>
       </div>
     </section>
   )

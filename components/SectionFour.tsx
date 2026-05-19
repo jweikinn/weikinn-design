@@ -25,7 +25,7 @@ const SERVICES = [
   {
     name: 'Editorial Design',
     subtitle: 'Paperlove, als Print oder E‑Paper.',
-    detail: 'Print · Packaging · E‑Paper',
+    detail: 'Print · Broschüren · E‑Paper',
     image: '/services/editorial.png',
     mobileImgOffsetX: '-34.53%',
     imageRight: '13%',
