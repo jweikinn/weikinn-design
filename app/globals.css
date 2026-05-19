@@ -1,0 +1,409 @@
+@import "tailwindcss";
+
+/* ──────────────────────────────────────────────
+   Sequel Sans (MyFonts Webfont Kit – 33C934_*)
+   ────────────────────────────────────────────── */
+
+/* ───── Sequel Sans (Body Text – Standard) ───── */
+
+/* Light 300 */
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_18_0.woff2') format('woff2'),
+       url('/fonts/33C934_18_0.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_14_0.woff2') format('woff2'),
+       url('/fonts/33C934_14_0.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Book 350 */
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_23_0.woff2') format('woff2'),
+       url('/fonts/33C934_23_0.woff') format('woff');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_21_0.woff2') format('woff2'),
+       url('/fonts/33C934_21_0.woff') format('woff');
+  font-weight: 350;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Roman 400 */
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_A_0.woff2') format('woff2'),
+       url('/fonts/33C934_A_0.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_B_0.woff2') format('woff2'),
+       url('/fonts/33C934_B_0.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Medium 500 */
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_13_0.woff2') format('woff2'),
+       url('/fonts/33C934_13_0.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_E_0.woff2') format('woff2'),
+       url('/fonts/33C934_E_0.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Semi Bold 600 */
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_0_0.woff2') format('woff2'),
+       url('/fonts/33C934_0_0.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_5_0.woff2') format('woff2'),
+       url('/fonts/33C934_5_0.woff') format('woff');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold 700 */
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_29_0.woff2') format('woff2'),
+       url('/fonts/33C934_29_0.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_27_0.woff2') format('woff2'),
+       url('/fonts/33C934_27_0.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Heavy 800 */
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_1D_0.woff2') format('woff2'),
+       url('/fonts/33C934_1D_0.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_1B_0.woff2') format('woff2'),
+       url('/fonts/33C934_1B_0.woff') format('woff');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Black 900 */
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_2E_0.woff2') format('woff2'),
+       url('/fonts/33C934_2E_0.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans';
+  src: url('/fonts/33C934_2C_0.woff2') format('woff2'),
+       url('/fonts/33C934_2C_0.woff') format('woff');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ───── Sequel Sans Display (für große Headlines) ───── */
+
+@font-face {
+  font-family: 'Sequel Sans Display';
+  src: url('/fonts/33C934_15_0.woff2') format('woff2'),
+       url('/fonts/33C934_15_0.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans Display';
+  src: url('/fonts/33C934_22_0.woff2') format('woff2'),
+       url('/fonts/33C934_22_0.woff') format('woff');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans Display';
+  src: url('/fonts/33C934_8_0.woff2') format('woff2'),
+       url('/fonts/33C934_8_0.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans Display';
+  src: url('/fonts/33C934_10_0.woff2') format('woff2'),
+       url('/fonts/33C934_10_0.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans Display';
+  src: url('/fonts/33C934_2_0.woff2') format('woff2'),
+       url('/fonts/33C934_2_0.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans Display';
+  src: url('/fonts/33C934_28_0.woff2') format('woff2'),
+       url('/fonts/33C934_28_0.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans Display';
+  src: url('/fonts/33C934_1A_0.woff2') format('woff2'),
+       url('/fonts/33C934_1A_0.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Sequel Sans Display';
+  src: url('/fonts/33C934_2F_0.woff2') format('woff2'),
+       url('/fonts/33C934_2F_0.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ───── Design Tokens (aus Figma 95:244) ───── */
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #0044FF;       /* Blau – Texte „Brand & Web Design“, Berufstitel */
+  --footer: #1626FF;       /* Footer-Hintergrund */
+}
+
+@theme inline {
+  /* Farben */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-footer: var(--footer);
+
+  /* Schriftfamilien */
+  --font-sans: 'Sequel Sans', sans-serif;
+  --font-display: 'Sequel Sans Display', 'Sequel Sans', sans-serif;
+
+  /* Schriftgrößen – semantisch nach Figma-Stilen */
+  --text-nav: 1rem;                 /* 16px – Navigation */
+  --text-button: 0.875rem;          /* 14px – Buttons */
+  --text-copy-small: 1.125rem;      /* 18px – Fließtext / BU blau */
+  --text-copy-large: 2.5rem;        /* 40px – Intro / Sektions-Copy */
+  --text-arbeitsbeispiel: 2.25rem;  /* 36px – Projekt-Titel */
+  --text-headline: 6rem;            /* 96px – H2 / Services */
+  --text-display: 10.625rem;        /* 170px – Footer Mega-Headline */
+
+  /* Letter-Spacing als em (skalieren mit Schriftgröße) */
+  --tracking-headline: -0.02em;     /* H2, Arbeitsbeispiel */
+  --tracking-services: -0.04em;     /* Services 96px, Button 14px */
+  --tracking-copy-large: -0.02em;   /* 40px Copy */
+  --tracking-copy-small: 0.02em;    /* 18px Light Body */
+  --tracking-bu-blau: -0.02em;      /* 18px Bold Body */
+  --tracking-nav: -0.01em;          /* Nav-Items */
+  --tracking-display: -0.05em;      /* Footer 170px „W eikinn“ */
+
+  /* Layout / Spacing */
+  --spacing-page: 2rem;             /* 32px – Außenpadding der Sektionen */
+  --spacing-section-y: 5rem;        /* 80px – vertikales Sektion-Padding */
+  --spacing-footer-gap: 7.5rem;     /* 120px – Footer-Block-Abstand */
+
+  /* Radius */
+  --radius-pill: 1.5rem;            /* 24px – Buttons & Tags */
+}
+
+/* ───── Typografie-Utility-Klassen (Figma-Stile 1:1) ───── */
+@layer components {
+  /* H2 – „Selected Work“, „Love Letters“ */
+  .type-h2 {
+    font-family: var(--font-sans);
+    font-size: var(--text-headline);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: var(--tracking-headline);
+  }
+  /* Services – „Branddesign“, „Webdesign“ … */
+  .type-services {
+    font-family: var(--font-sans);
+    font-size: var(--text-headline);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: var(--tracking-services);
+  }
+  /* Arbeitsbeispiel – Projekttitel 36px */
+  .type-arbeitsbeispiel {
+    font-family: var(--font-sans);
+    font-size: var(--text-arbeitsbeispiel);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: var(--tracking-headline);
+  }
+  /* Copy groß – 40px Intro-Texte */
+  .type-copy-large {
+    font-family: var(--font-sans);
+    font-size: var(--text-copy-large);
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: var(--tracking-copy-large);
+  }
+  /* Copy klein – 18px Fließtext */
+  .type-copy-small {
+    font-family: var(--font-sans);
+    font-size: var(--text-copy-small);
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: var(--tracking-copy-small);
+  }
+  /* BU blau – 18px Bold (blaue Berufsbezeichnungen) */
+  .type-bu-blau {
+    font-family: var(--font-sans);
+    font-size: var(--text-copy-small);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: var(--tracking-bu-blau);
+    color: var(--accent);
+  }
+  /* Buttons */
+  .type-button {
+    font-family: var(--font-sans);
+    font-size: var(--text-button);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: var(--tracking-services);
+  }
+  /* Navigation */
+  .type-nav {
+    font-family: var(--font-sans);
+    font-size: var(--text-nav);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: var(--tracking-nav);
+  }
+}
+
+/* ── Navbar: Roll-Animation für Links ── */
+.nav-link-roll {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  /* Extra Luft oben + unten damit weder weißer noch blauer Text abgeschnitten wird */
+  padding: 4px 0 4px;
+  margin: -4px 0 -4px;
+  line-height: 1.2;
+}
+.nav-link-roll > span {
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+/* Blauer Text startet UNTERHALB des Containers (translateY(150%))
+   und landet bei translateY(0) = genau an der gleichen Position
+   wie der weiße Text → nie abgeschnitten */
+.nav-link-roll::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 4px;               /* identisch zum padding-top */
+  left: 0;
+  color: #0044FF;
+  white-space: nowrap;
+  line-height: 1.2;
+  transform: translateY(150%);
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.nav-link-roll:hover > span {
+  transform: translateY(-150%);
+}
+.nav-link-roll:hover::after {
+  transform: translateY(0);
+}
+
+/* ── Navbar: „Let's talk" Wipe-Animation ── */
+.nav-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.nav-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #0044FF;
+  border-radius: inherit;
+  transform: translateX(-101%);
+  transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+  z-index: 0;
+}
+.nav-btn:hover::before {
+  transform: translateX(0);
+}
+.nav-btn > span {
+  position: relative;
+  z-index: 1;
+  transition: color 0.45s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.nav-btn:hover > span {
+  color: #fff;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Sequel Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
