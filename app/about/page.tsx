@@ -244,7 +244,7 @@ export default function AboutPage() {
             <p
               style={{
                 fontFamily: 'var(--font-sans)',
-                fontWeight: 400,
+                fontWeight: 300,
                 fontSize: px(60, 96),
                 lineHeight: 0.9,
                 letterSpacing: '-0.02em',
@@ -259,7 +259,7 @@ export default function AboutPage() {
                 style={{
                   fontFamily: 'var(--font-sans)',
                   fontWeight: 300,
-                  fontSize: 'clamp(15px, 1.4vw, 18px)',
+                  fontSize: '18px',
                   lineHeight: 1.5,
                   letterSpacing: '0.02em',
                   marginBottom: px(20, 28),
@@ -271,7 +271,7 @@ export default function AboutPage() {
                 style={{
                   fontFamily: 'var(--font-sans)',
                   fontWeight: 300,
-                  fontSize: 'clamp(15px, 1.4vw, 18px)',
+                  fontSize: '18px',
                   lineHeight: 1.5,
                   letterSpacing: '0.02em',
                 }}
@@ -351,7 +351,7 @@ export default function AboutPage() {
                     style={{
                       fontFamily: 'var(--font-sans)',
                       fontWeight: 300,
-                      fontSize: 'clamp(15px, 1.4vw, 18px)',
+                      fontSize: '18px',
                       lineHeight: 1.5,
                       letterSpacing: '0.02em',
                       opacity: 0.5,

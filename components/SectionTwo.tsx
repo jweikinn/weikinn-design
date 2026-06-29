@@ -33,7 +33,7 @@ export function SectionTwo() {
             style={{
               fontFamily: 'var(--font-display)',
               fontStyle: 'italic',
-              fontWeight: 200,
+              fontWeight: 300,
               fontSize: 'clamp(56px, 6.87vw, 99px)',
               lineHeight: 1.1,
               letterSpacing: '-0.0098em',
@@ -71,9 +71,9 @@ export function SectionTwo() {
             style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: 700,
-              fontSize: '17.762px',
+              fontSize: '18px',
               lineHeight: 1.36,
-              letterSpacing: '0.2082px',
+              letterSpacing: '0.2px',
               color: '#d5d3e6',
               margin: 0,
             }}
@@ -83,16 +83,16 @@ export function SectionTwo() {
           <p
             style={{
               fontFamily: 'var(--font-sans)',
-              fontWeight: 400,
-              fontSize: '17.762px',
+              fontWeight: 300,
+              fontSize: '18px',
               lineHeight: 1.36,
-              letterSpacing: '0.2082px',
+              letterSpacing: '0.2px',
               color: '#d5d3e6',
               margin: 0,
             }}
           >
             für Unternehmen mit{' '}
-            <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400, letterSpacing: '0.8px' }}>
+            <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300, letterSpacing: '0.8px' }}>
               Sinn und Haltung,{' '}
               <br />
             </span>
@@ -110,9 +110,9 @@ export function SectionTwo() {
                 background: '#d5d3e6',
                 color: '#2f2483',
                 fontFamily: 'var(--font-sans)',
-                fontWeight: 500,
+                fontWeight: 800,
                 fontSize: '14px',
-                letterSpacing: '-0.56px',
+                letterSpacing: '-0.02em',
                 padding: '12px 16px',
                 borderRadius: '24px',
                 textDecoration: 'none',

@@ -93,7 +93,7 @@ export function Navbar() {
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 800,
                 fontSize: '14px',
-                letterSpacing: '-0.03em',
+                letterSpacing: '-0.02em',
                 padding: '12px 24px',
                 backgroundColor: '#fff',
                 color: '#000',

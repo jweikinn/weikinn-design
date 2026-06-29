@@ -72,7 +72,7 @@ export function Footer() {
   }, [])
 
   return (
-    <footer className="w-full text-white" style={{ backgroundColor: '#6759D7', paddingTop: px(40, 48), position: 'sticky', bottom: 0, zIndex: 0 }}>
+    <footer className="w-full text-white" style={{ backgroundColor: '#6759D7', paddingTop: px(40, 48) }}>
 
       {/* Measurement span — same weight/spacing as WeikinnHeading */}
       <span
@@ -95,20 +95,20 @@ export function Footer() {
       {/* ── Mobile layout ── */}
       <div ref={mobileContainerRef} className="md:hidden" style={{ paddingLeft: sidePad, paddingRight: sidePad }}>
         <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: px(18, 24), lineHeight: 1.3, letterSpacing: '-0.02em', marginBottom: px(16, 24) }}>
-          Hast du ein <span style={{ fontWeight: 900 }}>Projekt</span> im Kopf?{'\n'}
+          Hast du ein <span style={{ fontWeight: 800 }}>Projekt</span> im Kopf?{'\n'}
           Schreib mir eine Nachricht an{' '}
           <a href="mailto:julia@weikinn.design" style={{ textDecoration: 'underline', textUnderlineOffset: '3px', color: 'inherit' }}>
             julia@weikinn.design
           </a>
         </p>
-        <button style={{ fontFamily: 'var(--font-sans)', fontWeight: 900, fontSize: '14px', letterSpacing: '-0.04em', color: '#fff', backgroundColor: 'transparent', border: '1.5px solid rgba(255,255,255,0.6)', borderRadius: '24px', padding: '10px 20px', cursor: 'pointer' }}>
+        <button style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em', color: '#fff', backgroundColor: 'transparent', border: '1.5px solid rgba(255,255,255,0.6)', borderRadius: '24px', padding: '10px 20px', cursor: 'pointer' }}>
           Kontakt
         </button>
         <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '14px', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '24px' }}>
           Instagram / Linkedin
         </p>
         <div style={{ height: '1px', backgroundColor: 'rgba(255,255,255,0.4)', margin: `${px(20, 32)} 0` }} />
-        <p className="text-center" style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '11px', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.7 }}>
+        <p className="text-center" style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.7 }}>
           Impressum / Datenschutz
         </p>
         <p style={{
@@ -134,13 +134,13 @@ export function Footer() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: px(20, 32) }}>
           <div>
             <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: px(18, 24), lineHeight: 1.3, letterSpacing: '-0.02em', maxWidth: '520px', marginBottom: px(16, 24) }}>
-              Hast du ein <span style={{ fontWeight: 900 }}>Projekt</span> im Kopf?{'\n'}
+              Hast du ein <span style={{ fontWeight: 800 }}>Projekt</span> im Kopf?{'\n'}
               Schreib mir eine Nachricht an{' '}
               <a href="mailto:julia@weikinn.design" style={{ textDecoration: 'underline', textUnderlineOffset: '3px', color: 'inherit' }}>
                 julia@weikinn.design
               </a>
             </p>
-            <button style={{ fontFamily: 'var(--font-sans)', fontWeight: 900, fontSize: '14px', letterSpacing: '-0.04em', color: '#fff', backgroundColor: 'transparent', border: '1.5px solid rgba(255,255,255,0.6)', borderRadius: '24px', padding: '10px 20px', cursor: 'pointer' }}>
+            <button style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em', color: '#fff', backgroundColor: 'transparent', border: '1.5px solid rgba(255,255,255,0.6)', borderRadius: '24px', padding: '10px 20px', cursor: 'pointer' }}>
               Kontakt
             </button>
           </div>

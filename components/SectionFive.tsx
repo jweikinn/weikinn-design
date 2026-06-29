@@ -7,9 +7,9 @@ const PANELS = [
     label: 'B R A N D I N G',
     headline: ['Eine Marke,', 'die trägt.'],
     body: 'Du machst etwas, das zählt. Deine Marke soll das auch zeigen. Ich gestalte Brandings, die deine Arbeit ernst nehmen: Sie machen sichtbar, wofür du stehst, und verbinden dich mit den Menschen, die mit dir arbeiten wollen. Markenentwicklung von Strategie bis Guideline.',
-    bg: '#d5d3e6',
-    accentColor: '#6759d7',
-    textColor: '#000000',
+    bg: '#000000',
+    accentColor: '#d5d3e6',
+    textColor: '#d5d3e6',
     showHeader: true,
     wideHeadline: false,
     bodyBelow: false,
@@ -19,9 +19,9 @@ const PANELS = [
     label: 'W E B D E S I G N',
     headline: ['Eine Website,', 'die ankommt.'],
     body: 'Konzept, Gestaltung und Umsetzung – als ein Gedanke, nicht als drei Etappen. Eine Website, die erlebt und gefühlt wird, nicht durchgescrollt. Mit Stimmung, Tempo und Substanz.',
-    bg: '#d5d3e6',
-    accentColor: '#6759d7',
-    textColor: '#000000',
+    bg: '#000000',
+    accentColor: '#d5d3e6',
+    textColor: '#d5d3e6',
     showHeader: false,
     wideHeadline: false,
     bodyBelow: false,
@@ -31,9 +31,9 @@ const PANELS = [
     label: 'E D I T O R I A L  &  P R I N T',
     headline: ['Print, das man', 'behalten will.'],
     body: 'Magazine, Geschäftsberichte, Broschüren, Geschäftsausstattung. Inhalt, der eine eigene Form verdient – mit Gewicht, Stimmung und der Haptik, die nur gedruckte Dinge haben. Konzept, Gestaltung und Drucksachen-Begleitung aus einer Hand.',
-    bg: '#d5d3e6',
-    accentColor: '#6759d7',
-    textColor: '#000000',
+    bg: '#000000',
+    accentColor: '#d5d3e6',
+    textColor: '#d5d3e6',
     showHeader: false,
     wideHeadline: false,
     bodyBelow: false,
@@ -114,6 +114,34 @@ export function SectionFive() {
       style={{ position: 'relative', height: `${(PANELS.length + 2) * 100}vh` }}
     >
       <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden' }}>
+
+        {/* Section header — persists across all panels */}
+        <div style={{ position: 'absolute', top: '5%', left: '32px', zIndex: 10 }}>
+          <p style={{
+            fontFamily: 'var(--font-display)',
+            fontStyle: 'italic',
+            fontWeight: 300,
+            fontSize: '20px',
+            lineHeight: '21px',
+            letterSpacing: '0.8px',
+            color: '#d5d3e6',
+            margin: 0,
+          }}>
+            Angebot
+          </p>
+          <p style={{
+            fontFamily: 'var(--font-sans)',
+            fontWeight: 500,
+            fontSize: 'clamp(24px, 2.43vw, 35px)',
+            lineHeight: 1.1,
+            letterSpacing: '0.35px',
+            color: '#d5d3e6',
+            margin: '6px 0 0 0',
+          }}>
+            So können wir<br />zusammenarbeiten.
+          </p>
+        </div>
+
         {PANELS.map((panel, i) => (
           <div
             key={i}
@@ -128,43 +156,14 @@ export function SectionFive() {
           >
             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
 
-              {/* Section header — Branding panel only */}
-              {panel.showHeader && (
-                <div style={{ position: 'absolute', top: '5%', left: '32px' }}>
-                  <p style={{
-                    fontFamily: 'var(--font-display)',
-                    fontStyle: 'italic',
-                    fontWeight: 300,
-                    fontSize: '20px',
-                    lineHeight: '21px',
-                    letterSpacing: '0.8px',
-                    color: '#000',
-                    margin: 0,
-                  }}>
-                    Angebot
-                  </p>
-                  <p style={{
-                    fontFamily: 'var(--font-sans)',
-                    fontWeight: 500,
-                    fontSize: 'clamp(24px, 2.43vw, 35px)',
-                    lineHeight: 1.1,
-                    letterSpacing: '0.35px',
-                    color: '#000',
-                    margin: '6px 0 0 0',
-                  }}>
-                    So können wir zusammenarbeiten.
-                  </p>
-                </div>
-              )}
-
               {/* Service label — always at the same viewport height */}
               <p style={{
                 position: 'absolute',
                 top: '42%',
                 left: '10.35%',
                 fontFamily: 'var(--font-sans)',
-                fontWeight: 600,
-                fontSize: '13.326px',
+                fontWeight: 700,
+                fontSize: '14px',
                 lineHeight: '16.498px',
                 letterSpacing: '0',
                 color: panel.accentColor,
@@ -210,10 +209,10 @@ export function SectionFive() {
                   left: '59.24%',
                   right: '10.35%',
                   fontFamily: 'var(--font-sans)',
-                  fontWeight: 400,
-                  fontSize: '17.762px',
+                  fontWeight: 300,
+                  fontSize: '18px',
                   lineHeight: 1.36,
-                  letterSpacing: '0.2082px',
+                  letterSpacing: '0.2px',
                   color: panel.textColor,
                   margin: 0,
                 }}>
@@ -232,12 +231,12 @@ export function SectionFive() {
                     right: '10.35%',
                     display: 'flex',
                     flexDirection: 'column',
-                    gap: '24px',
+                    gap: '32px',
                   }}
                 >
                   <p style={{
                     fontFamily: 'var(--font-sans)',
-                    fontWeight: 400,
+                    fontWeight: 300,
                     fontSize: '17.762px',
                     lineHeight: 1.36,
                     letterSpacing: '0.2082px',
@@ -256,9 +255,9 @@ export function SectionFive() {
                       backgroundColor: '#d5d3e6',
                       color: '#6759d7',
                       fontFamily: 'var(--font-sans)',
-                      fontWeight: 700,
+                      fontWeight: 800,
                       fontSize: '14px',
-                      letterSpacing: '0.14px',
+                      letterSpacing: '-0.02em',
                       padding: '12px 16px',
                       borderRadius: '24px',
                       textDecoration: 'none',

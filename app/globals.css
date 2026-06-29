@@ -59,7 +59,7 @@
   .type-h2 {
     font-family: var(--font-sans);
     font-size: var(--text-headline);
-    font-weight: 400;
+    font-weight: 300;
     line-height: 0.9;
     letter-spacing: var(--tracking-headline);
   }
@@ -99,7 +99,7 @@
   .type-bu-blau {
     font-family: var(--font-sans);
     font-size: var(--text-copy-small);
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.3;
     letter-spacing: var(--tracking-bu-blau);
     color: var(--accent);
@@ -110,7 +110,7 @@
     font-size: var(--text-button);
     font-weight: 800;
     line-height: 1;
-    letter-spacing: var(--tracking-services);
+    letter-spacing: -0.02em;
   }
   /* Navigation */
   .type-nav {

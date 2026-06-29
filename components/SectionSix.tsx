@@ -278,7 +278,7 @@ export function SectionSix() {
                         style={{
                           fontFamily: 'var(--font-sans)',
                           fontWeight: 300,
-                          fontSize: 'clamp(15px, 1.4vw, 18px)',
+                          fontSize: '18px',
                           lineHeight: 1.3,
                           letterSpacing: '0.02em',
                           maxWidth: '380px',
