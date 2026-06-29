@@ -127,7 +127,7 @@ export default function AboutPage() {
                   fontWeight: 700,
                   fontSize: px(40, 80),
                   letterSpacing: '-0.04em',
-                  color: '#0044FF',
+                  color: '#6759D7',
                   lineHeight: 0.9,
                 }}
               >
@@ -140,7 +140,7 @@ export default function AboutPage() {
                   fontSize: px(9, 14),
                   letterSpacing: '0.05em',
                   textTransform: 'uppercase',
-                  color: '#0044FF',
+                  color: '#6759D7',
                   opacity: 0.8,
                   marginTop: '6px',
                 }}
@@ -222,7 +222,7 @@ export default function AboutPage() {
               fontSize: '14px',
               letterSpacing: '0.06em',
               textTransform: 'uppercase',
-              color: '#0044FF',
+              color: '#6759D7',
               marginTop: px(16, 24),
             }}
           >
@@ -324,7 +324,7 @@ export default function AboutPage() {
                     fontWeight: 300,
                     fontSize: px(9, 14),
                     letterSpacing: '0.05em',
-                    color: '#0044FF',
+                    color: '#6759D7',
                     paddingTop: px(4, 8),
                     flexShrink: 0,
                     width: px(28, 40),

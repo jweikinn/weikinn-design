@@ -1,130 +1,127 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
-/*
- * Section 2 — Portrait + weiße Maske mit Scroll-Reveal.
- *
- * Idee: Das Portrait sitzt browserfüllend hinter einer weißen Maske mit
- * Loch in der Mitte. Beim Scrollen wächst das Loch (= die weiße Maske
- * weicht zurück), bis das Bild den ganzen Viewport ausfüllt.
- *
- *   Initial-Werte (aus Figma 95:450 abgeleitet):
- *   – Top-/Bottom-Maske : 20 % der Viewport-Höhe
- *   – Left-Maske       : 40 % der Viewport-Breite
- *   – Right-Maske      : 35 % der Viewport-Breite
- *
- * Auf Mobile (Figma 63:1765) ist das initiale Bild ein kleines, zentriertes
- * Quadrat – wir verwenden andere Maskenwerte mit zentrierter Position.
- */
-
-// Initial-Masken-Werte in % (Desktop / Mobile getrennt)
-const INIT_DESKTOP = { top: 20, bottom: 20, left: 40, right: 35 }
-// Mobile: kleines Portrait im oberen Drittel (Figma 63:1765 – 152×168 px,
-// zentriert horizontal, Y-Offset = 1010 px in ~875 px Viewport).
-const INIT_MOBILE = { top: 22, bottom: 58, left: 31, right: 31 }
+// Figma-Asset: Ebene_1 Stempel-SVG (dekoratives Element, rechte Spalte)
+const imgEbene1 = '/Strategisch-gedacht-vonHerzen-gemacht.svg'
 
 export function SectionTwo() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const [progress, setProgress] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)')
-    const update = () => setIsMobile(mq.matches)
-    update()
-    mq.addEventListener('change', update)
-    return () => mq.removeEventListener('change', update)
-  }, [])
+  const stampRef = useRef<HTMLImageElement>(null)
 
   useEffect(() => {
     const handleScroll = () => {
-      if (!sectionRef.current) return
-      const rect = sectionRef.current.getBoundingClientRect()
-      const viewportHeight = window.innerHeight
-      const scrolled = Math.max(0, -rect.top)
-      // Animation läuft über genau eine Viewport-Höhe Scroll-Distanz.
-      const animationDistance = Math.max(1, viewportHeight)
-      setProgress(Math.min(1, scrolled / animationDistance))
+      if (!stampRef.current) return
+      // Gegen den Uhrzeigersinn = negative Grad
+      const rotation = -window.scrollY * 0.08
+      stampRef.current.style.transform = `rotate(${rotation}deg)`
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // ease-out: schneller Reveal am Anfang, sanfter Auslauf
-  const eased = 1 - Math.pow(1 - progress, 2)
-  const init = isMobile ? INIT_MOBILE : INIT_DESKTOP
-
-  const top = init.top * (1 - eased)
-  const bottom = init.bottom * (1 - eased)
-  const left = init.left * (1 - eased)
-  const right = init.right * (1 - eased)
-
   return (
     <section
-      ref={sectionRef}
-      className="relative w-full bg-white"
-      style={{ height: '200vh' }}
+      className="relative w-full bg-black flex items-center"
+      style={{ paddingTop: '80px', paddingBottom: '80px', paddingLeft: '32px', paddingRight: '32px', minHeight: '100vh' }}
     >
-      <div className="sticky top-0 w-full h-screen overflow-hidden bg-white">
-        {/* Portrait – sitzt browserfüllend und bleibt unverändert. */}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/portrait.jpg"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: '64% center' }}
-        />
+      {/* Leicht nach oben verschoben via translateY */}
+      <div className="flex items-start w-full" style={{ gap: '24px', transform: 'translateY(-12%)' }}>
 
-        {/* Weiße Masken – schrumpfen mit zunehmendem Scroll auf 0. */}
-        <div
-          className="absolute left-0 right-0 top-0 bg-white pointer-events-none"
-          style={{ height: `${top}%` }}
-        />
-        <div
-          className="absolute left-0 right-0 bottom-0 bg-white pointer-events-none"
-          style={{ height: `${bottom}%` }}
-        />
-        <div
-          className="absolute top-0 bottom-0 left-0 bg-white pointer-events-none"
-          style={{ width: `${left}%` }}
-        />
-        <div
-          className="absolute top-0 bottom-0 right-0 bg-white pointer-events-none"
-          style={{ width: `${right}%` }}
-        />
+        {/* ─── Left: Large italic display heading ─── */}
+        <div style={{ width: '50%', flexShrink: 0 }}>
+          <p
+            style={{
+              fontFamily: 'var(--font-display)',
+              fontStyle: 'italic',
+              fontWeight: 200,
+              fontSize: 'clamp(56px, 6.87vw, 99px)',
+              lineHeight: 1.1,
+              letterSpacing: '-0.0098em',
+              color: '#d5d3e6',
+            }}
+          >
+            Sichtbar machen,
+            <br />
+            was trägt.
+          </p>
+        </div>
 
-        {/* ─── Desktop: Stats rechts neben dem Portrait ───
-            Linksbündig zum „Brand & Web Design Spezialistin"-Text in Section 1
-            (left: 75.55%, width: 15.3%). „12+" ist groß, Label-Texte
-            verwenden .type-bu-blau (18 px). Der Stats-Block bleibt sichtbar,
-            auch wenn das Foto aufgescrollt wird. */}
+        {/* ─── Right: Stamp + body text + CTA ─── */}
         <div
-          className="hidden md:flex absolute z-20 flex-col pointer-events-none"
           style={{
-            left: '75.55%',
-            top: '22%',
-            width: '15.3%',
+            flex: 1,
+            marginLeft: '72px',
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
-          <p className="type-bu-blau">Freelance Designerin</p>
+          {/* Decorative stamp — right-aligned, rotates on scroll */}
+          <div style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: '24px', marginBottom: '40px' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              ref={stampRef}
+              src={imgEbene1}
+              alt=""
+              style={{ width: '130px', height: 'auto', willChange: 'transform' }}
+            />
+          </div>
+
+          {/* H1 für SEO — visuell wie Fließtext-Bold */}
+          <h1
+            style={{
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 700,
+              fontSize: '17.762px',
+              lineHeight: 1.36,
+              letterSpacing: '0.2082px',
+              color: '#d5d3e6',
+              margin: 0,
+            }}
+          >
+            Branding und Webdesign München –
+          </h1>
           <p
             style={{
               fontFamily: 'var(--font-sans)',
-              fontWeight: 300,
-              fontSize: 'clamp(80px, 9.5vw, 136px)',
-              lineHeight: 0.99,
-              letterSpacing: '-0.03em',
-              color: 'var(--accent)',
-              marginTop: '8px',
+              fontWeight: 400,
+              fontSize: '17.762px',
+              lineHeight: 1.36,
+              letterSpacing: '0.2082px',
+              color: '#d5d3e6',
+              margin: 0,
             }}
           >
-            12+
+            für Unternehmen mit{' '}
+            <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 400, letterSpacing: '0.8px' }}>
+              Sinn und Haltung,{' '}
+              <br />
+            </span>
+            die zu wichtig sind, um schlecht auszusehen.
           </p>
-          <p className="type-bu-blau" style={{ marginTop: '8px' }}>
-            Jahre Erfahrung
-          </p>
+
+          {/* CTA button */}
+          <div style={{ marginTop: '32px' }}>
+            <a
+              href="#contact"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                background: '#d5d3e6',
+                color: '#2f2483',
+                fontFamily: 'var(--font-sans)',
+                fontWeight: 500,
+                fontSize: '14px',
+                letterSpacing: '-0.56px',
+                padding: '12px 16px',
+                borderRadius: '24px',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+              }}
+            >
+              Projektanfrage
+            </a>
+          </div>
         </div>
       </div>
     </section>

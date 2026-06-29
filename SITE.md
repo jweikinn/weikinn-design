@@ -6,9 +6,11 @@
 
 - **Persönlichkeit:** Professionell, modern, mutig — Design-Agentur mit klarer Handschrift
 - **Hintergrund:** Tiefschwarz (#000000)
-- **Textfarbe:** Weiß (#FFFFFF)
-- **Akzentfarbe:** Electric Blue (#0044FF) — für Headlines, Buttons, Highlights
-- **Schriftart:** Sequel Sans (alle Gewichte) — Dateien liegen unter `/public/fonts/`
+- **Textfarbe:** Hell-Lavendel (#d5d3e6) für große Display-Texte
+- **Akzentfarbe:** Lila (#6759D7)
+- **Schriftarten:** Adobe Fonts via Kit `yhk3mxv`
+  - `commissioner-variable` → var(--font-sans) — für alle Fließtexte, Buttons, UI
+  - `loretta-display-variable` → var(--font-display) — für große Kursiv-Headlines
 
 ## Schriftart einrichten
 
@@ -27,8 +29,8 @@ Die Font-Dateien müssen unter `/public/fonts/` abgelegt werden:
 
 ## Sektionen (Homepage)
 
-- **Section 1 – Hero** ✅ — Navigation + vollbildschirmhoher Einstiegsbereich
-- **Section 2 – Portrait** ✅ — Portrait mit weißer Maske + Scroll-Reveal (Desktop: Stats „12+ Jahre Erfahrung" rechts)
+- **Section 1 – Hero** ✅ — GIF-Hintergrund (100vh). „weikinn" scrollt als eigene Schicht (bleibt stehen während das GIF wegscrollt, dann gemeinsam mit Section 2 weg).
+- **Section 2 – Haltung** ✅ — Schwarzer Hintergrund, min-height 100vh, vertikal zentriert. Links: „Sichtbar machen, was trägt." (Loretta Display, italic, weight 200). Rechts: Stempel-SVG + Body-Text (Commissioner, 18px) + „Projektanfrage"-Button (#d5d3e6 Hintergrund, #2f2483 Text).
 
 ## Komponenten
 
@@ -63,8 +65,16 @@ Aus dem Figma-Frame `95:244` ausgelesen und als CSS-Variablen + Utility-Klassen 
 
 **Spacing-Tokens:** `--spacing-page` (32px), `--spacing-section-y` (80px), `--spacing-footer-gap` (120px), `--radius-pill` (24px für Pillen-Buttons).
 
+## Aktuelle Komponenten (Figma-Rebuild)
+
+- **WeikinnHeading** (`components/WeikinnHeading.tsx`) — Das große „weikinn" als eigene sticky Schicht (z-index 3). Füllt die volle Breite via JS-Messung, interaktiver Gewichts-Gradient beim Hover, mix-blend-mode: difference gegen das GIF.
+- **HeroSection** (`components/HeroSection.tsx`) — Nur noch das GIF (`/public/background.gif`), 100vh.
+- **SectionTwo** (`components/SectionTwo.tsx`) — „Sichtbar machen, was trägt." + Body-Text + Button. Sticky Schicht (z-index 1), scrollt gemeinsam mit weikinn weg.
+- **Navbar** (`components/Navbar.tsx`) — Fixed, mix-blend-mode: difference auf Logo + Burger. Menü nur im Burger-Dropdown.
+
 ## Letzte Änderungen
 
+- 2026-06-26: Kompletter Figma-Rebuild gestartet. Schriften auf Adobe Fonts umgestellt (commissioner-variable + loretta-display-variable). Akzent von #0044FF auf #6759D7 geändert. Hero neu: GIF-Schicht + weikinn-Schicht + Section-2-Schicht im 300vh-Wrapper mit Sticky-Stacking-Effekt. Section 2 neu implementiert nach Figma.
 - 2026-05-19: Footer — Sticky-Footer-Effekt: Footer hat `position: sticky; bottom: 0; z-index: 0`. Alle Sections sind in einem Wrapper mit `z-index: 1`, scrollen über den Footer hinweg und geben ihn von unten frei. „Weikinn.Design"-Wordmark wird dynamisch auf die maximale Schriftgröße skaliert, die neben Impressum/Datenschutz Platz hat (Messung per Ref + ResizeObserver). Footer-Layout auf Desktop als 2-Spalten-Grid umgebaut: rechte Spalte enthält Instagram UND Impressum/Datenschutz → garantiert identische Rechtsbündigkeit. Impressum paddingBottom: px(3,17) für Ausrichtung an der „n"-Grundlinie von „Weikinn.Design".
 - 2026-05-19: Scroll-Animationen auf Textblöcken — positionsbasierter Word-Reveal (jedes Wort leuchtet auf wenn es die Leselinie bei 65% Viewport-Höhe erreicht, Übergangsband 55px ≈ eine Zeilenhöhe, Startopazität 15%): Section 3 (große Copy + Detail-Text), Section 5 (Intro-Text + CTA-Text Desktop + CTA-Text Mobil), Section 6 (Quote + Detail aller drei Kundenstimmen).
 - 2026-05-19: Hero Section 1 — Parallax-Scroll: „Weikinn Design" bewegt sich 2px pro 1px Scroll nach links (Faktor 2.0), Seite scrollt frei ohne Sticky-Lock. Navbar: 3-Phasen-System (transparent → versteckt → weiß/kompakt), Threshold 10px. Hover-Animationen: Nav-Links rollen mit blauem Text ein (CSS `::after` + translateY), „Let's talk"-Button mit blauem Wipe-Effekt.

@@ -76,7 +76,7 @@ function makeWords(
 function CursorLeft() {
   return (
     <svg width={CURSOR_SIZE} height={CURSOR_SIZE} viewBox="0 0 38 38" fill="none">
-      <path d="M24 8L14 19L24 30" stroke="#0044FF" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M24 8L14 19L24 30" stroke="#6759D7" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -84,7 +84,7 @@ function CursorLeft() {
 function CursorRight() {
   return (
     <svg width={CURSOR_SIZE} height={CURSOR_SIZE} viewBox="0 0 38 38" fill="none">
-      <path d="M14 8L24 19L14 30" stroke="#0044FF" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M14 8L24 19L14 30" stroke="#6759D7" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   )
 }
@@ -170,19 +170,31 @@ export function SectionSix() {
         onMouseLeave={() => setHovered(false)}
         onClick={() => cursorSideRef.current === 'left' ? prev() : next()}
       >
-        {/* ── „Love Letters" Heading ── */}
+        {/* ── Heading ── */}
         <div style={{ paddingLeft: sidePad, paddingRight: sidePad, marginBottom: px(40, 80) }}>
-          <h2
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 400,
-              fontSize: px(60, 96),
-              lineHeight: 0.86,
-              letterSpacing: '-0.02em',
-            }}
-          >
-            Love<br />Letters
-          </h2>
+          <p style={{
+            fontFamily: 'var(--font-display)',
+            fontStyle: 'italic',
+            fontWeight: 300,
+            fontSize: '20px',
+            lineHeight: '21px',
+            letterSpacing: '0.8px',
+            color: '#d5d3e6',
+            margin: 0,
+          }}>
+            Stimmen
+          </p>
+          <p style={{
+            fontFamily: 'var(--font-sans)',
+            fontWeight: 500,
+            fontSize: 'clamp(24px, 2.43vw, 35px)',
+            lineHeight: 1.1,
+            letterSpacing: '0.35px',
+            color: '#d5d3e6',
+            margin: '6px 0 0 0',
+          }}>
+            Aus erster Hand.
+          </p>
         </div>
 
         {/* ── Karussell ── */}
@@ -215,7 +227,7 @@ export function SectionSix() {
                           fontSize: '18px',
                           lineHeight: 1.3,
                           letterSpacing: '-0.03em',
-                          color: '#0044FF',
+                          color: '#6759D7',
                         }}
                       >
                         {t.name}<br />{t.role}
@@ -285,7 +297,7 @@ export function SectionSix() {
                         fontSize: '18px',
                         lineHeight: 1.3,
                         letterSpacing: '-0.02em',
-                        color: '#0044FF',
+                        color: '#6759D7',
                         marginTop: px(32, 0),
                       }}
                     >

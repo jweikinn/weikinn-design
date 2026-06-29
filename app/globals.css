@@ -1,229 +1,18 @@
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────
-   Sequel Sans (MyFonts Webfont Kit – 33C934_*)
+   Adobe Fonts – via https://use.typekit.net/yhk3mxv.css
+   Commissioner Variable  →  var(--font-sans)
+   Loretta Display Variable  →  var(--font-display)
    ────────────────────────────────────────────── */
-
-/* ───── Sequel Sans (Body Text – Standard) ───── */
-
-/* Light 300 */
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_18_0.woff2') format('woff2'),
-       url('/fonts/33C934_18_0.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_14_0.woff2') format('woff2'),
-       url('/fonts/33C934_14_0.woff') format('woff');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Book 350 */
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_23_0.woff2') format('woff2'),
-       url('/fonts/33C934_23_0.woff') format('woff');
-  font-weight: 350;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_21_0.woff2') format('woff2'),
-       url('/fonts/33C934_21_0.woff') format('woff');
-  font-weight: 350;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Roman 400 */
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_A_0.woff2') format('woff2'),
-       url('/fonts/33C934_A_0.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_B_0.woff2') format('woff2'),
-       url('/fonts/33C934_B_0.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Medium 500 */
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_13_0.woff2') format('woff2'),
-       url('/fonts/33C934_13_0.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_E_0.woff2') format('woff2'),
-       url('/fonts/33C934_E_0.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Semi Bold 600 */
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_0_0.woff2') format('woff2'),
-       url('/fonts/33C934_0_0.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_5_0.woff2') format('woff2'),
-       url('/fonts/33C934_5_0.woff') format('woff');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Bold 700 */
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_29_0.woff2') format('woff2'),
-       url('/fonts/33C934_29_0.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_27_0.woff2') format('woff2'),
-       url('/fonts/33C934_27_0.woff') format('woff');
-  font-weight: 700;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Heavy 800 */
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_1D_0.woff2') format('woff2'),
-       url('/fonts/33C934_1D_0.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_1B_0.woff2') format('woff2'),
-       url('/fonts/33C934_1B_0.woff') format('woff');
-  font-weight: 800;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Black 900 */
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_2E_0.woff2') format('woff2'),
-       url('/fonts/33C934_2E_0.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans';
-  src: url('/fonts/33C934_2C_0.woff2') format('woff2'),
-       url('/fonts/33C934_2C_0.woff') format('woff');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* ───── Sequel Sans Display (für große Headlines) ───── */
-
-@font-face {
-  font-family: 'Sequel Sans Display';
-  src: url('/fonts/33C934_15_0.woff2') format('woff2'),
-       url('/fonts/33C934_15_0.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans Display';
-  src: url('/fonts/33C934_22_0.woff2') format('woff2'),
-       url('/fonts/33C934_22_0.woff') format('woff');
-  font-weight: 350;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans Display';
-  src: url('/fonts/33C934_8_0.woff2') format('woff2'),
-       url('/fonts/33C934_8_0.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans Display';
-  src: url('/fonts/33C934_10_0.woff2') format('woff2'),
-       url('/fonts/33C934_10_0.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans Display';
-  src: url('/fonts/33C934_2_0.woff2') format('woff2'),
-       url('/fonts/33C934_2_0.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans Display';
-  src: url('/fonts/33C934_28_0.woff2') format('woff2'),
-       url('/fonts/33C934_28_0.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans Display';
-  src: url('/fonts/33C934_1A_0.woff2') format('woff2'),
-       url('/fonts/33C934_1A_0.woff') format('woff');
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Sequel Sans Display';
-  src: url('/fonts/33C934_2F_0.woff2') format('woff2'),
-       url('/fonts/33C934_2F_0.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* ───── Design Tokens (aus Figma 95:244) ───── */
 
 :root {
   --background: #000000;
   --foreground: #ffffff;
-  --accent: #0044FF;       /* Blau – Texte „Brand & Web Design“, Berufstitel */
-  --footer: #1626FF;       /* Footer-Hintergrund */
+  --accent: #6759D7;       /* Lila – Akzentfarbe */
+  --footer: #6759D7;       /* Footer-Hintergrund */
 }
 
 @theme inline {
@@ -234,8 +23,8 @@
   --color-footer: var(--footer);
 
   /* Schriftfamilien */
-  --font-sans: 'Sequel Sans', sans-serif;
-  --font-display: 'Sequel Sans Display', 'Sequel Sans', sans-serif;
+  --font-sans: 'commissioner-variable', sans-serif;
+  --font-display: 'loretta-display-variable', 'commissioner-variable', sans-serif;
 
   /* Schriftgrößen – semantisch nach Figma-Stilen */
   --text-nav: 1rem;                 /* 16px – Navigation */
@@ -355,7 +144,7 @@
   position: absolute;
   top: 4px;               /* identisch zum padding-top */
   left: 0;
-  color: #0044FF;
+  color: #6759D7;
   white-space: nowrap;
   line-height: 1.2;
   transform: translateY(150%);
@@ -378,7 +167,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: #0044FF;
+  background: #6759D7;
   border-radius: inherit;
   transform: translateX(-101%);
   transition: transform 0.45s cubic-bezier(0.76, 0, 0.24, 1);
@@ -399,7 +188,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Sequel Sans', sans-serif;
+  font-family: 'commissioner-variable', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

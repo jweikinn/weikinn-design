@@ -1,373 +1,278 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import { useRef, useEffect } from 'react'
 
-const px = (mobile: number, desktop: number) =>
-  `clamp(${mobile}px, ${((desktop / 1440) * 100).toFixed(2)}vw, ${desktop}px)`
-
-const ARROW        = '/work/arrow.svg'
-const IMG_PRAXIS   = '/work/praxis.png'
-const IMG_SAAS     = '/work/saas.png'
-const IMG_IMAC     = '/work/imac.png'
-const IMG_OFFICE   = '/work/office.png'
-const IMG_BROCHURE = '/work/brochure.png'
-
-function makeWords(
-  text: string,
-  startIdx: number,
-  refs: React.MutableRefObject<(HTMLSpanElement | null)[]>,
-) {
-  return text.trim().split(/\s+/).map((word, i) => (
-    <span
-      key={startIdx + i}
-      ref={el => { refs.current[startIdx + i] = el }}
-      style={{ opacity: 0.15 }}
-    >
-      {word}{' '}
-    </span>
-  ))
-}
-
-// Intro text: 20 words (indices 0–19)
-// Desktop CTA text: 16 words (indices 20–35)
-// Mobile CTA text: 16 words (indices 36–51)
-const CTA_TEXT = 'Zusammen können wir die Zukunft bauen. Vereinbare einen Termin für ein Gespräch mit mir, um loszulegen.'
-
-function Tags({ labels }: { labels: string[] }) {
-  return (
-    <div className="flex flex-wrap" style={{ gap: px(4, 8) }}>
-      {labels.map((label) => (
-        <span
-          key={label}
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-            backgroundColor: 'rgba(255,255,255,0.3)',
-            borderRadius: '24px',
-            padding: `${px(2, 4)} ${px(4, 8)}`,
-            fontFamily: 'var(--font-sans)',
-            fontWeight: 500,
-            fontSize: px(8, 14),
-            color: '#111',
-            letterSpacing: '-0.04em',
-            lineHeight: 'normal',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          {label}
-        </span>
-      ))}
-    </div>
-  )
-}
-
-function ProjectCard({
-  title,
-  tags,
-  image,
-  image2,
-  aspectRatio,
-  cropOffsetX,
-}: {
-  title: React.ReactNode
-  tags: string[]
-  image: string
-  image2?: string
-  aspectRatio: string
-  cropOffsetX?: string
-}) {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: px(6, 10) }}>
-      <div className="relative overflow-hidden w-full" style={{ aspectRatio }}>
-        {cropOffsetX ? (
-          <img
-            alt=""
-            className="absolute top-0 h-full max-w-none"
-            style={{ width: '175.2%', left: cropOffsetX }}
-            src={image}
-          />
-        ) : (
-          <>
-            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={image} />
-            {image2 && (
-              <img alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" src={image2} />
-            )}
-          </>
-        )}
-        <div className="absolute left-0 bottom-0" style={{ padding: px(9, 16) }}>
-          <Tags labels={tags} />
-        </div>
-      </div>
-
-      <div className="flex items-center justify-between" style={{ gap: '12px' }}>
-        <p
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontWeight: 700,
-            fontSize: px(21, 36),
-            lineHeight: 1.1,
-            letterSpacing: '-0.02em',
-            color: '#000',
-            whiteSpace: 'pre-line',
-          }}
-        >
-          {title}
-        </p>
-        <img
-          alt=""
-          src={ARROW}
-          aria-hidden
-          className="-rotate-90 shrink-0"
-          style={{ width: px(18, 32), height: px(18, 32) }}
-        />
-      </div>
-    </div>
-  )
-}
-
-function CTABlock({
-  desktop = false,
-  startIdx,
-  wordRefs,
-}: {
-  desktop?: boolean
-  startIdx: number
-  wordRefs: React.MutableRefObject<(HTMLSpanElement | null)[]>
-}) {
-  return (
-    <div>
-      <p
-        style={{
-          fontFamily: 'var(--font-sans)',
-          fontWeight: 300,
-          fontSize: 'clamp(15px, 1.4vw, 18px)',
-          lineHeight: 1.3,
-          letterSpacing: '0.02em',
-          color: '#000',
-          maxWidth: '465px',
-        }}
-      >
-        {makeWords(CTA_TEXT, startIdx, wordRefs)}
-      </p>
-      <div className="flex flex-wrap" style={{ gap: desktop ? '10px' : '5px', marginTop: desktop ? '24px' : '14px' }}>
-        {['Lass uns sprechen', 'Zeig mir erstmal mehr Arbeiten'].map((label) => (
-          <button
-            key={label}
-            style={{
-              backgroundColor: '#000',
-              color: '#fff',
-              fontFamily: 'var(--font-sans)',
-              fontWeight: 900,
-              fontSize: desktop ? '14px' : px(12, 14),
-              letterSpacing: '-0.04em',
-              padding: desktop ? '12px 16px' : `${px(7, 12)} ${px(9, 16)}`,
-              borderRadius: desktop ? '24px' : '13px',
-              border: 'none',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            {label}
-          </button>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-const slideUp: React.CSSProperties = {
-  opacity: 0,
-  transform: 'translateY(48px)',
-  transition: 'opacity 0.75s ease, transform 0.75s cubic-bezier(0.4, 0, 0.2, 1)',
-}
+const PANELS = [
+  {
+    label: 'B R A N D I N G',
+    headline: ['Eine Marke,', 'die trägt.'],
+    body: 'Du machst etwas, das zählt. Deine Marke soll das auch zeigen. Ich gestalte Brandings, die deine Arbeit ernst nehmen: Sie machen sichtbar, wofür du stehst, und verbinden dich mit den Menschen, die mit dir arbeiten wollen. Markenentwicklung von Strategie bis Guideline.',
+    bg: '#d5d3e6',
+    accentColor: '#6759d7',
+    textColor: '#000000',
+    showHeader: true,
+    wideHeadline: false,
+    bodyBelow: false,
+    cta: false,
+  },
+  {
+    label: 'W E B D E S I G N',
+    headline: ['Eine Website,', 'die ankommt.'],
+    body: 'Konzept, Gestaltung und Umsetzung – als ein Gedanke, nicht als drei Etappen. Eine Website, die erlebt und gefühlt wird, nicht durchgescrollt. Mit Stimmung, Tempo und Substanz.',
+    bg: '#d5d3e6',
+    accentColor: '#6759d7',
+    textColor: '#000000',
+    showHeader: false,
+    wideHeadline: false,
+    bodyBelow: false,
+    cta: false,
+  },
+  {
+    label: 'E D I T O R I A L  &  P R I N T',
+    headline: ['Print, das man', 'behalten will.'],
+    body: 'Magazine, Geschäftsberichte, Broschüren, Geschäftsausstattung. Inhalt, der eine eigene Form verdient – mit Gewicht, Stimmung und der Haptik, die nur gedruckte Dinge haben. Konzept, Gestaltung und Drucksachen-Begleitung aus einer Hand.',
+    bg: '#d5d3e6',
+    accentColor: '#6759d7',
+    textColor: '#000000',
+    showHeader: false,
+    wideHeadline: false,
+    bodyBelow: false,
+    cta: false,
+  },
+  {
+    label: 'K O M P L E T T A U F T R I T T',
+    headline: ['Branding, Website und Kommunikation –', 'aus einer Hand, aufeinander abgestimmt, mit System.'],
+    body: 'Für Unternehmen, die nicht in Bausteinen denken, sondern in einem stimmigen Auftritt. Ich übernehme Strategie, Gestaltung und Umsetzung und hole bei Bedarf mein Netzwerk dazu.',
+    bg: '#6759d7',
+    accentColor: '#d5d3e6',
+    textColor: '#d5d3e6',
+    showHeader: false,
+    wideHeadline: true,
+    bodyBelow: true,
+    cta: true,
+  },
+]
 
 export function SectionFive() {
-  const wordRefs = useRef<(HTMLSpanElement | null)[]>([])
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-  const sidePad = px(16, 32)
+  const sectionRef = useRef<HTMLElement>(null)
+  const panelRefs = useRef<(HTMLDivElement | null)[]>([])
+  const headlineRefs = useRef<(HTMLDivElement | null)[]>([])
+  const bodyBelowRefs = useRef<(HTMLDivElement | null)[]>([])
 
+  // Scroll mechanic: panels slide in from below
   useEffect(() => {
-    const handleScroll = () => {
-      const readY = window.innerHeight * 0.65
-      wordRefs.current.forEach((el) => {
-        if (!el) return
-        const top = el.getBoundingClientRect().top
-        const t = Math.max(0, Math.min(1, (readY - top) / 55))
-        el.style.opacity = (0.15 + 0.85 * t).toFixed(3)
+    const onScroll = () => {
+      const section = sectionRef.current
+      if (!section) return
+      const sectionTop = section.getBoundingClientRect().top
+      const vh = window.innerHeight
+      const scrollIntoSection = -sectionTop
+
+      const DWELL = 0.5
+      const TRANS = 1.0
+
+      panelRefs.current.forEach((panel, i) => {
+        if (!panel) return
+        if (i === 0) {
+          panel.style.transform = 'translateY(0)'
+          return
+        }
+        const slideInStart = (i * DWELL + (i - 1) * TRANS) * vh
+        const scrolled = scrollIntoSection - slideInStart
+        const ty = Math.max(0, vh - Math.max(0, scrolled))
+        panel.style.transform = `translateY(${ty}px)`
       })
     }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Measure actual headline height and position bodyBelow containers accordingly
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement
-            el.style.opacity = '1'
-            el.style.transform = 'translateY(0)'
-            observer.unobserve(el)
-          }
-        })
-      },
-      { threshold: 0.08 }
-    )
-    cardRefs.current.forEach((el) => { if (el) observer.observe(el) })
-    return () => observer.disconnect()
+    const updateBodyPositions = () => {
+      PANELS.forEach((panel, i) => {
+        if (!panel.bodyBelow) return
+        const headline = headlineRefs.current[i]
+        const body = bodyBelowRefs.current[i]
+        if (!headline || !body) return
+        // headline sits at top: calc(42% + 26px); offsetTop gives its actual px position
+        body.style.top = `${headline.offsetTop + headline.offsetHeight + 24}px`
+      })
+    }
+
+    const ro = new ResizeObserver(updateBodyPositions)
+    headlineRefs.current.forEach(el => { if (el) ro.observe(el) })
+    updateBodyPositions()
+    return () => ro.disconnect()
   }, [])
 
   return (
     <section
-      className="w-full bg-white text-black"
-      style={{ padding: `${px(60, 80)} ${sidePad}` }}
+      ref={sectionRef}
+      style={{ position: 'relative', height: `${(PANELS.length + 2) * 100}vh` }}
     >
-      {/* ── Header ── */}
-      <div className="flex items-start justify-between" style={{ marginBottom: px(40, 61) }}>
-        <div className="flex items-start" style={{ gap: px(5, 10) }}>
-          <h2
+      <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden' }}>
+        {PANELS.map((panel, i) => (
+          <div
+            key={i}
+            ref={el => { panelRefs.current[i] = el }}
             style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 400,
-              fontSize: px(60, 96),
-              lineHeight: 0.9,
-              letterSpacing: '-0.02em',
-              color: '#000',
+              position: 'absolute',
+              inset: 0,
+              zIndex: i + 1,
+              backgroundColor: panel.bg,
+              willChange: 'transform',
             }}
           >
-            Selected<br />Work
-          </h2>
-          <span
-            style={{
-              fontFamily: 'var(--font-sans)',
-              fontWeight: 300,
-              fontSize: px(8, 14),
-              lineHeight: 1.1,
-              letterSpacing: '0.05em',
-              textTransform: 'uppercase',
-              paddingTop: px(4, 8),
-            }}
-          >
-            004
-          </span>
-        </div>
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
 
-        {/* Intro-Text — nur Desktop, animated */}
-        <p
-          className="hidden md:block"
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontWeight: 300,
-            fontSize: 'clamp(15px, 1.4vw, 18px)',
-            lineHeight: 1.3,
-            letterSpacing: '0.02em',
-            maxWidth: '320px',
-            color: '#000',
-          }}
-        >
-          {makeWords(
-            'Es ist nie „nur eine Website". Jedes Detail zählt. Ich gestalte das Gesicht deiner Marke. Strategisch gedacht. Von Herzen gemacht.',
-            0,
-            wordRefs,
-          )}
-        </p>
-      </div>
+              {/* Section header — Branding panel only */}
+              {panel.showHeader && (
+                <div style={{ position: 'absolute', top: '5%', left: '32px' }}>
+                  <p style={{
+                    fontFamily: 'var(--font-display)',
+                    fontStyle: 'italic',
+                    fontWeight: 300,
+                    fontSize: '20px',
+                    lineHeight: '21px',
+                    letterSpacing: '0.8px',
+                    color: '#000',
+                    margin: 0,
+                  }}>
+                    Angebot
+                  </p>
+                  <p style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 500,
+                    fontSize: 'clamp(24px, 2.43vw, 35px)',
+                    lineHeight: 1.1,
+                    letterSpacing: '0.35px',
+                    color: '#000',
+                    margin: '6px 0 0 0',
+                  }}>
+                    So können wir zusammenarbeiten.
+                  </p>
+                </div>
+              )}
 
-      {/* ── Desktop: zwei Spalten ── */}
-      <div className="hidden md:flex items-end" style={{ gap: '24px' }}>
-        <div className="flex-1 self-stretch flex flex-col justify-between">
-          <div ref={el => { cardRefs.current[0] = el }} style={slideUp}>
-            <ProjectCard
-              title="Praxis für Psychotherapie"
-              tags={['Webdesign', 'Branding', 'Key Visual']}
-              image={IMG_PRAXIS}
-              aspectRatio="676/744"
-              cropOffsetX="-43.55%"
-            />
-          </div>
-          <div ref={el => { cardRefs.current[1] = el }} style={slideUp}>
-            <ProjectCard
-              title="Webdesign – SAAS"
-              tags={['Social Media', 'Photography']}
-              image={IMG_SAAS}
-              aspectRatio="676/699"
-            />
-          </div>
-          <div ref={el => { cardRefs.current[2] = el }} style={slideUp}>
-            <CTABlock desktop startIdx={20} wordRefs={wordRefs} />
-          </div>
-        </div>
+              {/* Service label — always at the same viewport height */}
+              <p style={{
+                position: 'absolute',
+                top: '42%',
+                left: '10.35%',
+                fontFamily: 'var(--font-sans)',
+                fontWeight: 600,
+                fontSize: '13.326px',
+                lineHeight: '16.498px',
+                letterSpacing: '0',
+                color: panel.accentColor,
+                margin: 0,
+              }}>
+                {panel.label}
+              </p>
 
-        <div
-          className="flex-1 flex flex-col"
-          style={{
-            gap: 'clamp(60px, 8.13vw, 117px)',
-            paddingTop: 'clamp(0px, 16.67vw, 240px)',
-          }}
-        >
-          <div ref={el => { cardRefs.current[3] = el }} style={slideUp}>
-            <ProjectCard
-              title={`Erscheinungsbild\nund Office Dokumente`}
-              tags={['Branding', 'Office Documents']}
-              image={IMG_IMAC}
-              image2={IMG_OFFICE}
-              aspectRatio="676/699"
-            />
-          </div>
-          <div ref={el => { cardRefs.current[4] = el }} style={slideUp}>
-            <ProjectCard
-              title="Broschüre"
-              tags={['Social Media', 'Photography']}
-              image={IMG_BROCHURE}
-              aspectRatio="676/744"
-            />
-          </div>
-        </div>
-      </div>
+              {/* Big italic headline */}
+              <div
+                ref={el => { headlineRefs.current[i] = el }}
+                style={{
+                  position: 'absolute',
+                  top: 'calc(42% + 26px)',
+                  left: '10.35%',
+                  right: panel.wideHeadline ? '12%' : '45%',
+                }}
+              >
+                {panel.headline.map((line, j) => (
+                  <p
+                    key={j}
+                    style={{
+                      fontFamily: 'var(--font-display)',
+                      fontStyle: 'italic',
+                      fontWeight: 300,
+                      fontSize: 'clamp(36px, 5.56vw, 80px)',
+                      lineHeight: 1.1,
+                      letterSpacing: '0.625px',
+                      color: panel.accentColor,
+                      margin: 0,
+                    }}
+                  >
+                    {line}
+                  </p>
+                ))}
+              </div>
 
-      {/* ── Mobil: eine Spalte ── */}
-      <div className="flex flex-col md:hidden" style={{ gap: px(32, 0) }}>
-        <div ref={el => { cardRefs.current[5] = el }} style={slideUp}>
-          <ProjectCard
-            title="Praxis für Psychotherapie"
-            tags={['Webdesign', 'Branding', 'Key Visual']}
-            image={IMG_PRAXIS}
-            aspectRatio="676/744"
-            cropOffsetX="-43.55%"
-          />
-        </div>
-        <div ref={el => { cardRefs.current[6] = el }} style={slideUp}>
-          <ProjectCard
-            title="Webdesign – SAAS"
-            tags={['Social Media', 'Photography']}
-            image={IMG_SAAS}
-            aspectRatio="676/699"
-          />
-        </div>
-        <div ref={el => { cardRefs.current[7] = el }} style={slideUp}>
-          <ProjectCard
-            title={`Erscheinungsbild\nund Office Dokumente`}
-            tags={['Branding', 'Office Documents']}
-            image={IMG_IMAC}
-            image2={IMG_OFFICE}
-            aspectRatio="676/699"
-          />
-        </div>
-        <div ref={el => { cardRefs.current[8] = el }} style={slideUp}>
-          <ProjectCard
-            title="Broschüre"
-            tags={['Social Media', 'Photography']}
-            image={IMG_BROCHURE}
-            aspectRatio="676/744"
-          />
-        </div>
-        <div ref={el => { cardRefs.current[9] = el }} style={slideUp}>
-          <CTABlock startIdx={36} wordRefs={wordRefs} />
-        </div>
+              {/* Body text — panels 0–2: rechte Spalte neben Headline */}
+              {!panel.bodyBelow && (
+                <p style={{
+                  position: 'absolute',
+                  top: '42%',
+                  left: '59.24%',
+                  right: '10.35%',
+                  fontFamily: 'var(--font-sans)',
+                  fontWeight: 400,
+                  fontSize: '17.762px',
+                  lineHeight: 1.36,
+                  letterSpacing: '0.2082px',
+                  color: panel.textColor,
+                  margin: 0,
+                }}>
+                  {panel.body}
+                </p>
+              )}
+
+              {/* Komplettauftritt: Body + Button, positioned dynamically below headline via JS */}
+              {panel.bodyBelow && (
+                <div
+                  ref={el => { bodyBelowRefs.current[i] = el }}
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: '59.24%',
+                    right: '10.35%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '24px',
+                  }}
+                >
+                  <p style={{
+                    fontFamily: 'var(--font-sans)',
+                    fontWeight: 400,
+                    fontSize: '17.762px',
+                    lineHeight: 1.36,
+                    letterSpacing: '0.2082px',
+                    color: panel.textColor,
+                    margin: 0,
+                  }}>
+                    {panel.body}
+                  </p>
+                  <a
+                    href="#contact"
+                    style={{
+                      display: 'inline-flex',
+                      alignSelf: 'flex-start',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      backgroundColor: '#d5d3e6',
+                      color: '#6759d7',
+                      fontFamily: 'var(--font-sans)',
+                      fontWeight: 700,
+                      fontSize: '14px',
+                      letterSpacing: '0.14px',
+                      padding: '12px 16px',
+                      borderRadius: '24px',
+                      textDecoration: 'none',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    Kontakt
+                  </a>
+                </div>
+              )}
+
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   )
