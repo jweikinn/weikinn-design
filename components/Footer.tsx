@@ -5,7 +5,19 @@ import { useLayoutEffect, useRef, useState } from 'react'
 const px = (mobile: number, desktop: number) =>
   `clamp(${mobile}px, ${((desktop / 1440) * 100).toFixed(2)}vw, ${desktop}px)`
 
-const REF_FONT_SIZE = 100
+const REF_FONT_SIZE  = 100
+const PAD_LEFT  = 32   // matches WeikinnHeading
+const PAD_RIGHT = 64   // matches WeikinnHeading
+const LETTERS   = ['w', 'e', 'i', 'k', 'i', 'n', 'n']
+
+function letterWeight(index: number, hovered: number | null): number {
+  if (hovered === null) return 800
+  const d = Math.abs(index - hovered)
+  if (d === 0) return 100
+  if (d === 1) return 300
+  if (d === 2) return 600
+  return 800
+}
 
 export function Footer() {
   const sidePad = px(16, 32)
@@ -13,8 +25,25 @@ export function Footer() {
   const containerRef       = useRef<HTMLDivElement>(null)
   const mobileContainerRef = useRef<HTMLDivElement>(null)
   const measureRef         = useRef<HTMLSpanElement>(null)
+  const letterRefs         = useRef<(HTMLSpanElement | null)[]>([])
+
   const [wordmarkSize, setWordmarkSize]             = useState<number | null>(null)
   const [mobileWordmarkSize, setMobileWordmarkSize] = useState<number | null>(null)
+  const [letterWidths, setLetterWidths]             = useState<number[]>([])
+  const [hovered, setHovered]                       = useState<number | null>(null)
+
+  // Reset letter widths whenever font size changes so we re-measure
+  useLayoutEffect(() => {
+    if (!wordmarkSize) return
+    setLetterWidths([])
+  }, [wordmarkSize])
+
+  // Measure individual letter widths after reset
+  useLayoutEffect(() => {
+    if (!wordmarkSize || letterWidths.length > 0) return
+    const widths = letterRefs.current.map(r => r?.getBoundingClientRect().width ?? 0)
+    if (widths.every(w => w > 0)) setLetterWidths(widths)
+  })
 
   useLayoutEffect(() => {
     const compute = () => {
@@ -22,20 +51,18 @@ export function Footer() {
       const naturalW = measureRef.current.offsetWidth
       if (naturalW === 0) return
 
-      // Desktop — fills full padded width
+      // Desktop — identical math to WeikinnHeading (PAD_LEFT + PAD_RIGHT subtracted from full width)
       if (containerRef.current) {
-        const cW      = containerRef.current.offsetWidth
-        const padLeft = parseFloat(getComputedStyle(containerRef.current).paddingLeft)  || 0
-        const padRight= parseFloat(getComputedStyle(containerRef.current).paddingRight) || 0
-        setWordmarkSize(REF_FONT_SIZE * (Math.max(1, cW - padLeft - padRight) / naturalW))
+        const cW = containerRef.current.offsetWidth
+        setWordmarkSize(REF_FONT_SIZE * (Math.max(1, cW - PAD_LEFT - PAD_RIGHT) / naturalW))
       }
 
-      // Mobile — fills full padded width
+      // Mobile — fill padded width
       if (mobileContainerRef.current) {
-        const mW      = mobileContainerRef.current.offsetWidth
-        const padLeft = parseFloat(getComputedStyle(mobileContainerRef.current).paddingLeft)  || 0
-        const padRight= parseFloat(getComputedStyle(mobileContainerRef.current).paddingRight) || 0
-        setMobileWordmarkSize(REF_FONT_SIZE * (Math.max(1, mW - padLeft - padRight) / naturalW))
+        const mW   = mobileContainerRef.current.offsetWidth
+        const padL = parseFloat(getComputedStyle(mobileContainerRef.current).paddingLeft)  || 0
+        const padR = parseFloat(getComputedStyle(mobileContainerRef.current).paddingRight) || 0
+        setMobileWordmarkSize(REF_FONT_SIZE * (Math.max(1, mW - padL - padR) / naturalW))
       }
     }
     compute()
@@ -47,14 +74,12 @@ export function Footer() {
   return (
     <footer className="w-full text-white" style={{ backgroundColor: '#6759D7', paddingTop: px(40, 48), position: 'sticky', bottom: 0, zIndex: 0 }}>
 
-      {/* Measurement span */}
+      {/* Measurement span — same weight/spacing as WeikinnHeading */}
       <span
         ref={measureRef}
         aria-hidden
         style={{
-          position: 'fixed',
-          top: '-9999px',
-          left: '-9999px',
+          position: 'fixed', top: '-9999px', left: '-9999px',
           fontFamily: 'var(--font-sans)',
           fontWeight: 800,
           fontSize: `${REF_FONT_SIZE}px`,
@@ -93,6 +118,7 @@ export function Footer() {
           lineHeight: 0.88,
           letterSpacing: '-0.02em',
           whiteSpace: 'nowrap',
+          visibility: mobileWordmarkSize ? 'visible' : 'hidden',
         }}>
           weikinn
         </p>
@@ -101,7 +127,7 @@ export function Footer() {
       {/* ── Desktop layout ── */}
       <div
         ref={containerRef}
-        className="hidden md:block"
+        className="hidden md:flex md:flex-col"
         style={{ paddingLeft: sidePad, paddingRight: sidePad }}
       >
         {/* Row 1: CTA (left) + Social (right) */}
@@ -114,7 +140,7 @@ export function Footer() {
                 julia@weikinn.design
               </a>
             </p>
-            <button style={{ fontFamily: 'var(--font-sans)', fontWeight: 900, fontSize: '14px', letterSpacing: '-0.04em', color: '#fff', backgroundColor: 'transparent', border: '1.5px solid rgba(255,255,255,0.6)', borderRadius: '24px', padding: '10px 20px', cursor: 'pointer', display: 'inline-block' }}>
+            <button style={{ fontFamily: 'var(--font-sans)', fontWeight: 900, fontSize: '14px', letterSpacing: '-0.04em', color: '#fff', backgroundColor: 'transparent', border: '1.5px solid rgba(255,255,255,0.6)', borderRadius: '24px', padding: '10px 20px', cursor: 'pointer' }}>
               Kontakt
             </button>
           </div>
@@ -127,7 +153,7 @@ export function Footer() {
         {/* Row 2: Divider */}
         <div style={{ height: '1px', backgroundColor: 'rgba(255,255,255,0.4)', marginBottom: px(16, 24) }} />
 
-        {/* Row 3: Impressum / Datenschutz */}
+        {/* Row 3: Impressum / Datenschutz — right-aligned */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '24px', marginBottom: px(8, 16) }}>
           {['Impressum', 'Datenschutz'].map((label) => (
             <a
@@ -149,19 +175,38 @@ export function Footer() {
           ))}
         </div>
 
-        {/* Row 4: weikinn wordmark — full width */}
-        <p
+        {/* Row 4: interactive weikinn — same logic as WeikinnHeading */}
+        <h2
+          className="whitespace-nowrap select-none"
           style={{
             fontFamily: 'var(--font-sans)',
-            fontWeight: 800,
-            fontSize: wordmarkSize ? `${wordmarkSize.toFixed(2)}px` : px(52, 120),
+            fontSize: wordmarkSize ? `${wordmarkSize.toFixed(2)}px` : '0px',
             lineHeight: 0.88,
             letterSpacing: '-0.02em',
-            whiteSpace: 'nowrap',
+            color: '#fff',
+            visibility: wordmarkSize ? 'visible' : 'hidden',
+            margin: 0,
           }}
         >
-          weikinn
-        </p>
+          {LETTERS.map((letter, i) => (
+            <span
+              key={i}
+              ref={el => { letterRefs.current[i] = el }}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+              style={{
+                fontWeight: letterWeight(i, hovered),
+                transition: 'font-weight 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
+                display: 'inline-block',
+                width: letterWidths[i] ? `${letterWidths[i]}px` : 'auto',
+                textAlign: 'center',
+                cursor: 'default',
+              }}
+            >
+              {letter}
+            </span>
+          ))}
+        </h2>
       </div>
 
     </footer>
