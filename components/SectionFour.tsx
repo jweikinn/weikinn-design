@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const px = (mobile: number, desktop: number) =>
   `clamp(${mobile}px, ${((desktop / 1440) * 100).toFixed(2)}vw, ${desktop}px)`
@@ -88,7 +88,7 @@ function ProjectCard({
             fontSize: px(21, 36),
             lineHeight: 1.1,
             letterSpacing: '-0.02em',
-            color: '#000',
+            color: '#d5d3e6',
             whiteSpace: 'pre-line',
           }}
         >
@@ -100,7 +100,7 @@ function ProjectCard({
           src={ARROW}
           aria-hidden
           className="-rotate-90 shrink-0"
-          style={{ width: px(18, 32), height: px(18, 32) }}
+          style={{ width: px(18, 32), height: px(18, 32), filter: 'invert(1)' }}
         />
       </div>
     </div>
@@ -113,11 +113,12 @@ const slideUp: React.CSSProperties = {
   transition: 'opacity 0.75s ease, transform 0.75s cubic-bezier(0.4, 0, 0.2, 1)',
 }
 
-const ctaButtons = ['Lass uns sprechen', 'Zeig mir erstmal mehr Arbeiten']
+const ctaButtons = ['mehr Arbeiten']
 
 export function SectionFour() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
   const sidePad = px(16, 32)
+  const [btnHover, setBtnHover] = useState(false)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -139,7 +140,7 @@ export function SectionFour() {
 
   return (
     <section
-      className="w-full bg-white text-black"
+      className="w-full bg-black"
       style={{ padding: `${px(60, 80)} ${sidePad}` }}
     >
       {/* ── Header ── */}
@@ -152,24 +153,11 @@ export function SectionFour() {
             fontSize: '20px',
             lineHeight: '21px',
             letterSpacing: '0.8px',
-            color: '#000',
+            color: '#d5d3e6',
             margin: 0,
           }}
         >
           Arbeiten
-        </p>
-        <p
-          style={{
-            fontFamily: 'var(--font-sans)',
-            fontWeight: 500,
-            fontSize: px(24, 35),
-            lineHeight: 1.1,
-            letterSpacing: '0.35px',
-            color: '#000',
-            margin: '6px 0 0 0',
-          }}
-        >
-          Auswahl aus über<br />12 Jahren Erfahrung.
         </p>
       </div>
 
@@ -201,8 +189,6 @@ export function SectionFour() {
                 <button
                   key={label}
                   style={{
-                    backgroundColor: '#6759d7',
-                    color: '#d5d3e6',
                     fontFamily: 'var(--font-sans)',
                     fontWeight: 800,
                     fontSize: '14px',
@@ -212,7 +198,12 @@ export function SectionFour() {
                     border: 'none',
                     cursor: 'pointer',
                     whiteSpace: 'nowrap',
+                    backgroundColor: btnHover ? '#d5d3e6' : '#6759d7',
+                    color: btnHover ? '#6759d7' : '#d5d3e6',
+                    transition: 'background-color 0.25s ease, color 0.25s ease',
                   }}
+                  onMouseEnter={() => setBtnHover(true)}
+                  onMouseLeave={() => setBtnHover(false)}
                 >
                   {label}
                 </button>
@@ -291,8 +282,6 @@ export function SectionFour() {
               <button
                 key={label}
                 style={{
-                  backgroundColor: '#6759d7',
-                  color: '#d5d3e6',
                   fontFamily: 'var(--font-sans)',
                   fontWeight: 800,
                   fontSize: px(12, 14),
@@ -302,7 +291,12 @@ export function SectionFour() {
                   border: 'none',
                   cursor: 'pointer',
                   whiteSpace: 'nowrap',
+                  backgroundColor: btnHover ? '#d5d3e6' : '#6759d7',
+                  color: btnHover ? '#6759d7' : '#d5d3e6',
+                  transition: 'background-color 0.25s ease, color 0.25s ease',
                 }}
+                onMouseEnter={() => setBtnHover(true)}
+                onMouseLeave={() => setBtnHover(false)}
               >
                 {label}
               </button>

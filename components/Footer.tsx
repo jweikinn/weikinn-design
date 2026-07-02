@@ -7,7 +7,7 @@ const px = (mobile: number, desktop: number) =>
 
 const REF_FONT_SIZE  = 100
 const PAD_LEFT  = 32   // matches WeikinnHeading
-const PAD_RIGHT = 64   // matches WeikinnHeading
+const PAD_RIGHT = 32   // matches WeikinnHeading
 const LETTERS   = ['w', 'e', 'i', 'k', 'i', 'n', 'n']
 
 function letterWeight(index: number, hovered: number | null): number {
@@ -31,6 +31,7 @@ export function Footer() {
   const [mobileWordmarkSize, setMobileWordmarkSize] = useState<number | null>(null)
   const [letterWidths, setLetterWidths]             = useState<number[]>([])
   const [hovered, setHovered]                       = useState<number | null>(null)
+  const [kontaktHover, setKontaktHover]             = useState(false)
 
   // Reset letter widths whenever font size changes so we re-measure
   useLayoutEffect(() => {
@@ -101,7 +102,18 @@ export function Footer() {
             julia@weikinn.design
           </a>
         </p>
-        <button style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em', color: '#fff', backgroundColor: 'transparent', border: '1.5px solid rgba(255,255,255,0.6)', borderRadius: '24px', padding: '10px 20px', cursor: 'pointer' }}>
+        <button
+          style={{
+            fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em',
+            borderRadius: '24px', padding: '10px 20px', cursor: 'pointer',
+            backgroundColor: kontaktHover ? '#fff' : 'transparent',
+            color: kontaktHover ? '#6759d7' : '#fff',
+            border: '1.5px solid #fff',
+            transition: 'background-color 0.25s ease, color 0.25s ease',
+          }}
+          onMouseEnter={() => setKontaktHover(true)}
+          onMouseLeave={() => setKontaktHover(false)}
+        >
           Kontakt
         </button>
         <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '14px', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '24px' }}>
@@ -140,7 +152,18 @@ export function Footer() {
                 julia@weikinn.design
               </a>
             </p>
-            <button style={{ fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em', color: '#fff', backgroundColor: 'transparent', border: '1.5px solid rgba(255,255,255,0.6)', borderRadius: '24px', padding: '10px 20px', cursor: 'pointer' }}>
+            <button
+              style={{
+                fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em',
+                borderRadius: '24px', padding: '10px 20px', cursor: 'pointer',
+                backgroundColor: kontaktHover ? '#fff' : 'transparent',
+                color: kontaktHover ? '#6759d7' : '#fff',
+                border: '1.5px solid #fff',
+                transition: 'background-color 0.25s ease, color 0.25s ease',
+              }}
+              onMouseEnter={() => setKontaktHover(true)}
+              onMouseLeave={() => setKontaktHover(false)}
+            >
               Kontakt
             </button>
           </div>
@@ -183,7 +206,7 @@ export function Footer() {
             fontSize: wordmarkSize ? `${wordmarkSize.toFixed(2)}px` : '0px',
             lineHeight: 0.88,
             letterSpacing: '-0.02em',
-            color: '#fff',
+            color: '#d5d3e6',
             visibility: wordmarkSize ? 'visible' : 'hidden',
             margin: 0,
           }}

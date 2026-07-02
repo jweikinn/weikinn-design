@@ -12,6 +12,7 @@ const navLinks = [
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [letsHover, setLetsHover] = useState(false)
 
   return (
     <>
@@ -88,16 +89,22 @@ export function Navbar() {
             ))}
             <Link
               href="#contact"
-              className="inline-flex items-center rounded-full w-fit mt-3"
               style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 800,
                 fontSize: '14px',
                 letterSpacing: '-0.02em',
                 padding: '12px 24px',
-                backgroundColor: '#fff',
-                color: '#000',
+                display: 'inline-flex',
+                alignItems: 'center',
+                borderRadius: '9999px',
+                marginTop: '12px',
+                backgroundColor: letsHover ? '#6759d7' : '#fff',
+                color: letsHover ? '#fff' : '#000',
+                transition: 'background-color 0.25s ease, color 0.25s ease',
               }}
+              onMouseEnter={() => setLetsHover(true)}
+              onMouseLeave={() => setLetsHover(false)}
               onClick={() => setMenuOpen(false)}
             >
               Let&apos;s talk

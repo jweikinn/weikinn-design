@@ -53,6 +53,46 @@
   --radius-pill: 1.5rem;            /* 24px – Buttons & Tags */
 }
 
+/* ───── Button hover — Farbinversion ───── */
+
+/* Lila Füllung → Lavendel auf hover (Projektanfrage, mehr Arbeiten) */
+.btn-purple {
+  background-color: #6759d7;
+  color: #d5d3e6;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn-purple:hover { background-color: #d5d3e6; color: #6759d7; }
+
+/* Lavendel Füllung → Weiß auf hover (Kontakt im lila Panel) */
+.btn-lavender {
+  background-color: #d5d3e6;
+  color: #6759d7;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn-lavender:hover { background-color: #fff; color: #6759d7; }
+
+/* Weißer Rahmen → Weiße Füllung auf hover (Footer) */
+.btn-outline-white {
+  background-color: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,0.6);
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.btn-outline-white:hover { background-color: #fff; color: #6759d7; border-color: #fff; }
+
+/* Weiße Füllung → Lila auf hover (Navbar Let's talk) */
+.btn-white {
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+.btn-white:hover { background-color: #6759d7; color: #fff; }
+
+/* ───── Custom cursor ───── */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
 /* ───── Typografie-Utility-Klassen (Figma-Stile 1:1) ───── */
 @layer components {
   /* H2 – „Selected Work“, „Love Letters“ */
@@ -195,4 +235,14 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+/* Komplett-auftritt panel: tall on desktop, auto-height on mobile */
+.komplett-panel {
+  min-height: max(100vh, 1100px);
+}
+@media (max-width: 767px) {
+  .komplett-panel {
+    min-height: 0;
+  }
 }

@@ -1,278 +1,333 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
-const PANELS = [
+const PAD = 32
+const REF_SIZE = 100
+
+const SERVICES = [
   {
-    label: 'B R A N D I N G',
+    name: 'branding',
     headline: ['Eine Marke,', 'die trägt.'],
     body: 'Du machst etwas, das zählt. Deine Marke soll das auch zeigen. Ich gestalte Brandings, die deine Arbeit ernst nehmen: Sie machen sichtbar, wofür du stehst, und verbinden dich mit den Menschen, die mit dir arbeiten wollen. Markenentwicklung von Strategie bis Guideline.',
-    bg: '#000000',
-    accentColor: '#d5d3e6',
-    textColor: '#d5d3e6',
-    showHeader: true,
-    wideHeadline: false,
-    bodyBelow: false,
-    cta: false,
   },
   {
-    label: 'W E B D E S I G N',
+    name: 'webdesign',
     headline: ['Eine Website,', 'die ankommt.'],
     body: 'Konzept, Gestaltung und Umsetzung – als ein Gedanke, nicht als drei Etappen. Eine Website, die erlebt und gefühlt wird, nicht durchgescrollt. Mit Stimmung, Tempo und Substanz.',
-    bg: '#000000',
-    accentColor: '#d5d3e6',
-    textColor: '#d5d3e6',
-    showHeader: false,
-    wideHeadline: false,
-    bodyBelow: false,
-    cta: false,
   },
   {
-    label: 'E D I T O R I A L  &  P R I N T',
+    name: 'print&editorial',
     headline: ['Print, das man', 'behalten will.'],
-    body: 'Magazine, Geschäftsberichte, Broschüren, Geschäftsausstattung. Inhalt, der eine eigene Form verdient – mit Gewicht, Stimmung und der Haptik, die nur gedruckte Dinge haben. Konzept, Gestaltung und Drucksachen-Begleitung aus einer Hand.',
-    bg: '#000000',
-    accentColor: '#d5d3e6',
-    textColor: '#d5d3e6',
-    showHeader: false,
-    wideHeadline: false,
-    bodyBelow: false,
-    cta: false,
-  },
-  {
-    label: 'K O M P L E T T A U F T R I T T',
-    headline: ['Branding, Website und Kommunikation –', 'aus einer Hand, aufeinander abgestimmt, mit System.'],
-    body: 'Für Unternehmen, die nicht in Bausteinen denken, sondern in einem stimmigen Auftritt. Ich übernehme Strategie, Gestaltung und Umsetzung und hole bei Bedarf mein Netzwerk dazu.',
-    bg: '#6759d7',
-    accentColor: '#d5d3e6',
-    textColor: '#d5d3e6',
-    showHeader: false,
-    wideHeadline: true,
-    bodyBelow: true,
-    cta: true,
+    body: 'Magazine, Geschäftsberichte, Broschüren, Geschäftsausstattung. Inhalt, der eine eigene Form verdient – mit Gewicht, Stimmung und der Haptik, die nur gedruckte Dinge haben. Konzept, Gestaltung und Drucksachen-Begleitung aus einer Hand.',
   },
 ]
 
+const KOMPLETT_HEADLINE = [
+  'Branding, Website und Kommunikation –',
+  'aus einer Hand, aufeinander abgestimmt, mit System.',
+]
+const KOMPLETT_BODY = 'Für Unternehmen, die nicht in Bausteinen denken, sondern in einem stimmigen Auftritt. Ich übernehme Strategie, Gestaltung und Umsetzung und hole bei Bedarf mein Netzwerk dazu.'
+
 export function SectionFive() {
-  const sectionRef = useRef<HTMLElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const measureRef = useRef<HTMLSpanElement>(null)
+  const [fontSize, setFontSize] = useState<number>(0)
+
   const panelRefs = useRef<(HTMLDivElement | null)[]>([])
-  const headlineRefs = useRef<(HTMLDivElement | null)[]>([])
-  const bodyBelowRefs = useRef<(HTMLDivElement | null)[]>([])
+  const [seen, setSeen] = useState<boolean[]>(() => new Array(SERVICES.length + 1).fill(false))
+  const [kontaktHover, setKontaktHover] = useState(false)
 
-  // Scroll mechanic: panels slide in from below
   useEffect(() => {
-    const onScroll = () => {
-      const section = sectionRef.current
-      if (!section) return
-      const sectionTop = section.getBoundingClientRect().top
-      const vh = window.innerHeight
-      const scrollIntoSection = -sectionTop
-
-      const DWELL = 0.5
-      const TRANS = 1.0
-
-      panelRefs.current.forEach((panel, i) => {
-        if (!panel) return
-        if (i === 0) {
-          panel.style.transform = 'translateY(0)'
-          return
-        }
-        const slideInStart = (i * DWELL + (i - 1) * TRANS) * vh
-        const scrolled = scrollIntoSection - slideInStart
-        const ty = Math.max(0, vh - Math.max(0, scrolled))
-        panel.style.transform = `translateY(${ty}px)`
-      })
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
+    const observers: IntersectionObserver[] = []
+    panelRefs.current.forEach((el, i) => {
+      if (!el) return
+      const obs = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setSeen(prev => { const n = [...prev]; n[i] = true; return n })
+            obs.disconnect()
+          }
+        },
+        { threshold: 0.15 }
+      )
+      obs.observe(el)
+      observers.push(obs)
+    })
+    return () => observers.forEach(o => o.disconnect())
   }, [])
 
-  // Measure actual headline height and position bodyBelow containers accordingly
-  useEffect(() => {
-    const updateBodyPositions = () => {
-      PANELS.forEach((panel, i) => {
-        if (!panel.bodyBelow) return
-        const headline = headlineRefs.current[i]
-        const body = bodyBelowRefs.current[i]
-        if (!headline || !body) return
-        // headline sits at top: calc(42% + 26px); offsetTop gives its actual px position
-        body.style.top = `${headline.offsetTop + headline.offsetHeight + 24}px`
-      })
+  useLayoutEffect(() => {
+    const compute = () => {
+      if (!containerRef.current || !measureRef.current) return
+      const w = containerRef.current.offsetWidth - PAD * 2
+      const nw = measureRef.current.offsetWidth
+      if (w <= 0 || nw <= 0) return
+      setFontSize(REF_SIZE * (w / nw))
     }
-
-    const ro = new ResizeObserver(updateBodyPositions)
-    headlineRefs.current.forEach(el => { if (el) ro.observe(el) })
-    updateBodyPositions()
-    return () => ro.disconnect()
+    compute()
+    document.fonts?.ready.then(compute).catch(() => {})
+    window.addEventListener('resize', compute)
+    return () => window.removeEventListener('resize', compute)
   }, [])
+
+  const ready = fontSize > 0
+
+  const nameCss: React.CSSProperties = {
+    fontFamily: 'var(--font-sans)',
+    fontWeight: 800,
+    fontSize: ready ? `${fontSize.toFixed(2)}px` : '0px',
+    lineHeight: 0.88,
+    letterSpacing: '-0.02em',
+    color: '#d5d3e6',
+    visibility: ready ? 'visible' : 'hidden',
+    margin: 0,
+    whiteSpace: 'nowrap',
+  }
+
+  const headlineDesktop: React.CSSProperties = {
+    fontFamily: 'var(--font-display)',
+    fontStyle: 'italic',
+    fontWeight: 300,
+    fontSize: 'clamp(36px, 5.56vw, 80px)',
+    lineHeight: 1.1,
+    letterSpacing: '0.625px',
+    color: '#6759d7',
+    margin: 0,
+  }
+
+  const headlineMobile: React.CSSProperties = {
+    fontFamily: 'var(--font-display)',
+    fontStyle: 'italic',
+    fontWeight: 300,
+    fontSize: 'clamp(28px, 7vw, 36px)',
+    lineHeight: 1.1,
+    letterSpacing: '0.625px',
+    color: '#6759d7',
+    margin: 0,
+  }
+
+  const bodyCss: React.CSSProperties = {
+    fontFamily: 'var(--font-sans)',
+    fontWeight: 300,
+    fontSize: '18px',
+    lineHeight: 1.36,
+    letterSpacing: '0.2px',
+    color: '#d5d3e6',
+    margin: 0,
+  }
+
+  const kontaktBtn: React.CSSProperties = {
+    display: 'inline-flex',
+    alignSelf: 'flex-start',
+    alignItems: 'center',
+    justifyContent: 'center',
+    fontFamily: 'var(--font-sans)',
+    fontWeight: 800,
+    fontSize: '14px',
+    letterSpacing: '-0.02em',
+    padding: '12px 16px',
+    borderRadius: '24px',
+    textDecoration: 'none',
+    whiteSpace: 'nowrap',
+  }
 
   return (
-    <section
-      ref={sectionRef}
-      style={{ position: 'relative', height: `${(PANELS.length + 2) * 100}vh` }}
-    >
-      <div style={{ position: 'sticky', top: 0, height: '100vh', overflow: 'hidden' }}>
+    <section ref={containerRef} style={{ position: 'relative' }}>
 
-        {/* Section header — persists across all panels */}
-        <div style={{ position: 'absolute', top: '5%', left: '32px', zIndex: 10 }}>
+      {/* Hidden measurement span */}
+      <span
+        ref={measureRef}
+        aria-hidden
+        style={{
+          position: 'fixed', top: '-9999px', left: '-9999px',
+          fontFamily: 'var(--font-sans)', fontWeight: 800,
+          fontSize: `${REF_SIZE}px`, letterSpacing: '-0.02em',
+          whiteSpace: 'nowrap', opacity: 0, pointerEvents: 'none',
+        }}
+      >
+        print&amp;editorial
+      </span>
+
+      {/* "Angebot" label — scrolls with content */}
+      <div style={{ position: 'absolute', top: '5vh', left: `${PAD}px`, zIndex: 10 }}>
+        <p style={{
+          fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
+          fontSize: '20px', lineHeight: '21px', letterSpacing: '0.8px',
+          color: '#d5d3e6', margin: 0,
+        }}>
+          Angebot
+        </p>
+      </div>
+
+      {/* ── Service panels ── */}
+      {SERVICES.map((svc, i) => (
+        <div
+          key={i}
+          ref={el => { panelRefs.current[i] = el }}
+          style={{
+            position: 'relative',
+            height: '100vh',
+            backgroundColor: '#000000',
+            overflow: 'hidden',
+          }}
+        >
+          {/* Fluid service name — animates weight 100→800 on scroll-in */}
+          <p style={{
+            ...nameCss,
+            position: 'absolute',
+            top: '10%',
+            left: `${PAD}px`,
+            fontWeight: seen[i] ? 800 : 100,
+            opacity: seen[i] ? 1 : 0,
+            transition: ready
+              ? 'font-weight 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease'
+              : 'none',
+          }}>
+            {svc.name}
+          </p>
+
+          {/* Desktop: two columns */}
+          <div className="hidden md:block">
+            <div style={{ position: 'absolute', top: '47%', left: '10.35%', right: '44%' }}>
+              {svc.headline.map((line, j) => (
+                <p key={j} style={headlineDesktop}>{line}</p>
+              ))}
+            </div>
+            <p style={{ position: 'absolute', top: '47%', left: '59.24%', right: '10.35%', ...bodyCss }}>
+              {svc.body}
+            </p>
+          </div>
+
+          {/* Mobile: stacked below the name */}
+          <div
+            className="md:hidden flex flex-col"
+            style={{
+              position: 'absolute',
+              top: '26%',
+              left: `${PAD}px`,
+              right: `${PAD}px`,
+              gap: '20px',
+            }}
+          >
+            <div>
+              {svc.headline.map((line, j) => (
+                <p key={j} style={headlineMobile}>{line}</p>
+              ))}
+            </div>
+            <p style={bodyCss}>{svc.body}</p>
+          </div>
+        </div>
+      ))}
+
+      {/* ── Komplett-auftritt panel ── */}
+      <div
+        ref={el => { panelRefs.current[SERVICES.length] = el }}
+        className="komplett-panel"
+        style={{
+          position: 'relative',
+          backgroundColor: '#6759d7',
+        }}
+      >
+        {/* Giant two-line name — same on all breakpoints */}
+        <div style={{
+          position: 'absolute',
+          top: '8%',
+          left: `${PAD}px`,
+          visibility: ready ? 'visible' : 'hidden',
+          fontWeight: seen[SERVICES.length] ? 800 : 100,
+          opacity: seen[SERVICES.length] ? 1 : 0,
+          transition: ready
+            ? 'font-weight 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease'
+            : 'none',
+        }}>
+          {['komplett-', 'auftritt'].map((line, i) => (
+            <p key={i} style={{
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 'inherit',
+              fontSize: ready ? `${fontSize.toFixed(2)}px` : '0px',
+              lineHeight: 0.88,
+              letterSpacing: '-0.02em',
+              color: '#d5d3e6',
+              margin: 0,
+              whiteSpace: 'nowrap',
+            }}>
+              {line}
+            </p>
+          ))}
+        </div>
+
+        {/* Desktop: headline left, body+button bottom right */}
+        <div className="hidden md:block">
+          <div style={{ position: 'absolute', top: '38%', left: `${PAD}px`, right: '30%' }}>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontStyle: 'italic',
+              fontWeight: 300,
+              fontSize: 'clamp(24px, 3.47vw, 50px)',
+              lineHeight: 1.15,
+              letterSpacing: '0.5px',
+              color: '#d5d3e6',
+              margin: 0,
+            }}>
+              {KOMPLETT_HEADLINE[0]}<br />{KOMPLETT_HEADLINE[1]}
+            </p>
+          </div>
+          <div style={{
+            position: 'absolute',
+            top: '52%',
+            left: '59.24%',
+            right: '10.35%',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '32px',
+          }}>
+            <p style={bodyCss}>{KOMPLETT_BODY}</p>
+            <a
+              href="#contact"
+              style={{ ...kontaktBtn, backgroundColor: kontaktHover ? '#fff' : '#d5d3e6', color: '#6759d7', transition: 'background-color 0.25s ease' }}
+              onMouseEnter={() => setKontaktHover(true)}
+              onMouseLeave={() => setKontaktHover(false)}
+            >Kontakt</a>
+          </div>
+        </div>
+
+        {/* Mobile: stacked below the name */}
+        <div
+          className="md:hidden flex flex-col"
+          style={{
+            paddingTop: '42%',
+            paddingLeft: `${PAD}px`,
+            paddingRight: `${PAD}px`,
+            paddingBottom: '80px',
+            gap: '20px',
+          }}
+        >
           <p style={{
             fontFamily: 'var(--font-display)',
             fontStyle: 'italic',
             fontWeight: 300,
-            fontSize: '20px',
-            lineHeight: '21px',
-            letterSpacing: '0.8px',
+            fontSize: 'clamp(20px, 5vw, 28px)',
+            lineHeight: 1.15,
+            letterSpacing: '0.5px',
             color: '#d5d3e6',
             margin: 0,
           }}>
-            Angebot
+            {KOMPLETT_HEADLINE[0]}<br />{KOMPLETT_HEADLINE[1]}
           </p>
-          <p style={{
-            fontFamily: 'var(--font-sans)',
-            fontWeight: 500,
-            fontSize: 'clamp(24px, 2.43vw, 35px)',
-            lineHeight: 1.1,
-            letterSpacing: '0.35px',
-            color: '#d5d3e6',
-            margin: '6px 0 0 0',
-          }}>
-            So können wir<br />zusammenarbeiten.
-          </p>
+          <p style={bodyCss}>{KOMPLETT_BODY}</p>
+          <a
+            href="#contact"
+            style={{ ...kontaktBtn, backgroundColor: kontaktHover ? '#fff' : '#d5d3e6', color: '#6759d7', transition: 'background-color 0.25s ease' }}
+            onMouseEnter={() => setKontaktHover(true)}
+            onMouseLeave={() => setKontaktHover(false)}
+          >Kontakt</a>
         </div>
 
-        {PANELS.map((panel, i) => (
-          <div
-            key={i}
-            ref={el => { panelRefs.current[i] = el }}
-            style={{
-              position: 'absolute',
-              inset: 0,
-              zIndex: i + 1,
-              backgroundColor: panel.bg,
-              willChange: 'transform',
-            }}
-          >
-            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-
-              {/* Service label — always at the same viewport height */}
-              <p style={{
-                position: 'absolute',
-                top: '42%',
-                left: '10.35%',
-                fontFamily: 'var(--font-sans)',
-                fontWeight: 700,
-                fontSize: '14px',
-                lineHeight: '16.498px',
-                letterSpacing: '0',
-                color: panel.accentColor,
-                margin: 0,
-              }}>
-                {panel.label}
-              </p>
-
-              {/* Big italic headline */}
-              <div
-                ref={el => { headlineRefs.current[i] = el }}
-                style={{
-                  position: 'absolute',
-                  top: 'calc(42% + 26px)',
-                  left: '10.35%',
-                  right: panel.wideHeadline ? '12%' : '45%',
-                }}
-              >
-                {panel.headline.map((line, j) => (
-                  <p
-                    key={j}
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontStyle: 'italic',
-                      fontWeight: 300,
-                      fontSize: 'clamp(36px, 5.56vw, 80px)',
-                      lineHeight: 1.1,
-                      letterSpacing: '0.625px',
-                      color: panel.accentColor,
-                      margin: 0,
-                    }}
-                  >
-                    {line}
-                  </p>
-                ))}
-              </div>
-
-              {/* Body text — panels 0–2: rechte Spalte neben Headline */}
-              {!panel.bodyBelow && (
-                <p style={{
-                  position: 'absolute',
-                  top: '42%',
-                  left: '59.24%',
-                  right: '10.35%',
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 300,
-                  fontSize: '18px',
-                  lineHeight: 1.36,
-                  letterSpacing: '0.2px',
-                  color: panel.textColor,
-                  margin: 0,
-                }}>
-                  {panel.body}
-                </p>
-              )}
-
-              {/* Komplettauftritt: Body + Button, positioned dynamically below headline via JS */}
-              {panel.bodyBelow && (
-                <div
-                  ref={el => { bodyBelowRefs.current[i] = el }}
-                  style={{
-                    position: 'absolute',
-                    top: 0,
-                    left: '59.24%',
-                    right: '10.35%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '32px',
-                  }}
-                >
-                  <p style={{
-                    fontFamily: 'var(--font-sans)',
-                    fontWeight: 300,
-                    fontSize: '17.762px',
-                    lineHeight: 1.36,
-                    letterSpacing: '0.2082px',
-                    color: panel.textColor,
-                    margin: 0,
-                  }}>
-                    {panel.body}
-                  </p>
-                  <a
-                    href="#contact"
-                    style={{
-                      display: 'inline-flex',
-                      alignSelf: 'flex-start',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      backgroundColor: '#d5d3e6',
-                      color: '#6759d7',
-                      fontFamily: 'var(--font-sans)',
-                      fontWeight: 800,
-                      fontSize: '14px',
-                      letterSpacing: '-0.02em',
-                      padding: '12px 16px',
-                      borderRadius: '24px',
-                      textDecoration: 'none',
-                      whiteSpace: 'nowrap',
-                    }}
-                  >
-                    Kontakt
-                  </a>
-                </div>
-              )}
-
-            </div>
-          </div>
-        ))}
+        {/* Spacer: 80px purple below desktop content */}
+        <div className="hidden md:block" style={{ height: '80px' }} />
       </div>
+
     </section>
   )
 }

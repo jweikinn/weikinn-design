@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "./globals.css";
 import { AgentationProvider } from "@/components/AgentationProvider";
+import { Cursor } from "@/components/Cursor";
 
 const SITE_URL = "https://weikinn.design";
 
@@ -138,6 +139,7 @@ export default function RootLayout({
       </head>
       <body className="antialiased">
         {children}
+        <Cursor />
         <AgentationProvider />
         <Script
           id="json-ld"

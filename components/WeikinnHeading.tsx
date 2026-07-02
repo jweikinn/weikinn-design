@@ -1,11 +1,11 @@
 'use client'
 
-import { useLayoutEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 
 const LETTERS = ['w', 'e', 'i', 'k', 'i', 'n', 'n']
 const REF_FONT_SIZE = 100
 const PAD_LEFT  = 32
-const PAD_RIGHT = 64
+const PAD_RIGHT = 32
 const LETTER_SPACING = '-0.02em'
 // ↓ Blend-Effekt: 'difference' | 'normal' zum Abschalten
 const BLEND_MODE: React.CSSProperties['mixBlendMode'] = 'difference'
@@ -28,6 +28,23 @@ export function WeikinnHeading() {
   const [fontSizePx, setFontSizePx]     = useState(0)
   const [letterWidths, setLetterWidths] = useState<number[]>([])
   const [hovered, setHovered]           = useState<number | null>(null)
+
+  // Track hover via global mousemove so letters can have pointer-events:none
+  // (prevents them from blocking elements behind, e.g. the Projektanfrage button)
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      const x = e.clientX, y = e.clientY
+      let found: number | null = null
+      letterRefs.current.forEach((el, i) => {
+        if (!el) return
+        const r = el.getBoundingClientRect()
+        if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) found = i
+      })
+      setHovered(prev => prev !== found ? found : prev)
+    }
+    window.addEventListener('mousemove', onMove, { passive: true })
+    return () => window.removeEventListener('mousemove', onMove)
+  }, [])
 
   useLayoutEffect(() => {
     if (!fontSizePx) return
@@ -89,7 +106,6 @@ export function WeikinnHeading() {
       {/* Desktop: interaktive Buchstaben */}
       <div
         className="hidden md:flex"
-        style={{ pointerEvents: 'auto' }}
       >
         <h1
           className="whitespace-nowrap select-none"
@@ -99,15 +115,13 @@ export function WeikinnHeading() {
             <span
               key={i}
               ref={el => { letterRefs.current[i] = el }}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
               style={{
                 fontWeight: letterWeight(i, hovered),
                 transition: 'font-weight 0.6s cubic-bezier(0.25, 0.1, 0.25, 1)',
                 display: 'inline-block',
                 width: letterWidths[i] ? `${letterWidths[i]}px` : 'auto',
                 textAlign: 'center',
-                cursor: 'default',
+                pointerEvents: 'none',
               }}
             >
               {letter}
@@ -122,7 +136,6 @@ export function WeikinnHeading() {
         style={{
           paddingLeft: `${PAD_LEFT}px`,
           paddingRight: `${PAD_RIGHT}px`,
-          pointerEvents: 'auto',
         }}
       >
         <h1
