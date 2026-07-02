@@ -259,7 +259,7 @@ export function SectionFive() {
 
         {/* Desktop: headline left, body+button bottom right */}
         <div className="hidden md:block">
-          <div style={{ position: 'absolute', top: '38%', left: `${PAD}px`, right: '30%' }}>
+          <div style={{ position: 'absolute', top: '46%', left: `${PAD}px`, right: '30%' }}>
             <p style={{
               fontFamily: 'var(--font-display)',
               fontStyle: 'italic',
@@ -275,7 +275,7 @@ export function SectionFive() {
           </div>
           <div style={{
             position: 'absolute',
-            top: '52%',
+            top: '62%',
             left: '59.24%',
             right: '10.35%',
             display: 'flex',

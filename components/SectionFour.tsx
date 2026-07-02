@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 
 const px = (mobile: number, desktop: number) =>
   `clamp(${mobile}px, ${((desktop / 1440) * 100).toFixed(2)}vw, ${desktop}px)`
@@ -49,6 +50,7 @@ function ProjectCard({
   image2,
   aspectRatio,
   cropOffsetX,
+  href,
 }: {
   title: React.ReactNode
   tags: string[]
@@ -56,9 +58,17 @@ function ProjectCard({
   image2?: string
   aspectRatio: string
   cropOffsetX?: string
+  href?: string
 }) {
+  const Wrapper = href
+    ? ({ children }: { children: React.ReactNode }) => (
+        <Link href={href} style={{ display: 'flex', flexDirection: 'column', gap: px(6, 10), textDecoration: 'none' }}>{children}</Link>
+      )
+    : ({ children }: { children: React.ReactNode }) => (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: px(6, 10) }}>{children}</div>
+      )
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: px(6, 10) }}>
+    <Wrapper>
       <div className="relative overflow-hidden w-full" style={{ aspectRatio }}>
         {cropOffsetX ? (
           <img
@@ -103,7 +113,7 @@ function ProjectCard({
           style={{ width: px(18, 32), height: px(18, 32), filter: 'invert(1)' }}
         />
       </div>
-    </div>
+    </Wrapper>
   )
 }
 
@@ -173,6 +183,7 @@ export function SectionFour() {
               image={IMG_PRAXIS}
               aspectRatio="676/744"
               cropOffsetX="-43.55%"
+              href="/work/praxis-psychotherapie"
             />
           </div>
           <div ref={el => { cardRefs.current[1] = el }} style={slideUp}>
@@ -249,6 +260,7 @@ export function SectionFour() {
             image={IMG_PRAXIS}
             aspectRatio="676/744"
             cropOffsetX="-43.55%"
+            href="/work/praxis-psychotherapie"
           />
         </div>
         <div ref={el => { cardRefs.current[6] = el }} style={slideUp}>

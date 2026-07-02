@@ -237,6 +237,12 @@ body {
   box-sizing: border-box;
 }
 
+/* Cursor pulse animation on hover over clickable elements */
+@keyframes cursor-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(2.85); }
+  50%       { transform: translate(-50%, -50%) scale(1.8); }
+}
+
 /* Komplett-auftritt panel: tall on desktop, auto-height on mobile */
 .komplett-panel {
   min-height: max(100vh, 1100px);
