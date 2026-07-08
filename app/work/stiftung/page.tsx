@@ -125,7 +125,7 @@ export default function Stiftung() {
             </div>
             <div style={{ paddingTop: '8px' }}>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
-                Die Kolibri Interkulturelle Stiftung unterstützt Geflüchtete und Migrant:innen in München – durch Benefizveranstaltungen, Sprachkurse, psychotherapeutische Begleitung und Sozialberatung. Für das Thema Nachlassspenden brauchte die Stiftung eine Broschüre, die Menschen behutsam anspricht: informativ, vertrauensvoll und gestalterisch auf Augenhöhe mit dem Anliegen.
+                Die <a href="https://kolibri-stiftung.de/nachlassspenden/" target="_blank" rel="noopener noreferrer" style={{ color: '#6759d7', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Kolibri Interkulturelle Stiftung</a> unterstützt Geflüchtete und Migrant:innen in München – durch Benefizveranstaltungen, Sprachkurse, psychotherapeutische Begleitung und Sozialberatung. Für das Thema Nachlassspenden brauchte die Stiftung eine Broschüre, die Menschen behutsam anspricht: informativ, vertrauensvoll und gestalterisch auf Augenhöhe mit dem Anliegen.
               </p>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0, opacity: 0.7 }}>
                 Scope: Editorial Design · Broschüre · Typografie · Layout

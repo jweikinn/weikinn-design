@@ -6,9 +6,10 @@ export function HeroSection() {
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        src="/background.gif"
+        src="/background_01.gif"
         alt=""
         className="absolute inset-0 w-full h-full object-cover"
+        style={{ filter: 'blur(8px)', transform: 'scale(1.05)' }}
       />
     </section>
   )

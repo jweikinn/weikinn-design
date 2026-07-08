@@ -37,6 +37,7 @@ export function SectionFive() {
   const panelRefs = useRef<(HTMLDivElement | null)[]>([])
   const [seen, setSeen] = useState<boolean[]>(() => new Array(SERVICES.length + 1).fill(false))
   const [kontaktHover, setKontaktHover] = useState(false)
+  const [komplettHeight, setKomplettHeight] = useState(0)
 
   useEffect(() => {
     const observers: IntersectionObserver[] = []
@@ -64,6 +65,8 @@ export function SectionFive() {
       const nw = measureRef.current.offsetWidth
       if (w <= 0 || nw <= 0) return
       setFontSize(REF_SIZE * (w / nw))
+      const panel = panelRefs.current[SERVICES.length]
+      if (panel) setKomplettHeight(panel.offsetHeight)
     }
     compute()
     document.fonts?.ready.then(compute).catch(() => {})
@@ -72,6 +75,11 @@ export function SectionFive() {
   }, [])
 
   const ready = fontSize > 0
+
+  // Komplett panel: keep headline below the two-line fluid title at any screen width
+  const titleBottomPx = komplettHeight * 0.08 + fontSize * 0.88 * 2
+  const headlineTopPx = Math.max(komplettHeight * 0.46, titleBottomPx + 60)
+  const bodyTopPx = headlineTopPx + 180
 
   const nameCss: React.CSSProperties = {
     fontFamily: 'var(--font-sans)',
@@ -259,7 +267,7 @@ export function SectionFive() {
 
         {/* Desktop: headline left, body+button bottom right */}
         <div className="hidden md:block">
-          <div style={{ position: 'absolute', top: '46%', left: `${PAD}px`, right: '30%' }}>
+          <div style={{ position: 'absolute', top: `${headlineTopPx}px`, left: `${PAD}px`, right: '30%' }}>
             <p style={{
               fontFamily: 'var(--font-display)',
               fontStyle: 'italic',
@@ -275,7 +283,7 @@ export function SectionFive() {
           </div>
           <div style={{
             position: 'absolute',
-            top: '62%',
+            top: `${bodyTopPx}px`,
             left: '59.24%',
             right: '10.35%',
             display: 'flex',

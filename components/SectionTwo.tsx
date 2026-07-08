@@ -78,7 +78,7 @@ export function SectionTwo() {
       {/* ── Mobile: gestapelt ── */}
       <div className="flex flex-col md:hidden" style={{ gap: '48px', paddingTop: '60px' }}>
         <p style={headingStyle}>
-          Sichtbar machen, was trägt.
+          Sichtbar machen, was&nbsp;trägt.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <h1 style={h1Style}>Branding und Webdesign München –</h1>
@@ -104,7 +104,7 @@ export function SectionTwo() {
         {/* Linke Spalte */}
         <div style={{ width: '50%', flexShrink: 0 }}>
           <p style={headingStyle}>
-            Sichtbar machen, was trägt.
+            Sichtbar machen, was&nbsp;trägt.
           </p>
         </div>
 
