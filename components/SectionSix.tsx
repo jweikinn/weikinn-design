@@ -4,11 +4,6 @@ import React, { useRef } from 'react'
 
 const TESTIMONIALS = [
   {
-    name: 'Simone Hörmann',
-    role: 'Employer Branding Fotografie',
-    quote: `Ich bin absolut begeistert von der Zusammenarbeit mit Julia! Sie hat nicht nur mein Logo und meine Website erstellt, sondern auch Schriften, Farben und Grafikelemente so perfekt definiert, dass mein Außenauftritt genau meinen Vorstellungen entspricht. Der Austausch mit Julia war nicht nur äußerst professionell, sondern auch unglaublich partnerschaftlich. Es fühlte sich an, als ob wir gemeinsam in eine kreative Welt eingetaucht sind. Julia hat meine Vorstellungen unkompliziert aufgenommen und sie mit ihrem herausragenden Talent in großartige Ergebnisse umgesetzt.`,
-  },
-  {
     name: 'Miriam Szabo',
     role: 'Praxis für Psychotherapie',
     quote: `Ich habe bei Julia einen Flyer und zwei Homepages in Auftrag gegeben und bin mit ihrer Arbeit und den Ergebnissen rundum zufrieden! Ich habe mich mit meinen Anliegen stets ernst genommen und wertgeschätzt gefühlt und fand ihre Anregungen und Änderungsideen sehr hilfreich. Besonders beeindruckt hat mich, wie sie aus meinen Ideen passende Formen und Farben entwickelt und das dann professionell umsetzt. Der Kontakt war immer total unkompliziert und freundlich. Ich würde sie jederzeit wieder kontaktieren und auch sehr gerne weiterempfehlen!`,
@@ -27,6 +22,11 @@ const TESTIMONIALS = [
     name: 'Lisa Lutter',
     role: 'Luisengymnasium',
     quote: `Julia hat ein fantastisches Gespür für individuelle Bedürfnisse und unterstützt uns seit Jahren optimal, sowohl bei der Konzeptionierung, als auch bei der Gestaltung, bis hin zum fertigen Produkt. Ihre Aufgeschlossenheit, die Begeisterungsfähigkeit und ihr Schwung ist seit Jahren konstant herausragend und darüber hinaus wahnsinnig ansteckend. Gleichzeitig bleibt sie auch in anstrengenden Phasen ruhig und entspannt.`,
+  },
+  {
+    name: 'Simone Hörmann',
+    role: 'Employer Branding Fotografie',
+    quote: `Ich bin absolut begeistert von der Zusammenarbeit mit Julia! Sie hat nicht nur mein Logo und meine Website erstellt, sondern auch Schriften, Farben und Grafikelemente so perfekt definiert, dass mein Außenauftritt genau meinen Vorstellungen entspricht. Der Austausch mit Julia war nicht nur äußerst professionell, sondern auch unglaublich partnerschaftlich. Es fühlte sich an, als ob wir gemeinsam in eine kreative Welt eingetaucht sind. Julia hat meine Vorstellungen unkompliziert aufgenommen und sie mit ihrem herausragenden Talent in großartige Ergebnisse umgesetzt.`,
   },
 ]
 
