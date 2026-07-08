@@ -189,9 +189,10 @@ export function SectionFour() {
           <div ref={el => { cardRefs.current[1] = el }} style={slideUp}>
             <ProjectCard
               title="SaaS-Unternehmen"
-              tags={['Social Media', 'Photography']}
+              tags={['Webdesign', 'Erscheinungsbild', 'Key-Visual']}
               image={IMG_SAAS}
               aspectRatio="676/699"
+              href="/work/saas-unternehmen"
             />
           </div>
           <div ref={el => { cardRefs.current[2] = el }} style={slideUp}>
@@ -238,12 +239,14 @@ export function SectionFour() {
               image={IMG_IMAC}
               image2={IMG_OFFICE}
               aspectRatio="676/699"
+              href="/work/forschung"
             />
           </div>
           <div ref={el => { cardRefs.current[4] = el }} style={slideUp}>
             <ProjectCard
-              title="Broschüre"
-              tags={['Social Media', 'Photography']}
+              title="Stiftung"
+              tags={['Broschüre', 'Editorial Design']}
+              href="/work/stiftung"
               image={IMG_BROCHURE}
               aspectRatio="676/744"
             />
@@ -269,6 +272,7 @@ export function SectionFour() {
             tags={['Social Media', 'Photography']}
             image={IMG_SAAS}
             aspectRatio="676/699"
+            href="/work/saas-unternehmen"
           />
         </div>
         <div ref={el => { cardRefs.current[7] = el }} style={slideUp}>
@@ -278,11 +282,12 @@ export function SectionFour() {
             image={IMG_IMAC}
             image2={IMG_OFFICE}
             aspectRatio="676/699"
+            href="/work/forschung"
           />
         </div>
         <div ref={el => { cardRefs.current[8] = el }} style={slideUp}>
           <ProjectCard
-            title="Broschüre"
+            title="Stiftung"
             tags={['Social Media', 'Photography']}
             image={IMG_BROCHURE}
             aspectRatio="676/744"

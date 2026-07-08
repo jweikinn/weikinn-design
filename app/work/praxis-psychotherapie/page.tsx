@@ -52,7 +52,7 @@ export default function PraxisPsychotherapie() {
               marginBottom: '64px',
             }}
           >
-            ← Alle Projekte
+            ← Zurück zur Homepage
           </Link>
 
           <div className="md:flex md:items-end md:justify-between" style={{ gap: '40px' }}>
@@ -94,9 +94,9 @@ export default function PraxisPsychotherapie() {
           </div>
         </section>
 
-        {/* ── Erstes Bild – groß, volle Breite ── */}
+        {/* ── Bild 1 – Hero, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden', backgroundColor: '#111' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
             <Image
               src="/work/praxis.png"
               alt="Praxis für Psychotherapie – Branding"
@@ -126,23 +126,24 @@ export default function PraxisPsychotherapie() {
             </div>
             <div style={{ paddingTop: '8px' }}>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
-                Die Praxis für Psychotherapie suchte eine Identität, die Nähe schafft – ohne klinisch zu wirken. Gefragt war ein Erscheinungsbild, das Vertrauen kommuniziert: zugänglich, ruhig, mit einer Wärme, die Menschen bereits vor dem ersten Gespräch spüren.
+                Die Praxis für Psychotherapie suchte eine Identität, die Nähe schafft – ohne klinisch zu wirken. Gefragt war ein Erscheinungsbild, das Vertrauen kommuniziert: zugänglich, ruhig, mit einer Wärme, die Menschen bereits vor dem ersten Gespräch spüren. Dazu gehörten die Praxis-Website, eine eigene Landingpage für das Gruppenangebot »Mutterzeit« sowie ein passender Flyer.
               </p>
               <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0, opacity: 0.7 }}>
-                Scope: Markenentwicklung · Logo · Farbkonzept · Typografie · Geschäftsausstattung
+                Scope: Markenentwicklung · Logo · Farbkonzept · Typografie · Website · Landingpage · Flyer
               </p>
             </div>
           </div>
         </section>
 
-        {/* ── Bildblock 2 – zwei Bilder nebeneinander ── */}
+        {/* ── Bild 2+3 – zwei Flyer nebeneinander ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
           <div className="md:grid" style={{ gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
-            {[2, 3].map(n => (
-              <div key={n} style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '4px', overflow: 'hidden', backgroundColor: '#111' }}>
-                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', letterSpacing: '0.06em', textTransform: 'uppercase', color: '#d5d3e6', opacity: 0.3 }}>Bild {n}</span>
-                </div>
+            {[
+              { src: '/work/psycho/flyer-01.jpg', alt: 'Flyer Praxis für Psychotherapie' },
+              { src: '/work/psycho/flyer-02.jpg', alt: 'Flyer Praxis für Psychotherapie – Variante' },
+            ].map((img, i) => (
+              <div key={i} style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '4px', overflow: 'hidden' }}>
+                <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} />
               </div>
             ))}
           </div>
@@ -176,25 +177,29 @@ export default function PraxisPsychotherapie() {
           </div>
         </section>
 
-        {/* ── Bildblock 3 – großes Einzelbild ── */}
-        <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden', backgroundColor: '#111' }}>
-            <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', letterSpacing: '0.06em', textTransform: 'uppercase', color: '#d5d3e6', opacity: 0.3 }}>Bild 4</span>
-            </div>
+        {/* ── Bild 5 – Webdesign Mockup animiert, volle Breite ── */}
+        <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '16px' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '4px', overflow: 'hidden' }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/work/psycho/webdesign.gif"
+              alt="Praxis für Psychotherapie – Webdesign"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
           </div>
         </section>
 
-        {/* ── Bildblock 4 – drei Bilder ── */}
+        {/* ── Bild 6 – Hochformat Flyer, zentriert ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '160px' }}>
-          <div className="md:grid" style={{ gridTemplateColumns: '1fr 1fr 1fr', gap: '16px' }}>
-            {[5, 6, 7].map(n => (
-              <div key={n} style={{ position: 'relative', width: '100%', aspectRatio: '3/4', borderRadius: '4px', overflow: 'hidden', backgroundColor: '#111' }}>
-                <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '14px', letterSpacing: '0.06em', textTransform: 'uppercase', color: '#d5d3e6', opacity: 0.3 }}>Bild {n}</span>
-                </div>
-              </div>
-            ))}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{ position: 'relative', width: 'min(50%, 600px)', aspectRatio: '2/3', borderRadius: '4px', overflow: 'hidden' }}>
+              <Image
+                src="/work/psycho/flyer-03.jpg"
+                alt="Praxis für Psychotherapie – Hochformat Flyer"
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
           </div>
         </section>
 
