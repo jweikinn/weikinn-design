@@ -3,27 +3,26 @@
 import { useState } from 'react'
 import Link from 'next/link'
 
-const navLinks = [
-  { label: 'About', href: '/about' },
-  { label: 'Services', href: '/#services' },
-  { label: 'Projects', href: '/#projects' },
-  { label: 'Contact', href: '/#contact' },
+const NAV_LINKS = [
+  { label: 'Zu mir', href: '/about' },
+  { label: 'Arbeiten', href: '/#arbeiten' },
+  { label: 'Angebot', href: '/#angebot' },
 ]
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [letsHover, setLetsHover] = useState(false)
+  const [hoveredIdx, setHoveredIdx] = useState<number | null>(null)
+
+  const close = () => setMenuOpen(false)
 
   return (
     <>
-      {/* ── Blend-Leiste: Logo + Burger ────────────────────────────────
-          mix-blend-mode: difference auf dem Container, damit er gegen
-          den echten Seiteninhalt darunter blendet — nicht nur intern. */}
+      {/* ── Fixed bar: logo + burger ── */}
       <div
         className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between pointer-events-none"
         style={{
           padding: '24px 32px',
-          mixBlendMode: 'difference',
+          mixBlendMode: menuOpen ? 'normal' : 'difference',
         }}
       >
         <Link
@@ -35,23 +34,18 @@ export function Navbar() {
             fontSize: '26.5px',
             letterSpacing: '0.023em',
             color: '#fff',
+            textDecoration: 'none',
           }}
+          onClick={close}
         >
           weikinn
         </Link>
 
         <button
           className="pointer-events-auto"
-          style={{
-            color: '#fff',
-            background: 'none',
-            border: 'none',
-            cursor: 'pointer',
-            padding: 0,
-            lineHeight: 0,
-          }}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Menü öffnen"
+          style={{ color: '#fff', background: 'none', border: 'none', cursor: 'pointer', padding: 0, lineHeight: 0 }}
+          onClick={() => setMenuOpen(o => !o)}
+          aria-label={menuOpen ? 'Menü schließen' : 'Menü öffnen'}
         >
           {menuOpen ? (
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -65,30 +59,41 @@ export function Navbar() {
         </button>
       </div>
 
-      {/* ── Dropdown: separat, kein Blend ───────────────────────────── */}
+      {/* ── Fullscreen overlay ── */}
       {menuOpen && (
         <div
-          className="fixed top-0 left-0 right-0 z-40 bg-black px-8 pb-12"
-          style={{ paddingTop: '72px' }}
+          className="fixed inset-0 z-40 flex flex-col justify-center"
+          style={{ backgroundColor: '#6759d7', paddingLeft: '32px', paddingRight: '32px' }}
         >
-          <div className="flex flex-col gap-7">
-            {navLinks.map((link) => (
+          <nav style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            {NAV_LINKS.map((link, i) => (
               <Link
                 key={link.label}
                 href={link.href}
                 style={{
                   fontFamily: 'var(--font-sans)',
-                  fontWeight: 500,
-                  fontSize: '24px',
-                  color: '#fff',
+                  fontWeight: 800,
+                  fontSize: 'clamp(52px, 9vw, 108px)',
+                  lineHeight: 0.9,
+                  letterSpacing: '-0.02em',
+                  color: hoveredIdx !== null && hoveredIdx !== i
+                    ? 'rgba(213,211,230,0.3)'
+                    : '#d5d3e6',
+                  textDecoration: 'none',
+                  transition: 'color 0.2s ease',
                 }}
-                onClick={() => setMenuOpen(false)}
+                onMouseEnter={() => setHoveredIdx(i)}
+                onMouseLeave={() => setHoveredIdx(null)}
+                onClick={close}
               >
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="#contact"
+          </nav>
+
+          <div style={{ marginTop: '48px' }}>
+            <a
+              href="mailto:julia@weikinn.design"
               style={{
                 fontFamily: 'var(--font-sans)',
                 fontWeight: 800,
@@ -98,17 +103,14 @@ export function Navbar() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 borderRadius: '9999px',
-                marginTop: '12px',
-                backgroundColor: letsHover ? '#6759d7' : '#fff',
-                color: letsHover ? '#fff' : '#000',
-                transition: 'background-color 0.25s ease, color 0.25s ease',
+                backgroundColor: '#d5d3e6',
+                color: '#6759d7',
+                textDecoration: 'none',
               }}
-              onMouseEnter={() => setLetsHover(true)}
-              onMouseLeave={() => setLetsHover(false)}
-              onClick={() => setMenuOpen(false)}
+              onClick={close}
             >
-              Let&apos;s talk
-            </Link>
+              Kontakt
+            </a>
           </div>
         </div>
       )}

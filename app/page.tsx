@@ -56,8 +56,8 @@ export default function Home() {
           </div>
         </div>
 
-        <SectionFour />
-        <SectionFive />
+        <div id="arbeiten"><SectionFour /></div>
+        <div id="angebot"><SectionFive /></div>
         <SectionSix />
       </div>
       {/* Footer liegt hinter dem Content (zIndex: 0) und wird von unten enthüllt wenn der Content hochscrollt */}
