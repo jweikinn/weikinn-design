@@ -96,7 +96,7 @@ export function SectionFive() {
   const headlineDesktop: React.CSSProperties = {
     fontFamily: 'var(--font-display)',
     fontStyle: 'italic',
-    fontWeight: 300,
+    fontWeight: 400,
     fontSize: 'clamp(36px, 5.56vw, 80px)',
     lineHeight: 1.1,
     letterSpacing: '0.625px',
@@ -107,7 +107,7 @@ export function SectionFive() {
   const headlineMobile: React.CSSProperties = {
     fontFamily: 'var(--font-display)',
     fontStyle: 'italic',
-    fontWeight: 300,
+    fontWeight: 400,
     fontSize: 'clamp(28px, 7vw, 36px)',
     lineHeight: 1.1,
     letterSpacing: '0.625px',
@@ -292,7 +292,7 @@ export function SectionFive() {
           }}>
             <p style={bodyCss}>{KOMPLETT_BODY}</p>
             <a
-              href="#contact"
+              href="mailto:julia@weikinn.design"
               style={{ ...kontaktBtn, backgroundColor: kontaktHover ? '#fff' : '#d5d3e6', color: '#6759d7', transition: 'background-color 0.25s ease' }}
               onMouseEnter={() => setKontaktHover(true)}
               onMouseLeave={() => setKontaktHover(false)}
@@ -325,7 +325,7 @@ export function SectionFive() {
           </p>
           <p style={bodyCss}>{KOMPLETT_BODY}</p>
           <a
-            href="#contact"
+            href="mailto:julia@weikinn.design"
             style={{ ...kontaktBtn, backgroundColor: kontaktHover ? '#fff' : '#d5d3e6', color: '#6759d7', transition: 'background-color 0.25s ease' }}
             onMouseEnter={() => setKontaktHover(true)}
             onMouseLeave={() => setKontaktHover(false)}

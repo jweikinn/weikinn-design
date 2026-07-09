@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import { useLayoutEffect, useRef, useState } from 'react'
 
 const px = (mobile: number, desktop: number) =>
@@ -102,27 +103,42 @@ export function Footer() {
             julia@weikinn.design
           </a>
         </p>
-        <button
+        <a
+          href="mailto:julia@weikinn.design"
           style={{
             fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em',
-            borderRadius: '24px', padding: '10px 20px', cursor: 'pointer',
+            borderRadius: '24px', padding: '10px 20px',
             backgroundColor: kontaktHover ? '#fff' : 'transparent',
             color: kontaktHover ? '#6759d7' : '#fff',
             border: '1.5px solid #fff',
             transition: 'background-color 0.25s ease, color 0.25s ease',
+            textDecoration: 'none',
+            display: 'inline-block',
           }}
           onMouseEnter={() => setKontaktHover(true)}
           onMouseLeave={() => setKontaktHover(false)}
         >
           Kontakt
-        </button>
+        </a>
         <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '14px', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '24px' }}>
           Instagram / Linkedin
         </p>
         <div style={{ height: '1px', backgroundColor: 'rgba(255,255,255,0.4)', margin: `${px(20, 32)} 0` }} />
-        <p className="text-center" style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', marginBottom: '16px', opacity: 0.7 }}>
-          Impressum / Datenschutz
-        </p>
+        <div className="text-center" style={{ marginBottom: '16px' }}>
+          <Link
+            href="/impressum"
+            style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', opacity: 0.7, color: 'inherit', textDecoration: 'none' }}
+          >
+            Impressum
+          </Link>
+          <span style={{ opacity: 0.7, fontSize: '12px' }}>{' / '}</span>
+          <Link
+            href="/datenschutz"
+            style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'inherit', textDecoration: 'none', opacity: 0.7 }}
+          >
+            Datenschutz
+          </Link>
+        </div>
         <p style={{
           fontFamily: 'var(--font-sans)',
           fontWeight: 800,
@@ -178,24 +194,18 @@ export function Footer() {
 
         {/* Row 3: Impressum / Datenschutz — right-aligned */}
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '24px', marginBottom: px(8, 16) }}>
-          {['Impressum', 'Datenschutz'].map((label) => (
-            <a
-              key={label}
-              href="#"
-              style={{
-                fontFamily: 'var(--font-sans)',
-                fontWeight: 500,
-                fontSize: '12px',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                color: 'inherit',
-                textDecoration: 'none',
-                opacity: 0.7,
-              }}
-            >
-              {label}
-            </a>
-          ))}
+          <Link
+            href="/impressum"
+            style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'inherit', textDecoration: 'none', opacity: 0.7 }}
+          >
+            Impressum
+          </Link>
+          <Link
+            href="/datenschutz"
+            style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '12px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'inherit', textDecoration: 'none', opacity: 0.7 }}
+          >
+            Datenschutz
+          </Link>
         </div>
 
         {/* Row 4: interactive weikinn — same logic as WeikinnHeading */}

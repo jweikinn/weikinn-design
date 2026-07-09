@@ -113,7 +113,7 @@ export default function Stiftung() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 300,
+                fontWeight: 400,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',
@@ -153,7 +153,7 @@ export default function Stiftung() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 300,
+                fontWeight: 400,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',

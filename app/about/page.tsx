@@ -183,7 +183,7 @@ export default function AboutPage() {
                 <p style={{
                   fontFamily: 'var(--font-display)',
                   fontStyle: 'italic',
-                  fontWeight: 300,
+                  fontWeight: 400,
                   fontSize: 'clamp(32px, 3.47vw, 50px)',
                   lineHeight: 1.05,
                   letterSpacing: '0.5px',
