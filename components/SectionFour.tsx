@@ -195,33 +195,7 @@ export function SectionFour() {
               href="/work/saas-unternehmen"
             />
           </div>
-          <div ref={el => { cardRefs.current[2] = el }} style={slideUp}>
-            <div className="flex flex-wrap" style={{ gap: '10px' }}>
-              {ctaButtons.map((label) => (
-                <button
-                  key={label}
-                  style={{
-                    fontFamily: 'var(--font-sans)',
-                    fontWeight: 800,
-                    fontSize: '14px',
-                    letterSpacing: '-0.02em',
-                    padding: '12px 16px',
-                    borderRadius: '24px',
-                    border: 'none',
-                    cursor: 'pointer',
-                    whiteSpace: 'nowrap',
-                    backgroundColor: btnHover ? '#d5d3e6' : '#6759d7',
-                    color: btnHover ? '#6759d7' : '#d5d3e6',
-                    transition: 'background-color 0.25s ease, color 0.25s ease',
-                  }}
-                  onMouseEnter={() => setBtnHover(true)}
-                  onMouseLeave={() => setBtnHover(false)}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-          </div>
+          {/* mehr Arbeiten — temporär ausgeblendet */}
         </div>
 
         {/* Rechte Spalte — versetzt nach unten */}
@@ -269,7 +243,7 @@ export function SectionFour() {
         <div ref={el => { cardRefs.current[6] = el }} style={slideUp}>
           <ProjectCard
             title="SaaS-Unternehmen"
-            tags={['Social Media', 'Photography']}
+            tags={['Webdesign', 'Erscheinungsbild', 'Key-Visual']}
             image={IMG_SAAS}
             aspectRatio="676/699"
             href="/work/saas-unternehmen"
@@ -288,38 +262,13 @@ export function SectionFour() {
         <div ref={el => { cardRefs.current[8] = el }} style={slideUp}>
           <ProjectCard
             title="Stiftung"
-            tags={['Social Media', 'Photography']}
+            tags={['Broschüre', 'Editorial Design']}
             image={IMG_BROCHURE}
             aspectRatio="676/744"
+            href="/work/stiftung"
           />
         </div>
-        <div ref={el => { cardRefs.current[9] = el }} style={slideUp}>
-          <div className="flex flex-wrap" style={{ gap: '5px' }}>
-            {ctaButtons.map((label) => (
-              <button
-                key={label}
-                style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 800,
-                  fontSize: px(12, 14),
-                  letterSpacing: '-0.02em',
-                  padding: `${px(7, 12)} ${px(9, 16)}`,
-                  borderRadius: '13px',
-                  border: 'none',
-                  cursor: 'pointer',
-                  whiteSpace: 'nowrap',
-                  backgroundColor: btnHover ? '#d5d3e6' : '#6759d7',
-                  color: btnHover ? '#6759d7' : '#d5d3e6',
-                  transition: 'background-color 0.25s ease, color 0.25s ease',
-                }}
-                onMouseEnter={() => setBtnHover(true)}
-                onMouseLeave={() => setBtnHover(false)}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-        </div>
+        {/* mehr Arbeiten — temporär ausgeblendet */}
       </div>
     </section>
   )
