@@ -30,7 +30,7 @@ export default function Home() {
         >
           <span style={{
             fontFamily: 'var(--font-sans)',
-            fontWeight: 300,
+            fontWeight: 500,
             fontSize: '14px',
             letterSpacing: '-0.02em',
             color: '#fff',
