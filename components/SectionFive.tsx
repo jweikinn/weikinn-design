@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import { bodyCss } from '@/lib/styles'
 
 const PAD = 32
 const REF_SIZE = 100
@@ -96,7 +97,7 @@ export function SectionFive() {
   const headlineDesktop: React.CSSProperties = {
     fontFamily: 'var(--font-display)',
     fontStyle: 'italic',
-    fontWeight: 400,
+    fontWeight: 500,
     fontSize: 'clamp(36px, 5.56vw, 80px)',
     lineHeight: 1.1,
     letterSpacing: '0.625px',
@@ -107,21 +108,11 @@ export function SectionFive() {
   const headlineMobile: React.CSSProperties = {
     fontFamily: 'var(--font-display)',
     fontStyle: 'italic',
-    fontWeight: 400,
+    fontWeight: 500,
     fontSize: 'clamp(28px, 7vw, 36px)',
     lineHeight: 1.1,
     letterSpacing: '0.625px',
     color: '#6759d7',
-    margin: 0,
-  }
-
-  const bodyCss: React.CSSProperties = {
-    fontFamily: 'var(--font-sans)',
-    fontWeight: 300,
-    fontSize: '18px',
-    lineHeight: 1.36,
-    letterSpacing: '0.2px',
-    color: '#d5d3e6',
     margin: 0,
   }
 
@@ -160,7 +151,7 @@ export function SectionFive() {
       {/* "Angebot" label — scrolls with content */}
       <div style={{ position: 'absolute', top: '5vh', left: `${PAD}px`, zIndex: 10 }}>
         <p style={{
-          fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300,
+          fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 500,
           fontSize: '20px', lineHeight: '21px', letterSpacing: '0.8px',
           color: '#d5d3e6', margin: 0,
         }}>
@@ -271,7 +262,7 @@ export function SectionFive() {
             <p style={{
               fontFamily: 'var(--font-display)',
               fontStyle: 'italic',
-              fontWeight: 300,
+              fontWeight: 500,
               fontSize: 'clamp(24px, 3.47vw, 50px)',
               lineHeight: 1.15,
               letterSpacing: '0.5px',
@@ -314,7 +305,7 @@ export function SectionFive() {
           <p style={{
             fontFamily: 'var(--font-display)',
             fontStyle: 'italic',
-            fontWeight: 300,
+            fontWeight: 500,
             fontSize: 'clamp(20px, 5vw, 28px)',
             lineHeight: 1.15,
             letterSpacing: '0.5px',

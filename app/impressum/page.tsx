@@ -135,7 +135,7 @@ const bodyCss: React.CSSProperties = {
   fontFamily: 'var(--font-sans)',
   fontWeight: 300,
   fontSize: '16px',
-  lineHeight: 1.7,
+  lineHeight: 1.4,
   letterSpacing: '0.1px',
   color: 'rgba(213,211,230,0.8)',
 }
@@ -195,7 +195,7 @@ export default function ImpressumPage() {
                   style={{
                     fontFamily: 'var(--font-display)',
                     fontStyle: 'italic',
-                    fontWeight: 400,
+                    fontWeight: 500,
                     fontSize: 'clamp(22px, 2.08vw, 30px)',
                     lineHeight: 1.1,
                     letterSpacing: '0.3px',

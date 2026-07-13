@@ -1,39 +1,41 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { bodyCss } from '@/lib/styles'
 
 const PAD = 32
+const REF_SIZE = 100
 
-const INTRO = 'Ich bin Julia, aufgewachsen südlich von München und heute in Sendling zu Hause – von meinem Schreibtisch nahe der Isar arbeite ich als freie Designerin für Unternehmen aus ganz Deutschland. Bei der Arbeit läuft oft im Hintergrund Hotel Matze – seit Jahren. Und wenn ich weg kann, bin ich gerne am Meer oder in den Bergen.'
+const INTRO = 'Ich bin Julia. Seit über zwölf Jahren gestalte ich als freie Designerin Marken und Websites – für Unternehmen mit Sinn und Haltung im gesamten deutschsprachigen Raum und darüber hinaus.'
 
 const SECTIONS = [
   {
     num: '01',
     title: 'Wie ich bin',
-    text: 'Ich stelle Fragen und höre genau hin. Ich verkompliziere nicht und ich arbeite mit gesundem Menschenverstand, den ich in meiner Arbeit für unverzichtbar halte. Gerade jetzt.',
+    text: 'Ich stelle Fragen und höre genau hin. Ich verkompliziere nicht und ich arbeite mit gesundem Menschenverstand, den ich in meiner Arbeit für unverzichtbar halte.',
   },
   {
     num: '02',
     title: 'Mein Weg',
-    text: 'Aufgewachsen bin ich südlich von München. Kommunikationsdesign habe ich in Nürnberg studiert und danach ein paar Jahre in Hamburg gelebt – bis mir klar wurde, dass sich in der Isar einfach besser baden lässt als in der Elbe. Seit über zwölf Jahren bin ich selbstständig.',
+    text: 'Aufgewachsen bin ich südlich von München. Kommunikationsdesign habe ich in Nürnberg studiert und danach acht Jahre in Hamburg gelebt. Ich liebe Hamburg bis heute – das Weltstädtische, den Hafen. Trotzdem hat mich München am Ende wieder eingesammelt: Auf Dauer fehlte mir der blaue Himmel. Seit über zwölf Jahren bin ich selbstständig.',
   },
   {
     num: '03',
     title: 'Wie ich arbeite',
-    text: 'Ich fange mit Fragen an. Bis ich verstehe, was ein Projekt braucht – und was nicht. Dann kommt die Recherche und die Intuition, dann der Fluss, in dem Gestalten fast von selbst geht. Wir müssen nicht bei Null anfangen. Wir starten da, wo du gerade bist. Kein aufwendiger Workshop, wenn er nicht nötig ist.',
+    text: 'Ich fange mit Fragen an. Bis ich verstehe, was ein Projekt braucht – und was nicht. Dann kommt die Recherche und die Intuition, dann der Fluss, in dem Gestalten fast von selbst geht. Wir müssen nicht bei Null anfangen. Wir starten da, wo du gerade bist.',
   },
   {
     num: '04',
     title: 'Was mich trägt',
-    text: 'Vertrauen. Wenn ich das Vertrauen bekomme, zu gestalten, wie ich es für richtig halte, entstehen die besten Projekte. Was mir dagegen schwerfällt, ist die andere Seite: Akquise, sich selbst verkaufen, den Raum einnehmen. Das lerne ich noch – während ich das hier schreibe, zum Beispiel.',
+    text: 'Vertrauen. Wenn ich das Vertrauen bekomme, zu gestalten, wie ich es für richtig halte, entstehen die besten Projekte.',
   },
   {
     num: '05',
     title: 'Was ich für nötig halte',
-    text: 'Vertrauen und Wertschätzung, auf beiden Seiten. Und Menschenverstand. In einer Zeit, in der KI vieles gestalten kann, wird umso deutlicher, was Menschen leisten: zuhören, mitdenken, Zusammenhänge sehen, Intuition ins Handwerk übersetzen. Darauf stelle ich meine Arbeit.',
+    text: 'Auf beiden Seiten: Vertrauen und Wertschätzung. Und Menschenverstand. In einer Zeit, in der KI vieles gestalten kann, wird umso deutlicher, was Menschen leisten: zuhören, mitdenken, Zusammenhänge sehen, Intuition ins Handwerk übersetzen. Darauf stelle ich meine Arbeit.',
   },
 ]
 
@@ -52,19 +54,13 @@ const WERTE = [
   },
 ]
 
-const bodyCss: React.CSSProperties = {
-  fontFamily: 'var(--font-sans)',
-  fontWeight: 300,
-  fontSize: '18px',
-  lineHeight: 1.5,
-  letterSpacing: '0.2px',
-  color: '#d5d3e6',
-  margin: 0,
-}
 
 export default function AboutPage() {
   const headingRef = useRef<HTMLHeadingElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const measureRef = useRef<HTMLSpanElement>(null)
   const [seen, setSeen] = useState(false)
+  const [headingSize, setHeadingSize] = useState<number | null>(null)
 
   useEffect(() => {
     const el = headingRef.current
@@ -77,9 +73,41 @@ export default function AboutPage() {
     return () => obs.disconnect()
   }, [])
 
+  useLayoutEffect(() => {
+    const compute = () => {
+      if (!containerRef.current || !measureRef.current) return
+      const w = containerRef.current.offsetWidth - PAD * 2
+      const nw = measureRef.current.offsetWidth
+      if (w <= 0 || nw <= 0) return
+      setHeadingSize(REF_SIZE * (w / nw))
+    }
+    compute()
+    document.fonts?.ready.then(compute).catch(() => {})
+    window.addEventListener('resize', compute)
+    return () => window.removeEventListener('resize', compute)
+  }, [])
+
   return (
     <main style={{ backgroundColor: '#000', minHeight: '100vh', color: '#d5d3e6' }}>
-      <div style={{ position: 'relative', zIndex: 1, backgroundColor: '#000' }}>
+      {/* Messspanne für fluid heading */}
+      <span
+        ref={measureRef}
+        aria-hidden
+        style={{
+          position: 'fixed', top: '-9999px', left: '-9999px',
+          fontFamily: 'var(--font-sans)',
+          fontWeight: 800,
+          fontSize: `${REF_SIZE}px`,
+          letterSpacing: '-0.02em',
+          whiteSpace: 'nowrap',
+          opacity: 0,
+          pointerEvents: 'none',
+        }}
+      >
+        Julia Weikinn
+      </span>
+
+      <div ref={containerRef} style={{ position: 'relative', zIndex: 1, backgroundColor: '#000' }}>
         <Navbar />
 
         {/* ── Hero ── */}
@@ -88,10 +116,9 @@ export default function AboutPage() {
             href="/"
             style={{
               fontFamily: 'var(--font-sans)',
-              fontWeight: 300,
+              fontWeight: 500,
               fontSize: '14px',
               letterSpacing: '0.06em',
-              textTransform: 'uppercase',
               color: '#d5d3e6',
               opacity: 0.5,
               textDecoration: 'none',
@@ -109,16 +136,18 @@ export default function AboutPage() {
             style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: seen ? 800 : 100,
-              fontSize: 'clamp(48px, 7.5vw, 108px)',
+              fontSize: headingSize ? `${headingSize.toFixed(2)}px` : '0px',
               lineHeight: 0.9,
               letterSpacing: '-0.02em',
               color: '#d5d3e6',
               margin: '0 0 64px',
               opacity: seen ? 1 : 0,
               transition: 'font-weight 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease',
+              whiteSpace: 'nowrap',
+              visibility: headingSize ? 'visible' : 'hidden',
             }}
           >
-            Julia<br />Weikinn.
+            Julia Weikinn
           </h1>
 
           {/* Intro-Text */}
@@ -128,7 +157,7 @@ export default function AboutPage() {
               fontFamily: 'var(--font-sans)',
               fontWeight: 300,
               fontSize: 'clamp(18px, 1.67vw, 24px)',
-              lineHeight: 1.5,
+              lineHeight: 1.4,
               letterSpacing: '0.1px',
               color: '#d5d3e6',
               margin: 0,
@@ -161,41 +190,43 @@ export default function AboutPage() {
             style={{
               paddingLeft: `${PAD}px`,
               paddingRight: `${PAD}px`,
-              paddingBottom: '80px',
+              paddingTop: '40px',
+              paddingBottom: 'clamp(64px, 8vw, 120px)',
               borderTop: '1px solid rgba(213, 211, 230, 0.12)',
-              paddingTop: '64px',
             }}
           >
+            {/* Nummer */}
+            <p style={{
+              fontFamily: 'var(--font-sans)',
+              fontWeight: 300,
+              fontSize: '13px',
+              letterSpacing: '0.06em',
+              textTransform: 'uppercase',
+              color: '#6759d7',
+              opacity: 0.7,
+              margin: '0 0 20px',
+            }}>
+              {num}
+            </p>
+
+            {/* Großer Titel — volle Breite */}
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontStyle: 'italic',
+              fontWeight: 500,
+              fontSize: 'clamp(48px, 6.87vw, 99px)',
+              lineHeight: 1.05,
+              letterSpacing: '-0.01em',
+              color: '#d5d3e6',
+              margin: '0 0 clamp(32px, 4vw, 56px)',
+            }}>
+              {title}
+            </p>
+
+            {/* Fließtext — auf Desktop rechts eingerückt */}
             <div className="md:grid" style={{ gridTemplateColumns: '1fr 1fr', gap: '80px' }}>
-              <div>
-                <p style={{
-                  fontFamily: 'var(--font-sans)',
-                  fontWeight: 300,
-                  fontSize: '13px',
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase',
-                  color: '#6759d7',
-                  opacity: 0.7,
-                  marginBottom: '16px',
-                }}>
-                  {num}
-                </p>
-                <p style={{
-                  fontFamily: 'var(--font-display)',
-                  fontStyle: 'italic',
-                  fontWeight: 400,
-                  fontSize: 'clamp(32px, 3.47vw, 50px)',
-                  lineHeight: 1.05,
-                  letterSpacing: '0.5px',
-                  color: '#6759d7',
-                  margin: 0,
-                }}>
-                  {title}
-                </p>
-              </div>
-              <div style={{ paddingTop: '8px' }}>
-                <p style={bodyCss}>{text}</p>
-              </div>
+              <div />
+              <p style={bodyCss}>{text}</p>
             </div>
           </section>
         ))}
@@ -228,7 +259,7 @@ export default function AboutPage() {
                 <p style={{
                   fontFamily: 'var(--font-display)',
                   fontStyle: 'italic',
-                  fontWeight: 300,
+                  fontWeight: 500,
                   fontSize: 'clamp(22px, 2.08vw, 30px)',
                   lineHeight: 1.1,
                   letterSpacing: '0.3px',
@@ -241,7 +272,7 @@ export default function AboutPage() {
                   fontFamily: 'var(--font-sans)',
                   fontWeight: 300,
                   fontSize: '18px',
-                  lineHeight: 1.6,
+                  lineHeight: 1.4,
                   letterSpacing: '0.2px',
                   color: '#d5d3e6',
                   opacity: 0.85,

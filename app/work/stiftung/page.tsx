@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { bodyCss } from '@/lib/styles'
 
 const PAD = 32
 
@@ -38,10 +39,9 @@ export default function Stiftung() {
             href="/"
             style={{
               fontFamily: 'var(--font-sans)',
-              fontWeight: 300,
+              fontWeight: 500,
               fontSize: '14px',
               letterSpacing: '0.06em',
-              textTransform: 'uppercase',
               color: '#d5d3e6',
               opacity: 0.5,
               textDecoration: 'none',
@@ -77,7 +77,7 @@ export default function Stiftung() {
               className="md:text-right"
               style={{
                 fontFamily: 'var(--font-sans)',
-                fontWeight: 300,
+                fontWeight: 500,
                 fontSize: '14px',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
@@ -113,7 +113,7 @@ export default function Stiftung() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 400,
+                fontWeight: 500,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',
@@ -124,10 +124,10 @@ export default function Stiftung() {
               </p>
             </div>
             <div style={{ paddingTop: '8px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
+              <p style={{ ...bodyCss, margin: '0 0 24px' }}>
                 Die <a href="https://kolibri-stiftung.de/nachlassspenden/" target="_blank" rel="noopener noreferrer" style={{ color: '#6759d7', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Kolibri Interkulturelle Stiftung</a> unterstützt Geflüchtete und Migrant:innen in München – durch Benefizveranstaltungen, Sprachkurse, psychotherapeutische Begleitung und Sozialberatung. Für das Thema Nachlassspenden brauchte die Stiftung eine Broschüre, die Menschen behutsam anspricht: informativ, vertrauensvoll und gestalterisch auf Augenhöhe mit dem Anliegen.
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0, opacity: 0.7 }}>
+              <p style={{ ...bodyCss, opacity: 0.7 }}>
                 Scope: Editorial Design · Broschüre · Typografie · Layout
               </p>
             </div>
@@ -153,7 +153,7 @@ export default function Stiftung() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 400,
+                fontWeight: 500,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',
@@ -164,10 +164,10 @@ export default function Stiftung() {
               </p>
             </div>
             <div style={{ paddingTop: '8px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
+              <p style={{ ...bodyCss, margin: '0 0 24px' }}>
                 Eine Gestaltung, die den Geist der Stiftung trägt: lebendig, menschlich, mit Freude an Farbe und Form. Das Layout gibt Inhalt und Bild gleichermaßen Raum – und lässt die Arbeit der Stiftung für sich sprechen.
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0 }}>
+              <p style={bodyCss}>
                 Das Ergebnis ist eine Broschüre, die Solidarität sichtbar macht – und bei Veranstaltungen, Fördergebern und Partnern gleichermaßen überzeugt.
               </p>
             </div>

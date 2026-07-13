@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { bodyCss } from '@/lib/styles'
 
 const PAD = 32
 
@@ -39,10 +40,9 @@ export default function PraxisPsychotherapie() {
             href="/#projects"
             style={{
               fontFamily: 'var(--font-sans)',
-              fontWeight: 300,
+              fontWeight: 500,
               fontSize: '14px',
               letterSpacing: '0.06em',
-              textTransform: 'uppercase',
               color: '#d5d3e6',
               opacity: 0.5,
               textDecoration: 'none',
@@ -78,7 +78,7 @@ export default function PraxisPsychotherapie() {
               className="md:text-right"
               style={{
                 fontFamily: 'var(--font-sans)',
-                fontWeight: 300,
+                fontWeight: 500,
                 fontSize: '14px',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
@@ -114,7 +114,7 @@ export default function PraxisPsychotherapie() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 400,
+                fontWeight: 500,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',
@@ -125,10 +125,10 @@ export default function PraxisPsychotherapie() {
               </p>
             </div>
             <div style={{ paddingTop: '8px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
+              <p style={{ ...bodyCss, margin: '0 0 24px' }}>
                 Die Praxis für Psychotherapie suchte eine Identität, die Nähe schafft – ohne klinisch zu wirken. Gefragt war ein Erscheinungsbild, das Vertrauen kommuniziert: zugänglich, ruhig, mit einer Wärme, die Menschen bereits vor dem ersten Gespräch spüren. Dazu gehörten die Praxis-Website, eine eigene Landingpage für das Gruppenangebot »Mutterzeit« sowie ein passender Flyer.
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0, opacity: 0.7 }}>
+              <p style={{ ...bodyCss, opacity: 0.7 }}>
                 Scope: Markenentwicklung · Logo · Farbkonzept · Typografie · Website · Landingpage · Flyer
               </p>
             </div>
@@ -156,7 +156,7 @@ export default function PraxisPsychotherapie() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 400,
+                fontWeight: 500,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',
@@ -167,10 +167,10 @@ export default function PraxisPsychotherapie() {
               </p>
             </div>
             <div style={{ paddingTop: '8px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
+              <p style={{ ...bodyCss, margin: '0 0 24px' }}>
                 Ausgangspunkt war die Frage, wie sich Vertrauen gestalten lässt. Die Antwort lag in Reduktion: ein ruhiges Farbspektrum aus Warmtönen, eine Typografie mit Charakter ohne Schärfe, ein Logo, das Offenheit und Haltung gleichzeitig vermittelt.
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0 }}>
+              <p style={bodyCss}>
                 Das Ergebnis ist ein Erscheinungsbild, das auf allen Trägern konsistent wirkt – von der Visitenkarte bis zur Website – und das Menschen anspricht, die sich in einem sensiblen Moment befinden.
               </p>
             </div>

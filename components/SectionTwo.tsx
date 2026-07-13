@@ -1,13 +1,14 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { bodyCss } from '@/lib/styles'
 
 const imgEbene1 = '/Strategisch-gedacht-vonHerzen-gemacht.svg'
 
 const headingStyle: React.CSSProperties = {
   fontFamily: 'var(--font-display)',
   fontStyle: 'italic',
-  fontWeight: 300,
+  fontWeight: 500,
   fontSize: 'clamp(56px, 6.87vw, 99px)',
   lineHeight: 1.1,
   letterSpacing: '-0.0098em',
@@ -19,21 +20,12 @@ const h1Style: React.CSSProperties = {
   fontFamily: 'var(--font-sans)',
   fontWeight: 700,
   fontSize: '18px',
-  lineHeight: 1.36,
+  lineHeight: 1.4,
   letterSpacing: '0.2px',
   color: '#d5d3e6',
   margin: 0,
 }
 
-const bodyStyle: React.CSSProperties = {
-  fontFamily: 'var(--font-sans)',
-  fontWeight: 300,
-  fontSize: '18px',
-  lineHeight: 1.36,
-  letterSpacing: '0.2px',
-  color: '#d5d3e6',
-  margin: 0,
-}
 
 const ctaStyle: React.CSSProperties = {
   display: 'inline-flex',
@@ -64,7 +56,7 @@ export function SectionTwo() {
   }, [])
 
   const italicSpan = (
-    <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 300, letterSpacing: '0.8px' }}>
+    <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 500, letterSpacing: '0.8px' }}>
       Sinn und Haltung,{' '}
     </span>
   )
@@ -78,11 +70,11 @@ export function SectionTwo() {
       {/* ── Mobile: gestapelt ── */}
       <div className="flex flex-col md:hidden" style={{ gap: '48px', paddingTop: '60px' }}>
         <p style={headingStyle}>
-          Sichtbar machen, was&nbsp;trägt.
+          Sichtbar machen, was{' '}trägt.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <h1 style={h1Style}>Branding und Webdesign München –</h1>
-          <p style={bodyStyle}>
+          <p style={bodyCss}>
             für Unternehmen mit {italicSpan}die zu wichtig sind, um schlecht auszusehen.
           </p>
           <div style={{ marginTop: '8px' }}>
@@ -104,7 +96,7 @@ export function SectionTwo() {
         {/* Linke Spalte */}
         <div style={{ width: '50%', flexShrink: 0 }}>
           <p style={headingStyle}>
-            Sichtbar machen, was&nbsp;trägt.
+            Sichtbar machen, was{' '}trägt.
           </p>
         </div>
 
@@ -116,11 +108,11 @@ export function SectionTwo() {
               ref={stampRef}
               src={imgEbene1}
               alt=""
-              style={{ width: '130px', height: 'auto', willChange: 'transform' }}
+              style={{ width: '110px', height: 'auto', willChange: 'transform' }}
             />
           </div>
           <h1 style={h1Style}>Branding und Webdesign München –</h1>
-          <p style={bodyStyle}>
+          <p style={bodyCss}>
             für Unternehmen mit {italicSpan}die zu wichtig sind, um schlecht auszusehen.
           </p>
           <div style={{ marginTop: '32px' }}>

@@ -1,10 +1,35 @@
 @import "tailwindcss";
 
 /* ──────────────────────────────────────────────
-   Adobe Fonts – via https://use.typekit.net/yhk3mxv.css
-   Commissioner Variable  →  var(--font-sans)
-   Loretta Display Variable  →  var(--font-display)
+   Commissioner Variable — lokal gehostet
+   Loretta Display Variable  →  Adobe Fonts (yhk3mxv)
    ────────────────────────────────────────────── */
+
+@font-face {
+  font-family: 'Commissioner';
+  src: url('/fonts/Commissioner/Commissioner-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  src: url('/fonts/BodoniModa/BodoniModa-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  font-variation-settings: 'opsz' 18;
+}
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  src: url('/fonts/BodoniModa/BodoniModa-Italic-Variable.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  font-variation-settings: 'opsz' 18;
+}
 
 /* ───── Design Tokens (aus Figma 95:244) ───── */
 
@@ -23,8 +48,8 @@
   --color-footer: var(--footer);
 
   /* Schriftfamilien */
-  --font-sans: 'commissioner-variable', sans-serif;
-  --font-display: 'loretta-display-variable', 'commissioner-variable', sans-serif;
+  --font-sans: 'Commissioner', sans-serif;
+  --font-display: 'Bodoni Moda', serif;
 
   /* Schriftgrößen – semantisch nach Figma-Stilen */
   --text-nav: 1rem;                 /* 16px – Navigation */
@@ -228,7 +253,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'commissioner-variable', sans-serif;
+  font-family: 'Commissioner', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

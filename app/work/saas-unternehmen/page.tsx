@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { bodyCss } from '@/lib/styles'
 
 const PAD = 32
 
@@ -38,10 +39,9 @@ export default function SaasUnternehmen() {
             href="/"
             style={{
               fontFamily: 'var(--font-sans)',
-              fontWeight: 300,
+              fontWeight: 500,
               fontSize: '14px',
               letterSpacing: '0.06em',
-              textTransform: 'uppercase',
               color: '#d5d3e6',
               opacity: 0.5,
               textDecoration: 'none',
@@ -77,7 +77,7 @@ export default function SaasUnternehmen() {
               className="md:text-right"
               style={{
                 fontFamily: 'var(--font-sans)',
-                fontWeight: 300,
+                fontWeight: 500,
                 fontSize: '14px',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
@@ -113,7 +113,7 @@ export default function SaasUnternehmen() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 400,
+                fontWeight: 500,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',
@@ -124,10 +124,10 @@ export default function SaasUnternehmen() {
               </p>
             </div>
             <div style={{ paddingTop: '8px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
+              <p style={{ ...bodyCss, margin: '0 0 24px' }}>
                 Das SaaS-Unternehmen brauchte ein Erscheinungsbild, das in einem schnellen, digitalen Markt sofort Orientierung schafft – professionell, klar und unverwechselbar. Gefragt war eine Marke, die Vertrauen aufbaut, bevor das Produkt überhaupt geöffnet wird.
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0, opacity: 0.7 }}>
+              <p style={{ ...bodyCss, opacity: 0.7 }}>
                 Scope: Farbkonzept · Typografie · Webdesign · Key Visuals
               </p>
             </div>
@@ -153,7 +153,7 @@ export default function SaasUnternehmen() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 400,
+                fontWeight: 500,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',
@@ -164,10 +164,10 @@ export default function SaasUnternehmen() {
               </p>
             </div>
             <div style={{ paddingTop: '8px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
+              <p style={{ ...bodyCss, margin: '0 0 24px' }}>
                 Ausgangspunkt war das bestehende Logo – daraus wurden Farben abgeleitet und die Website entwickelt. Bewusst haben wir uns für ein helles Erscheinungsbild mit viel Weißraum entschieden: eine klare Abgrenzung von der Masse der SaaS-Anbieter, die oft auf dunkle, technische Ästhetik setzen.
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0 }}>
+              <p style={bodyCss}>
                 Für den Headerbereich entstanden eigene Key Visuals, die der Seite Tiefe und einen wiedererkennbaren Charakter geben.
               </p>
             </div>

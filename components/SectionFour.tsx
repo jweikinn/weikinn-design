@@ -6,12 +6,13 @@ import Link from 'next/link'
 const px = (mobile: number, desktop: number) =>
   `clamp(${mobile}px, ${((desktop / 1440) * 100).toFixed(2)}vw, ${desktop}px)`
 
-const ARROW        = '/work/arrow.svg'
-const IMG_PRAXIS   = '/work/praxis.png'
-const IMG_SAAS     = '/work/saas.png'
-const IMG_IMAC     = '/work/imac.png'
-const IMG_OFFICE   = '/work/office.png'
-const IMG_BROCHURE = '/work/brochure.png'
+const ARROW         = '/work/arrow.svg'
+const IMG_PRAXIS    = '/work/praxis.png'
+const IMG_SAAS      = '/work/saas.png'
+const IMG_IMAC      = '/work/imac.png'
+const IMG_OFFICE    = '/work/office.png'
+const IMG_BROCHURE  = '/work/brochure.png'
+const IMG_SAFETY    = '/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit_01.jpg'
 
 function Tags({ labels }: { labels: string[] }) {
   return (
@@ -159,7 +160,7 @@ export function SectionFour() {
           style={{
             fontFamily: 'var(--font-display)',
             fontStyle: 'italic',
-            fontWeight: 300,
+            fontWeight: 500,
             fontSize: '20px',
             lineHeight: '21px',
             letterSpacing: '0.8px',
@@ -172,10 +173,10 @@ export function SectionFour() {
       </div>
 
       {/* ── Desktop: zwei Spalten ── */}
-      <div className="hidden md:flex items-end" style={{ gap: '24px' }}>
+      <div className="hidden md:flex items-start" style={{ gap: '24px' }}>
 
         {/* Linke Spalte */}
-        <div className="flex-1 self-stretch flex flex-col justify-between">
+        <div className="flex-1 flex flex-col" style={{ gap: 'clamp(60px, 8.13vw, 117px)' }}>
           <div ref={el => { cardRefs.current[0] = el }} style={slideUp}>
             <ProjectCard
               title="Praxis für Psychotherapie"
@@ -193,6 +194,15 @@ export function SectionFour() {
               image={IMG_SAAS}
               aspectRatio="676/699"
               href="/work/saas-unternehmen"
+            />
+          </div>
+          <div ref={el => { cardRefs.current[2] = el }} style={slideUp}>
+            <ProjectCard
+              title={"Mitarbeiter­kampagne\nSafety you."}
+              tags={['Kampagne', 'Key Visual', 'Illustration']}
+              image={IMG_SAFETY}
+              aspectRatio="676/744"
+              href="/work/safety-you"
             />
           </div>
           {/* mehr Arbeiten — temporär ausgeblendet */}
@@ -266,6 +276,15 @@ export function SectionFour() {
             image={IMG_BROCHURE}
             aspectRatio="676/744"
             href="/work/stiftung"
+          />
+        </div>
+        <div ref={el => { cardRefs.current[9] = el }} style={slideUp}>
+          <ProjectCard
+            title={"Mitarbeiter­kampagne\nSafety you."}
+            tags={['Kampagne', 'Key Visual', 'Illustration']}
+            image={IMG_SAFETY}
+            aspectRatio="676/744"
+            href="/work/safety-you"
           />
         </div>
         {/* mehr Arbeiten — temporär ausgeblendet */}

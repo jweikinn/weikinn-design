@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
+import { bodyCss } from '@/lib/styles'
 
 const PAD = 32
 
@@ -38,10 +39,9 @@ export default function Forschung() {
             href="/"
             style={{
               fontFamily: 'var(--font-sans)',
-              fontWeight: 300,
+              fontWeight: 500,
               fontSize: '14px',
               letterSpacing: '0.06em',
-              textTransform: 'uppercase',
               color: '#d5d3e6',
               opacity: 0.5,
               textDecoration: 'none',
@@ -77,7 +77,7 @@ export default function Forschung() {
               className="md:text-right"
               style={{
                 fontFamily: 'var(--font-sans)',
-                fontWeight: 300,
+                fontWeight: 500,
                 fontSize: '14px',
                 letterSpacing: '0.06em',
                 textTransform: 'uppercase',
@@ -113,7 +113,7 @@ export default function Forschung() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 400,
+                fontWeight: 500,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',
@@ -124,10 +124,10 @@ export default function Forschung() {
               </p>
             </div>
             <div style={{ paddingTop: '8px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
+              <p style={{ ...bodyCss, margin: '0 0 24px' }}>
                 NanoMedNL ist eine niederländische Initiative, die Wissenschaft und Gesellschaft in der Nanomedizinenforschung zusammenbringt – mit 29 Partnern aus Forschung, Industrie, Kliniken und Patientenorganisationen. Gefragt war ein Erscheinungsbild, das diese Vielfalt trägt: seriös genug für die Wissenschaft, zugänglich genug für die Öffentlichkeit.
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0, opacity: 0.7 }}>
+              <p style={{ ...bodyCss, opacity: 0.7 }}>
                 Scope: Markenentwicklung · Logo · Farbkonzept · Typografie · Office Documents
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function Forschung() {
               <p style={{
                 fontFamily: 'var(--font-display)',
                 fontStyle: 'italic',
-                fontWeight: 400,
+                fontWeight: 500,
                 fontSize: 'clamp(36px, 4.17vw, 60px)',
                 lineHeight: 1.05,
                 letterSpacing: '0.5px',
@@ -178,10 +178,10 @@ export default function Forschung() {
               </p>
             </div>
             <div style={{ paddingTop: '8px' }}>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: '0 0 24px' }}>
+              <p style={{ ...bodyCss, margin: '0 0 24px' }}>
                 Die Herausforderung lag in der Breite: Ein Erscheinungsbild, das bei Fördergebern und Forschungspartnern genauso funktioniert wie in der Kommunikation mit Patientengruppen. Die Antwort war ein klares, reduziertes System – mit einem Logo, das Vernetzung und Präzision gleichzeitig vermittelt.
               </p>
-              <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: '18px', lineHeight: 1.5, letterSpacing: '0.2px', color: '#d5d3e6', margin: 0 }}>
+              <p style={bodyCss}>
                 Angewendet auf Office-Dokumenten entsteht ein Auftritt, der in der täglichen Zusammenarbeit der 29 Partner Konsistenz schafft – und NanoMedNL als verlässliche, professionelle Institution positioniert.
               </p>
             </div>

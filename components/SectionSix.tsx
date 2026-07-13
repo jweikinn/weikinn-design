@@ -73,7 +73,7 @@ export function SectionSix() {
         <p style={{
           fontFamily: 'var(--font-display)',
           fontStyle: 'italic',
-          fontWeight: 300,
+          fontWeight: 500,
           fontSize: '20px',
           lineHeight: '21px',
           letterSpacing: '0.8px',
@@ -124,7 +124,7 @@ export function SectionSix() {
               fontFamily: 'var(--font-sans)',
               fontWeight: 300,
               fontSize: '14px',
-              lineHeight: 1.6,
+              lineHeight: 1.4,
               letterSpacing: '-0.01em',
               color: '#d5d3e6',
               margin: 0,

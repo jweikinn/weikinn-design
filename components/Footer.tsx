@@ -96,7 +96,7 @@ export function Footer() {
 
       {/* ── Mobile layout ── */}
       <div ref={mobileContainerRef} className="md:hidden" style={{ paddingLeft: sidePad, paddingRight: sidePad }}>
-        <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: px(18, 24), lineHeight: 1.3, letterSpacing: '-0.02em', marginBottom: px(16, 24) }}>
+        <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: px(18, 24), lineHeight: 1.4, letterSpacing: '-0.02em', marginBottom: px(16, 24) }}>
           Hast du ein <span style={{ fontWeight: 800 }}>Projekt</span> im Kopf?{'\n'}
           Schreib mir eine Nachricht an{' '}
           <a href="mailto:julia@weikinn.design" style={{ textDecoration: 'underline', textUnderlineOffset: '3px', color: 'inherit' }}>
@@ -161,7 +161,7 @@ export function Footer() {
         {/* Row 1: CTA (left) + Social (right) */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: px(20, 32) }}>
           <div>
-            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: px(18, 24), lineHeight: 1.3, letterSpacing: '-0.02em', maxWidth: '520px', marginBottom: px(16, 24) }}>
+            <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 300, fontSize: px(18, 24), lineHeight: 1.4, letterSpacing: '-0.02em', maxWidth: '520px', marginBottom: px(16, 24) }}>
               Hast du ein <span style={{ fontWeight: 800 }}>Projekt</span> im Kopf?{'\n'}
               Schreib mir eine Nachricht an{' '}
               <a href="mailto:julia@weikinn.design" style={{ textDecoration: 'underline', textUnderlineOffset: '3px', color: 'inherit' }}>

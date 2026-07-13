@@ -5,6 +5,7 @@ import { SectionTwo } from "@/components/SectionTwo";
 import { SectionFour } from "@/components/SectionFour";
 import { SectionFive } from "@/components/SectionFive";
 import { SectionSix } from "@/components/SectionSix";
+import { SectionFAQ } from "@/components/SectionFAQ";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -19,9 +20,11 @@ export default function Home() {
           className="hidden md:flex"
           style={{
             position: 'absolute',
-            top: '30px',
+            top: 0,
             left: 0,
             right: 0,
+            height: '92px',
+            alignItems: 'center',
             justifyContent: 'center',
             pointerEvents: 'none',
             zIndex: 51,
@@ -30,9 +33,9 @@ export default function Home() {
         >
           <span style={{
             fontFamily: 'var(--font-sans)',
-            fontWeight: 500,
+            fontWeight: 700,
             fontSize: '14px',
-            letterSpacing: '-0.02em',
+            letterSpacing: '0.03em',
             color: '#fff',
             whiteSpace: 'nowrap',
           }}>
@@ -59,6 +62,7 @@ export default function Home() {
         <div id="arbeiten"><SectionFour /></div>
         <div id="angebot"><SectionFive /></div>
         <SectionSix />
+        <SectionFAQ />
       </div>
       {/* Footer liegt hinter dem Content (zIndex: 0) und wird von unten enthüllt wenn der Content hochscrollt */}
       <div style={{ position: 'sticky', bottom: 0, zIndex: 0 }}>
