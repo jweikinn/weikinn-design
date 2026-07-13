@@ -156,9 +156,9 @@ export default function AboutPage() {
             <p style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: 300,
-              fontSize: 'clamp(18px, 1.67vw, 24px)',
+              fontSize: '18px',
               lineHeight: 1.4,
-              letterSpacing: '0.1px',
+              letterSpacing: '0.2px',
               color: '#d5d3e6',
               margin: 0,
             }}>
@@ -202,8 +202,8 @@ export default function AboutPage() {
               fontSize: '13px',
               letterSpacing: '0.06em',
               textTransform: 'uppercase',
-              color: '#6759d7',
-              opacity: 0.7,
+              color: '#d5d3e6',
+              opacity: 0.6,
               margin: '0 0 20px',
             }}>
               {num}
@@ -213,7 +213,7 @@ export default function AboutPage() {
             <p style={{
               fontFamily: 'var(--font-display)',
               fontStyle: 'italic',
-              fontWeight: 500,
+              fontWeight: 300,
               fontSize: 'clamp(48px, 6.87vw, 99px)',
               lineHeight: 1.05,
               letterSpacing: '-0.01em',
@@ -248,7 +248,7 @@ export default function AboutPage() {
             textTransform: 'uppercase',
             color: '#d5d3e6',
             opacity: 0.6,
-            marginBottom: '48px',
+            margin: '0 0 48px',
           }}>
             06
           </p>

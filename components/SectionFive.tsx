@@ -97,7 +97,7 @@ export function SectionFive() {
   const headlineDesktop: React.CSSProperties = {
     fontFamily: 'var(--font-display)',
     fontStyle: 'italic',
-    fontWeight: 500,
+    fontWeight: 300,
     fontSize: 'clamp(36px, 5.56vw, 80px)',
     lineHeight: 1.1,
     letterSpacing: '0.625px',
@@ -108,7 +108,7 @@ export function SectionFive() {
   const headlineMobile: React.CSSProperties = {
     fontFamily: 'var(--font-display)',
     fontStyle: 'italic',
-    fontWeight: 500,
+    fontWeight: 300,
     fontSize: 'clamp(28px, 7vw, 36px)',
     lineHeight: 1.1,
     letterSpacing: '0.625px',

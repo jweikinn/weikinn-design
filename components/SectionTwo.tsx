@@ -1,14 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { bodyCss } from '@/lib/styles'
-
-const imgEbene1 = '/Strategisch-gedacht-vonHerzen-gemacht.svg'
 
 const headingStyle: React.CSSProperties = {
   fontFamily: 'var(--font-display)',
   fontStyle: 'italic',
-  fontWeight: 500,
+  fontWeight: 300,
   fontSize: 'clamp(56px, 6.87vw, 99px)',
   lineHeight: 1.1,
   letterSpacing: '-0.0098em',
@@ -26,7 +24,6 @@ const h1Style: React.CSSProperties = {
   margin: 0,
 }
 
-
 const ctaStyle: React.CSSProperties = {
   display: 'inline-flex',
   alignItems: 'center',
@@ -42,18 +39,7 @@ const ctaStyle: React.CSSProperties = {
 }
 
 export function SectionTwo() {
-  const stampRef = useRef<HTMLImageElement>(null)
   const [ctaHover, setCtaHover] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!stampRef.current) return
-      const rotation = -window.scrollY * 0.08
-      stampRef.current.style.transform = `rotate(${rotation}deg)`
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   const italicSpan = (
     <span style={{ fontFamily: 'var(--font-display)', fontStyle: 'italic', fontWeight: 500, letterSpacing: '0.8px' }}>
@@ -70,7 +56,7 @@ export function SectionTwo() {
       {/* ── Mobile: gestapelt ── */}
       <div className="flex flex-col md:hidden" style={{ gap: '48px', paddingTop: '60px' }}>
         <p style={headingStyle}>
-          Sichtbar machen, was{' '}trägt.
+          Sichtbar machen,<br />was trägt.
         </p>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <h1 style={h1Style}>Branding und Webdesign München –</h1>
@@ -91,26 +77,17 @@ export function SectionTwo() {
       {/* ── Desktop: zwei Spalten ── */}
       <div
         className="hidden md:flex items-start w-full"
-        style={{ gap: '24px', transform: 'translateY(-25%)' }}
+        style={{ gap: '8px', transform: 'translateY(-25%)' }}
       >
-        {/* Linke Spalte */}
-        <div style={{ width: '50%', flexShrink: 0 }}>
+        {/* Linke Spalte — startet an Spalte 2 */}
+        <div style={{ width: '42%', flexShrink: 0, marginTop: '-40px', paddingLeft: 'calc(8.33% + 29px - 32px)' }}>
           <p style={headingStyle}>
-            Sichtbar machen, was{' '}trägt.
+            Sichtbar machen,<br />was trägt.
           </p>
         </div>
 
-        {/* Rechte Spalte */}
-        <div style={{ flex: 1, marginLeft: '72px', display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', justifyContent: 'flex-end', paddingRight: '24px', marginBottom: '40px' }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              ref={stampRef}
-              src={imgEbene1}
-              alt=""
-              style={{ width: '110px', height: 'auto', willChange: 'transform' }}
-            />
-          </div>
+        {/* Rechte Spalte — Spalten 7–10, tiefer versetzt */}
+        <div style={{ width: '38%', flexShrink: 0, display: 'flex', flexDirection: 'column', paddingTop: 'clamp(160px, 17vw, 250px)' }}>
           <h1 style={h1Style}>Branding und Webdesign München –</h1>
           <p style={bodyCss}>
             für Unternehmen mit {italicSpan}die zu wichtig sind, um schlecht auszusehen.

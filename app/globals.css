@@ -13,23 +13,6 @@
   font-display: swap;
 }
 
-@font-face {
-  font-family: 'Bodoni Moda';
-  src: url('/fonts/BodoniModa/BodoniModa-Variable.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  font-variation-settings: 'opsz' 18;
-}
-
-@font-face {
-  font-family: 'Bodoni Moda';
-  src: url('/fonts/BodoniModa/BodoniModa-Italic-Variable.ttf') format('truetype');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-  font-variation-settings: 'opsz' 18;
-}
 
 /* ───── Design Tokens (aus Figma 95:244) ───── */
 

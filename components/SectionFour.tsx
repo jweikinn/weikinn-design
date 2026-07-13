@@ -13,6 +13,8 @@ const IMG_IMAC      = '/work/imac.png'
 const IMG_OFFICE    = '/work/office.png'
 const IMG_BROCHURE  = '/work/brochure.png'
 const IMG_SAFETY    = '/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit_01.jpg'
+const IMG_RECYCLING = '/work/Recycling/editorial-recycling-Technik-Brosch%C3%BCre-weikinn6.jpg'
+const IMG_HOLDING   = '/work/Holding/editorial-holding-Nachhaltigkeitsbericht-Code-of-conduct-weikinn.jpg'
 
 function Tags({ labels }: { labels: string[] }) {
   return (
@@ -205,6 +207,15 @@ export function SectionFour() {
               href="/work/safety-you"
             />
           </div>
+          <div ref={el => { cardRefs.current[10] = el }} style={slideUp}>
+            <ProjectCard
+              title="WIPAG"
+              tags={['Branding', 'Brand Guidelines', 'Editorial Design']}
+              image={IMG_RECYCLING}
+              aspectRatio="676/699"
+              href="/work/recycling"
+            />
+          </div>
           {/* mehr Arbeiten — temporär ausgeblendet */}
         </div>
 
@@ -233,6 +244,15 @@ export function SectionFour() {
               href="/work/stiftung"
               image={IMG_BROCHURE}
               aspectRatio="676/744"
+            />
+          </div>
+          <div ref={el => { cardRefs.current[11] = el }} style={slideUp}>
+            <ProjectCard
+              title="Otto Krahn Group"
+              tags={['Editorial Design', 'Corporate Publishing']}
+              image={IMG_HOLDING}
+              aspectRatio="676/699"
+              href="/work/holding"
             />
           </div>
         </div>
@@ -285,6 +305,24 @@ export function SectionFour() {
             image={IMG_SAFETY}
             aspectRatio="676/744"
             href="/work/safety-you"
+          />
+        </div>
+        <div ref={el => { cardRefs.current[12] = el }} style={slideUp}>
+          <ProjectCard
+            title="WIPAG"
+            tags={['Branding', 'Brand Guidelines', 'Editorial Design']}
+            image={IMG_RECYCLING}
+            aspectRatio="676/699"
+            href="/work/recycling"
+          />
+        </div>
+        <div ref={el => { cardRefs.current[13] = el }} style={slideUp}>
+          <ProjectCard
+            title="Otto Krahn Group"
+            tags={['Editorial Design', 'Corporate Publishing']}
+            image={IMG_HOLDING}
+            aspectRatio="676/699"
+            href="/work/holding"
           />
         </div>
         {/* mehr Arbeiten — temporär ausgeblendet */}
