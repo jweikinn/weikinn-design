@@ -13,7 +13,7 @@ export function HeroSection() {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: 'blur(8px)', transform: 'scale(1.05)' }}
       >
-        <source src="/weikinn-design_bg_kl.mp4" type="video/mp4" />
+        <source src="/weikinn-design_bg_kl_02.mp4" type="video/mp4" />
       </video>
     </section>
   )
