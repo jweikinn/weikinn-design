@@ -1,12 +1,13 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 const imgPortrait = '/portrait.jpg'
 
 export function SectionThree() {
   const sectionRef = useRef<HTMLElement>(null)
-  const imgRef     = useRef<HTMLImageElement>(null)
+  const imgRef     = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const onScroll = () => {
@@ -89,22 +90,18 @@ export function SectionThree() {
           zIndex: 0,
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <div
           ref={imgRef}
-          src={imgPortrait}
-          alt="Julia Weikinn"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center top',
-            transformOrigin: 'center top',
-            willChange: 'transform',
-          }}
-        />
+          style={{ position: 'absolute', inset: 0, transformOrigin: 'center top', willChange: 'transform' }}
+        >
+          <Image
+            src={imgPortrait}
+            alt="Julia Weikinn"
+            fill
+            sizes="40vw"
+            style={{ objectFit: 'cover', objectPosition: 'center top' }}
+          />
+        </div>
       </div>
 
       {/* Fließtext + CTA — rechte Spalte */}

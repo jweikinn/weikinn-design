@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const px = (mobile: number, desktop: number) =>
@@ -82,9 +83,9 @@ function ProjectCard({
           />
         ) : (
           <>
-            <img alt="" className="absolute inset-0 w-full h-full object-cover" src={image} />
+            <Image alt="" fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" src={image} />
             {image2 && (
-              <img alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover" src={image2} />
+              <Image alt="" aria-hidden fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" src={image2} />
             )}
           </>
         )}
