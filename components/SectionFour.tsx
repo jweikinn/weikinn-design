@@ -108,11 +108,12 @@ function ProjectCard({
         >
           {title}
         </p>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           alt=""
           src={ARROW}
           aria-hidden
+          width={32}
+          height={32}
           className="-rotate-90 shrink-0"
           style={{ width: px(18, 32), height: px(18, 32), filter: 'invert(1)' }}
         />

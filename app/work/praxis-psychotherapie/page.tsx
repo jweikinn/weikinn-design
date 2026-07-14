@@ -37,7 +37,7 @@ export default function PraxisPsychotherapie() {
         <section style={{ paddingTop: '140px', paddingBottom: '80px', paddingLeft: `${PAD}px`, paddingRight: `${PAD}px` }}>
 
           <Link
-            href="/#projects"
+            href="/#arbeiten"
             style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: 500,
