@@ -52,7 +52,7 @@ export default function PraxisPsychotherapie() {
               marginBottom: '64px',
             }}
           >
-            ← Zurück zur Homepage
+            ← Zurück zu den Arbeiten
           </Link>
 
           <div className="md:flex md:items-end md:justify-between" style={{ gap: '40px' }}>

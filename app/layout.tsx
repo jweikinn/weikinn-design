@@ -9,11 +9,11 @@ const SITE_URL = "https://weikinn.design";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Weikinn.Design – Brand & Web Design Spezialistin München",
+    default: "Weikinn.Design – Branding und Webdesign München | Für Unternehmen mit Sinn und Haltung",
     template: "%s | Weikinn.Design",
   },
   description:
-    "Julia Weikinn – Freelance Brand & Web Design Spezialistin aus München. Markenidentitäten, Logos, Websites und Editorial Design für Unternehmen, die professionell auftreten wollen. 12+ Jahre Erfahrung.",
+    "Julia Weikinn – Freie Designerin in München. Branding und Webdesign für Unternehmen mit Sinn und Haltung. Strategisch gedacht, von Herzen gemacht.",
   keywords: [
     "Brand Design München",
     "Webdesign München",
@@ -32,23 +32,23 @@ export const metadata: Metadata = {
     locale: "de_DE",
     url: SITE_URL,
     siteName: "Weikinn.Design",
-    title: "Weikinn.Design – Brand & Web Design Spezialistin München",
+    title: "Weikinn.Design – Branding und Webdesign München | Für Unternehmen mit Sinn und Haltung",
     description:
-      "Markenidentitäten, Websites und Editorial Design – strategisch gedacht, von Herzen gemacht.",
+      "Branding und Webdesign für Unternehmen mit Sinn und Haltung – aus München.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Weikinn.Design – Brand & Web Design Spezialistin München",
+        alt: "Weikinn.Design – Branding und Webdesign München",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Weikinn.Design – Brand & Web Design Spezialistin München",
+    title: "Weikinn.Design – Branding und Webdesign München | Für Unternehmen mit Sinn und Haltung",
     description:
-      "Markenidentitäten, Websites und Editorial Design – strategisch gedacht, von Herzen gemacht.",
+      "Branding und Webdesign für Unternehmen mit Sinn und Haltung – aus München.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -93,36 +93,15 @@ const jsonLd = {
       url: SITE_URL,
       email: "julia@weikinn.design",
       description:
-        "Brand & Web Design Studio aus München. Markenidentitäten, Logos, Websites und Editorial Design für Unternehmen weltweit.",
+        "Branding und Webdesign für Unternehmen mit Sinn und Haltung. Strategisch gedacht, von Herzen gemacht.",
       address: {
         "@type": "PostalAddress",
         addressLocality: "München",
         addressCountry: "DE",
       },
-      founder: { "@id": `${SITE_URL}/#person` },
-      areaServed: "Worldwide",
-      hasOfferCatalog: {
-        "@type": "OfferCatalog",
-        name: "Design Services",
-        itemListElement: [
-          {
-            "@type": "Offer",
-            itemOffered: { "@type": "Service", name: "Branddesign", description: "Entwicklung von Markenidentitäten, Logos und Corporate Design" },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: { "@type": "Service", name: "Webdesign", description: "Konzeption und Gestaltung von Websites" },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: { "@type": "Service", name: "Editorial Design", description: "Gestaltung von Broschüren, Geschäftsberichten und Print-Medien" },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: { "@type": "Service", name: "Content Design", description: "Visuelle Inhalte für Social Media und digitale Kanäle" },
-          },
-        ],
-      },
+      founder: "Julia Weikinn",
+      serviceType: ["Branding", "Webdesign", "Editorial Design"],
+      areaServed: "DACH",
     },
   ],
 };

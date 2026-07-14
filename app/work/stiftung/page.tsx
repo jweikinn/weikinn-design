@@ -36,7 +36,7 @@ export default function Stiftung() {
         <section style={{ paddingTop: '140px', paddingBottom: '80px', paddingLeft: `${PAD}px`, paddingRight: `${PAD}px` }}>
 
           <Link
-            href="/"
+            href="/#arbeiten"
             style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: 500,
@@ -51,7 +51,7 @@ export default function Stiftung() {
               marginBottom: '64px',
             }}
           >
-            ← Zurück zur Homepage
+            ← Zurück zu den Arbeiten
           </Link>
 
           <div className="md:flex md:items-end md:justify-between" style={{ gap: '40px' }}>

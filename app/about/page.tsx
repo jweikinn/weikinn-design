@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
@@ -169,18 +170,16 @@ export default function AboutPage() {
 
         {/* ── Portrait ── */}
         <section style={{ paddingBottom: '120px' }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/portrait.jpg"
-            alt="Julia Weikinn"
-            style={{
-              width: '100%',
-              height: 'clamp(400px, 70vh, 800px)',
-              objectFit: 'cover',
-              objectPosition: '64% 15%',
-              display: 'block',
-            }}
-          />
+          <div style={{ position: 'relative', width: '100%', height: 'clamp(400px, 70vh, 800px)' }}>
+            <Image
+              src="/portrait.jpg"
+              alt="Julia Weikinn"
+              fill
+              priority
+              sizes="100vw"
+              style={{ objectFit: 'cover', objectPosition: '64% 15%' }}
+            />
+          </div>
         </section>
 
         {/* ── Nummerierte Sektionen 01–05 ── */}

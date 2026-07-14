@@ -209,7 +209,7 @@ export function SectionFour() {
           </div>
           <div ref={el => { cardRefs.current[10] = el }} style={slideUp}>
             <ProjectCard
-              title="WIPAG"
+              title="Recycling"
               tags={['Branding', 'Brand Guidelines', 'Editorial Design']}
               image={IMG_RECYCLING}
               aspectRatio="676/699"
@@ -248,7 +248,7 @@ export function SectionFour() {
           </div>
           <div ref={el => { cardRefs.current[11] = el }} style={slideUp}>
             <ProjectCard
-              title="Otto Krahn Group"
+              title="Holding"
               tags={['Editorial Design', 'Corporate Publishing']}
               image={IMG_HOLDING}
               aspectRatio="676/699"

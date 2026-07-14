@@ -45,7 +45,7 @@ export default function Holding() {
         {/* ── Hero ── */}
         <section style={{ paddingTop: '140px', paddingBottom: '80px', paddingLeft: `${PAD}px`, paddingRight: `${PAD}px` }}>
           <Link
-            href="/"
+            href="/#arbeiten"
             style={{
               fontFamily: 'var(--font-sans)',
               fontWeight: 500,
@@ -60,7 +60,7 @@ export default function Holding() {
               marginBottom: '64px',
             }}
           >
-            ← Zurück zur Homepage
+            ← Zurück zu den Arbeiten
           </Link>
 
           <div className="md:flex md:items-end md:justify-between" style={{ gap: '40px' }}>
@@ -79,7 +79,7 @@ export default function Holding() {
                 transition: 'font-weight 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease',
               }}
             >
-              Otto Krahn Group
+              Holding
             </h1>
             <div
               className="md:text-right"

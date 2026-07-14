@@ -4,13 +4,17 @@ export function HeroSection() {
       className="relative w-full bg-black overflow-hidden"
       style={{ height: '100vh' }}
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/weikinn-design_bg_kl.gif"
-        alt=""
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        aria-hidden
         className="absolute inset-0 w-full h-full object-cover"
         style={{ filter: 'blur(8px)', transform: 'scale(1.05)' }}
-      />
+      >
+        <source src="/weikinn-design_bg_kl.mp4" type="video/mp4" />
+      </video>
     </section>
   )
 }
