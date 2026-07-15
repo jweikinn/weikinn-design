@@ -22,6 +22,7 @@ export default async function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          paddingBottom: '6px',
         }}
       >
         <span
@@ -31,7 +32,6 @@ export default async function Icon() {
             fontFamily: 'Commissioner',
             fontWeight: 700,
             lineHeight: 1,
-            marginTop: 2,
           }}
         >
           w
