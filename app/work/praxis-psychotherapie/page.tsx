@@ -96,7 +96,7 @@ export default function PraxisPsychotherapie() {
 
         {/* ── Bild 1 – Hero, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/work/praxis.png"
               alt="Praxis für Psychotherapie – Branding"
@@ -142,7 +142,7 @@ export default function PraxisPsychotherapie() {
               { src: '/work/psycho/flyer-01.jpg', alt: 'Flyer Praxis für Psychotherapie' },
               { src: '/work/psycho/flyer-02.jpg', alt: 'Flyer Praxis für Psychotherapie – Variante' },
             ].map((img, i) => (
-              <div key={i} style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '4px', overflow: 'hidden' }}>
+              <div key={i} style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '2px', overflow: 'hidden' }}>
                 <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} />
               </div>
             ))}
@@ -179,7 +179,7 @@ export default function PraxisPsychotherapie() {
 
         {/* ── Bild 5 – Webdesign Mockup animiert, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '16px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '2px', overflow: 'hidden' }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/work/psycho/webdesign.gif"
@@ -192,7 +192,7 @@ export default function PraxisPsychotherapie() {
         {/* ── Bild 6 – Hochformat Flyer, zentriert ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '160px' }}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ position: 'relative', width: 'min(50%, 600px)', aspectRatio: '2/3', borderRadius: '4px', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', width: 'min(50%, 600px)', aspectRatio: '2/3', borderRadius: '2px', overflow: 'hidden' }}>
               <Image
                 src="/work/psycho/flyer-03.jpg"
                 alt="Praxis für Psychotherapie – Hochformat Flyer"

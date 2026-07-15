@@ -95,7 +95,7 @@ export default function SaasUnternehmen() {
 
         {/* ── Bild 1 – Hero, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/work/saas/branding-01.jpg"
               alt="SaaS-Unternehmen – Branding"
@@ -136,7 +136,7 @@ export default function SaasUnternehmen() {
 
         {/* ── Bild 2 – zweites Branding-Bild, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/work/saas/branding-02.jpg"
               alt="SaaS-Unternehmen – Branding Detail"
@@ -177,7 +177,7 @@ export default function SaasUnternehmen() {
         {/* ── Bild 3 – MacBook Webseitenscreenshot, zentriert ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '160px' }}>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <div style={{ position: 'relative', width: 'min(70%, 900px)', aspectRatio: '1512/6099', borderRadius: '4px', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', width: 'min(70%, 900px)', aspectRatio: '1512/6099', borderRadius: '2px', overflow: 'hidden' }}>
               <Image
                 src="/work/saas/macbook.png"
                 alt="SaaS-Unternehmen – Website"

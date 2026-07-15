@@ -87,6 +87,7 @@ export function SectionThree() {
           right: '51.11%',
           bottom: '3%',
           overflow: 'hidden',
+          borderRadius: '2px',
           zIndex: 0,
         }}
       >

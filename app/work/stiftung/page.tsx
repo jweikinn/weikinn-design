@@ -95,7 +95,7 @@ export default function Stiftung() {
 
         {/* ── Bild 1 – Hero, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/work/stiftung/editorial-01.jpg"
               alt="Kolibri Interkulturelle Stiftung – Broschüre"
@@ -136,7 +136,7 @@ export default function Stiftung() {
 
         {/* ── Bild 2 – volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/work/stiftung/editorial-02.jpg"
               alt="Kolibri Interkulturelle Stiftung – Broschüre Detail"

@@ -95,7 +95,7 @@ export default function Forschung() {
 
         {/* ── Bild 1 – Hero, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/work/forschung/hero.jpg"
               alt="NanoMedNL – Branding"
@@ -136,7 +136,7 @@ export default function Forschung() {
 
         {/* ── Bild 2 – Medizin-Mockup, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '16px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/work/forschung/medizin-02.jpg"
               alt="NanoMedNL – Markenmockup"
@@ -153,7 +153,7 @@ export default function Forschung() {
               { src: '/work/forschung/portfolio-02.jpg', alt: 'NanoMedNL – Portfolio' },
               { src: '/work/forschung/medizin-03.jpg', alt: 'NanoMedNL – Medizin Detail' },
             ].map((img, i) => (
-              <div key={i} style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '4px', overflow: 'hidden' }}>
+              <div key={i} style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '2px', overflow: 'hidden' }}>
                 <Image src={img.src} alt={img.alt} fill style={{ objectFit: 'cover' }} />
               </div>
             ))}
@@ -190,7 +190,7 @@ export default function Forschung() {
 
         {/* ── Bild 5 – Webdesign, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '160px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/work/forschung/webdesign.jpg"
               alt="NanoMedNL – Webdesign"

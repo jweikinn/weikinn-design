@@ -170,7 +170,7 @@ export default function AboutPage() {
 
         {/* ── Portrait ── */}
         <section style={{ paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', height: 'clamp(400px, 70vh, 800px)' }}>
+          <div style={{ position: 'relative', width: '100%', height: 'clamp(400px, 70vh, 800px)', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/portrait.jpg"
               alt="Julia Weikinn"

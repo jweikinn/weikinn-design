@@ -26,7 +26,7 @@ const SERVICES = [
 
 const KOMPLETT_HEADLINE = [
   'Branding, Website und Kommunikation –',
-  'aus einer Hand, aufeinander abgestimmt, mit System.',
+  'aus einer Hand, aufeinander abgestimmt, mit System.',
 ]
 const KOMPLETT_BODY = 'Für Unternehmen, die nicht in Bausteinen denken, sondern in einem stimmigen Auftritt. Ich übernehme Strategie, Gestaltung und Umsetzung und hole bei Bedarf mein Netzwerk dazu.'
 
@@ -76,7 +76,7 @@ export function SectionFive() {
 
   const ready = fontSize > 0
 
-  // Bottom edge of the two-line fluid title — used as paddingTop for the flow grid
+  // Bottom edge of the two-line fluid title — used for the absolute title wrapper animation
   const titleBottomPx = vh * 0.08 + fontSize * 0.88 * 2
 
   const nameCss: React.CSSProperties = {
@@ -228,7 +228,7 @@ export function SectionFive() {
         {/* Giant two-line name — same on all breakpoints */}
         <div style={{
           position: 'absolute',
-          top: '8%',
+          top: '8vh',
           left: `${PAD}px`,
           visibility: ready ? 'visible' : 'hidden',
           fontWeight: seen[SERVICES.length] ? 800 : 100,
@@ -253,16 +253,13 @@ export function SectionFive() {
           ))}
         </div>
 
-        {/* Desktop: 2-column grid below the fluid title — height grows with content */}
+        {/* Desktop: Headline + Copy gestapelt, Spalte 2–10 */}
         <div
-          className="hidden md:grid"
+          className="hidden md:block"
           style={{
-            gridTemplateColumns: '1fr 1fr',
-            gap: '80px',
-            alignItems: 'start',
-            paddingTop: ready ? `${titleBottomPx + 40}px` : '50%',
-            paddingLeft: `${PAD}px`,
-            paddingRight: `${PAD}px`,
+            paddingTop: ready ? `${Math.max(vh * 0.47, titleBottomPx + 40)}px` : '50vh',
+            paddingLeft: 'calc(8.33% + 29px)',
+            paddingRight: 'calc(16.67% + 25px)',
             paddingBottom: '80px',
           }}
         >
@@ -274,9 +271,9 @@ export function SectionFive() {
             lineHeight: 1.1,
             letterSpacing: '0.625px',
             color: '#d5d3e6',
-            margin: 0,
+            margin: '0 0 40px',
           }}>
-            {KOMPLETT_HEADLINE[0]}<br />{KOMPLETT_HEADLINE[1]}
+            {KOMPLETT_HEADLINE[0]} {KOMPLETT_HEADLINE[1]}
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             <p style={bodyCss}>{KOMPLETT_BODY}</p>
@@ -310,7 +307,7 @@ export function SectionFive() {
             color: '#d5d3e6',
             margin: 0,
           }}>
-            {KOMPLETT_HEADLINE[0]}<br />{KOMPLETT_HEADLINE[1]}
+            {KOMPLETT_HEADLINE[0]} {KOMPLETT_HEADLINE[1]}
           </p>
           <p style={bodyCss}>{KOMPLETT_BODY}</p>
           <a

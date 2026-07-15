@@ -103,7 +103,7 @@ export default function Recycling() {
 
         {/* ── Bild 1 – Hero ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image src={`${BASE}.jpg`} alt="WIPAG – We close the loop." fill style={{ objectFit: 'cover' }} priority />
           </div>
         </section>
@@ -125,14 +125,14 @@ export default function Recycling() {
 
         {/* ── Bild 2 – Brand Guidelines ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image src={`${BASE}2.jpg`} alt="WIPAG – Brand Guidelines" fill style={{ objectFit: 'cover' }} />
           </div>
         </section>
 
         {/* ── Bild 3 – Technikbroschüre Cover ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image src={`${BASE}3.jpg`} alt="WIPAG – Technikbroschüre Carbon Cover" fill style={{ objectFit: 'cover' }} />
           </div>
         </section>
@@ -155,10 +155,10 @@ export default function Recycling() {
         {/* ── Bilder 4+5 – Broschüren-Spreads, zwei Spalten ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
           <div className="md:grid" style={{ gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '4px', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '2px', overflow: 'hidden' }}>
               <Image src={`${BASE}4.jpg`} alt="WIPAG – Technikbroschüre Spread" fill style={{ objectFit: 'cover' }} />
             </div>
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '4px', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '2px', overflow: 'hidden' }}>
               <Image src={`${BASE}5.jpg`} alt="WIPAG – Technikbroschüre Tabellen" fill style={{ objectFit: 'cover' }} />
             </div>
           </div>
@@ -166,7 +166,7 @@ export default function Recycling() {
 
         {/* ── Bild 6 – Flat Lay ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '160px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image src={`${BASE}6.jpg`} alt="WIPAG – Merchandise und Broschüre" fill style={{ objectFit: 'cover' }} />
           </div>
         </section>

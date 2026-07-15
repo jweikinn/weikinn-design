@@ -73,7 +73,7 @@ function ProjectCard({
       )
   return (
     <Wrapper>
-      <div className="relative overflow-hidden w-full" style={{ aspectRatio }}>
+      <div className="relative overflow-hidden w-full" style={{ aspectRatio, borderRadius: '2px' }}>
         {cropOffsetX ? (
           <img
             alt=""
@@ -311,7 +311,7 @@ export function SectionFour() {
         </div>
         <div ref={el => { cardRefs.current[12] = el }} style={slideUp}>
           <ProjectCard
-            title="WIPAG"
+            title="Recycling"
             tags={['Branding', 'Brand Guidelines', 'Editorial Design']}
             image={IMG_RECYCLING}
             aspectRatio="676/699"
@@ -320,7 +320,7 @@ export function SectionFour() {
         </div>
         <div ref={el => { cardRefs.current[13] = el }} style={slideUp}>
           <ProjectCard
-            title="Otto Krahn Group"
+            title="Holding"
             tags={['Editorial Design', 'Corporate Publishing']}
             image={IMG_HOLDING}
             aspectRatio="676/699"

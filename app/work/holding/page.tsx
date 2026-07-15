@@ -103,7 +103,7 @@ export default function Holding() {
 
         {/* ── Bild 1 – Hero: Buchcover ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image src={`${BASE}.jpg`} alt="Otto Krahn Group – Nachhaltigkeitsbericht und Code of Conduct" fill style={{ objectFit: 'cover' }} priority />
           </div>
         </section>
@@ -125,14 +125,14 @@ export default function Holding() {
 
         {/* ── Bild 2 – Nachhaltigkeitsbericht Übersicht ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image src={`${BASE}2.jpg`} alt="Otto Krahn Group – Nachhaltigkeitsbericht Seitenübersicht" fill style={{ objectFit: 'cover' }} />
           </div>
         </section>
 
         {/* ── Bild 3 – Profilseite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image src={`${BASE}3.jpg`} alt="Otto Krahn Group – Profil-Doppelseite" fill style={{ objectFit: 'cover' }} />
           </div>
         </section>
@@ -155,10 +155,10 @@ export default function Holding() {
         {/* ── Bilder 4+5 – Leitlinien + Infografik, zwei Spalten ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
           <div className="md:grid" style={{ gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '4px', overflow: 'hidden' }}>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '2px', overflow: 'hidden' }}>
               <Image src={`${BASE}4.jpg`} alt="Otto Krahn Group – 14 Nachhaltigkeitsleitlinien" fill style={{ objectFit: 'cover' }} />
             </div>
-            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '4px', overflow: 'hidden', backgroundColor: '#fff' }}>
+            <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '2px', overflow: 'hidden', backgroundColor: '#fff' }}>
               <Image src={`${BASE}5.jpg`} alt="Otto Krahn Group – CO₂-Infografik" fill style={{ objectFit: 'contain', padding: '32px' }} />
             </div>
           </div>
@@ -166,7 +166,7 @@ export default function Holding() {
 
         {/* ── Bild 6 – Code of Conduct Spreads ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '160px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image src={`${BASE}6.jpg`} alt="Otto Krahn Group – Code of Conduct Seitenübersicht" fill style={{ objectFit: 'cover' }} />
           </div>
         </section>

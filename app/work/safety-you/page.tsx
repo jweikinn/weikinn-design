@@ -106,7 +106,7 @@ export default function SafetyYou() {
 
         {/* ── Bild 1 – Hero, volle Breite ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit.jpg"
               alt="Safety you. – Kampagne Mitarbeitersicherheit"
@@ -136,7 +136,7 @@ export default function SafetyYou() {
 
         {/* ── Bild 2 – Ausgangspunkt: Logo + Bereiche ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/7', borderRadius: '4px', overflow: 'hidden', backgroundColor: '#fff' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/7', borderRadius: '2px', overflow: 'hidden', backgroundColor: '#fff' }}>
             <Image
               src="/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit-Ausgangspunkt.jpg"
               alt="Safety you. – Logo und die fünf Themenbereiche"
@@ -148,7 +148,7 @@ export default function SafetyYou() {
 
         {/* ── Bild 3 – Ein Icon pro Bereich ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden', backgroundColor: '#fff' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden', backgroundColor: '#fff' }}>
             <Image
               src="/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit3.jpg"
               alt="Safety you. – Ikonographie, ein Icon pro Themenbereich"
@@ -160,7 +160,7 @@ export default function SafetyYou() {
 
         {/* ── Bild 4 – Layoutsystematik ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/7', borderRadius: '4px', overflow: 'hidden', backgroundColor: '#fff' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/7', borderRadius: '2px', overflow: 'hidden', backgroundColor: '#fff' }}>
             <Image
               src="/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit-Layoutsystematik.jpg"
               alt="Safety you. – Grafische Elemente und Rastersystem"
@@ -189,7 +189,7 @@ export default function SafetyYou() {
 
         {/* ── Bild 5 – System in Anwendung ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '4px', overflow: 'hidden', backgroundColor: '#fff' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9', borderRadius: '2px', overflow: 'hidden', backgroundColor: '#fff' }}>
             <Image
               src="/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit6.jpg"
               alt="Safety you. – System in Anwendung, Badges und Elemente"
@@ -201,7 +201,7 @@ export default function SafetyYou() {
 
         {/* ── Bild 7 – Banner ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '120px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '4/3', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit_01.jpg"
               alt="Safety you. – Kampagnen-Banner"
@@ -213,7 +213,7 @@ export default function SafetyYou() {
 
         {/* ── Bild 6 – Werbemittel ── */}
         <section style={{ paddingLeft: `${PAD}px`, paddingRight: `${PAD}px`, paddingBottom: '160px' }}>
-          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '4px', overflow: 'hidden' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '3/2', borderRadius: '2px', overflow: 'hidden' }}>
             <Image
               src="/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit4.jpg"
               alt="Safety you. – Werbemittel und Medien"
