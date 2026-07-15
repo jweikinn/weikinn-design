@@ -22,7 +22,7 @@ export default async function Icon() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          paddingBottom: '6px',
+          paddingBottom: '8px',
         }}
       >
         <span
