@@ -38,7 +38,7 @@ export function SectionFive() {
   const panelRefs = useRef<(HTMLDivElement | null)[]>([])
   const [seen, setSeen] = useState<boolean[]>(() => new Array(SERVICES.length + 1).fill(false))
   const [kontaktHover, setKontaktHover] = useState(false)
-  const [komplettHeight, setKomplettHeight] = useState(0)
+  const [vh, setVh] = useState(0)
 
   useEffect(() => {
     const observers: IntersectionObserver[] = []
@@ -66,8 +66,7 @@ export function SectionFive() {
       const nw = measureRef.current.offsetWidth
       if (w <= 0 || nw <= 0) return
       setFontSize(REF_SIZE * (w / nw))
-      const panel = panelRefs.current[SERVICES.length]
-      if (panel) setKomplettHeight(panel.offsetHeight)
+      setVh(window.innerHeight)
     }
     compute()
     document.fonts?.ready.then(compute).catch(() => {})
@@ -77,10 +76,8 @@ export function SectionFive() {
 
   const ready = fontSize > 0
 
-  // Komplett panel: keep headline below the two-line fluid title at any screen width
-  const titleBottomPx = komplettHeight * 0.08 + fontSize * 0.88 * 2
-  const headlineTopPx = Math.max(komplettHeight * 0.46, titleBottomPx + 60)
-  const bodyTopPx = headlineTopPx + 180
+  // Bottom edge of the two-line fluid title — used as paddingTop for the flow grid
+  const titleBottomPx = vh * 0.08 + fontSize * 0.88 * 2
 
   const nameCss: React.CSSProperties = {
     fontFamily: 'var(--font-sans)',
@@ -256,31 +253,32 @@ export function SectionFive() {
           ))}
         </div>
 
-        {/* Desktop: headline left, body+button bottom right */}
-        <div className="hidden md:block">
-          <div style={{ position: 'absolute', top: `${headlineTopPx}px`, left: `${PAD}px`, right: '30%' }}>
-            <p style={{
-              fontFamily: 'var(--font-display)',
-              fontStyle: 'italic',
-              fontWeight: 500,
-              fontSize: 'clamp(24px, 3.47vw, 50px)',
-              lineHeight: 1.15,
-              letterSpacing: '0.5px',
-              color: '#d5d3e6',
-              margin: 0,
-            }}>
-              {KOMPLETT_HEADLINE[0]}<br />{KOMPLETT_HEADLINE[1]}
-            </p>
-          </div>
-          <div style={{
-            position: 'absolute',
-            top: `${bodyTopPx}px`,
-            left: '59.24%',
-            right: '10.35%',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '32px',
+        {/* Desktop: 2-column grid below the fluid title — height grows with content */}
+        <div
+          className="hidden md:grid"
+          style={{
+            gridTemplateColumns: '1fr 1fr',
+            gap: '80px',
+            alignItems: 'start',
+            paddingTop: ready ? `${titleBottomPx + 40}px` : '50%',
+            paddingLeft: `${PAD}px`,
+            paddingRight: `${PAD}px`,
+            paddingBottom: '80px',
+          }}
+        >
+          <p style={{
+            fontFamily: 'var(--font-display)',
+            fontStyle: 'italic',
+            fontWeight: 300,
+            fontSize: 'clamp(36px, 5.56vw, 80px)',
+            lineHeight: 1.1,
+            letterSpacing: '0.625px',
+            color: '#d5d3e6',
+            margin: 0,
           }}>
+            {KOMPLETT_HEADLINE[0]}<br />{KOMPLETT_HEADLINE[1]}
+          </p>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             <p style={bodyCss}>{KOMPLETT_BODY}</p>
             <a
               href="/kontakt"
@@ -305,10 +303,10 @@ export function SectionFive() {
           <p style={{
             fontFamily: 'var(--font-display)',
             fontStyle: 'italic',
-            fontWeight: 500,
-            fontSize: 'clamp(20px, 5vw, 28px)',
-            lineHeight: 1.15,
-            letterSpacing: '0.5px',
+            fontWeight: 300,
+            fontSize: 'clamp(28px, 7vw, 36px)',
+            lineHeight: 1.1,
+            letterSpacing: '0.625px',
             color: '#d5d3e6',
             margin: 0,
           }}>
@@ -323,8 +321,6 @@ export function SectionFive() {
           >Kontakt</a>
         </div>
 
-        {/* Spacer: 80px purple below desktop content */}
-        <div className="hidden md:block" style={{ height: '80px' }} />
       </div>
 
     </section>

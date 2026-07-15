@@ -41,6 +41,7 @@ export function Cursor() {
     <div
       ref={dotRef}
       aria-hidden
+      className="hidden md:block"
       style={{
         position: 'fixed',
         left: '-100px',

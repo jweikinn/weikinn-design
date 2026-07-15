@@ -14,7 +14,7 @@ const IMG_IMAC      = '/work/imac.png'
 const IMG_OFFICE    = '/work/office.png'
 const IMG_BROCHURE  = '/work/brochure.png'
 const IMG_SAFETY    = '/Safety-you/Kampagne-Safety-you-weikinn-Mitarbeitersicherheit_01.jpg'
-const IMG_RECYCLING = '/work/Recycling/editorial-recycling-Technik-Brosch%C3%BCre-weikinn6.jpg'
+const IMG_RECYCLING = '/work/Recycling/editorial-recycling-Technik-Brosch%C3%BCre-weikinn.jpg'
 const IMG_HOLDING   = '/work/Holding/editorial-holding-Nachhaltigkeitsbericht-Code-of-conduct-weikinn.jpg'
 
 function Tags({ labels }: { labels: string[] }) {
@@ -132,7 +132,7 @@ const ctaButtons = ['mehr Arbeiten']
 
 export function SectionFour() {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-  const sidePad = px(16, 32)
+  const sidePad = '32px'
   const [btnHover, setBtnHover] = useState(false)
 
   useEffect(() => {
