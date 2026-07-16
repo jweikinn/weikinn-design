@@ -49,10 +49,6 @@ const WERTE = [
     label: 'Was mich freut.',
     items: ['Fragen, die weiterführen', 'Kund:innen, die für ihre Sache stehen', 'Gute Haptik', 'Podcasts', 'Design ohne Show', 'guter Kaffee', 'Meer und Berge', 'Rückbeugen im Yoga'],
   },
-  {
-    label: 'Kein Interesse.',
-    items: ['Buzzwords ohne Substanz', 'Hektik ohne Grund', 'KI-Beliebigkeit', 'unnötige Meetings'],
-  },
 ]
 
 

@@ -161,15 +161,15 @@ export function SectionFive() {
         <div
           key={i}
           ref={el => { panelRefs.current[i] = el }}
+          className="md:h-screen"
           style={{
             position: 'relative',
-            height: '100vh',
             backgroundColor: '#000000',
             overflow: 'hidden',
           }}
         >
-          {/* Fluid service name — animates weight 100→800 on scroll-in */}
-          <p style={{
+          {/* Fluid service name — Desktop only: absolute */}
+          <p className="hidden md:block" style={{
             ...nameCss,
             position: 'absolute',
             top: '10%',
@@ -195,17 +195,25 @@ export function SectionFive() {
             </p>
           </div>
 
-          {/* Mobile: stacked below the name */}
+          {/* Mobile: flow layout, panel grows with content */}
           <div
             className="md:hidden flex flex-col"
             style={{
-              position: 'absolute',
-              top: '26%',
-              left: `${PAD}px`,
-              right: `${PAD}px`,
+              padding: `80px ${PAD}px 80px`,
               gap: '20px',
             }}
           >
+            <p style={{
+              ...nameCss,
+              fontWeight: seen[i] ? 800 : 100,
+              opacity: seen[i] ? 1 : 0,
+              transition: ready
+                ? 'font-weight 1.2s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease'
+                : 'none',
+              marginBottom: '4px',
+            }}>
+              {svc.name}
+            </p>
             <div>
               {svc.headline.map((line, j) => (
                 <p key={j} style={headlineMobile}>{line}</p>
