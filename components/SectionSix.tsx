@@ -4,6 +4,11 @@ import React, { useRef } from 'react'
 
 const TESTIMONIALS = [
   {
+    name: 'Klaus Miller',
+    role: 'Kolibri Interkulturelle Stiftung',
+    quote: `Vielen Dank, Julia Weikinn, für die Broschüre, die Du für unsere Stiftung realisiert hast. Dank Deiner tollen kreativen Ideen und Deiner Professionalität ist eine Publikation entstanden, die durch Farbsprache und Seitenlayout perfekt zu dem sehr sensiblen Thema wie auch zur Identität und den Zielen unserer gemeinnützigen Stiftung passt. Die Broschüre spricht die Zielgruppe in idealer Weise an und stößt ausnahmslos auf positive Resonanz. Sie ist für uns ein großer Gewinn.\n\nVielen Dank auch für die immer angenehme und unkomplizierte Zusammenarbeit und dass Du dabei nie die Geduld mit uns verloren hast 😊\n\nFazit: Eine uneingeschränkte Weiterempfehlung!`,
+  },
+  {
     name: 'Miriam Szabo',
     role: 'Praxis für Psychotherapie',
     quote: `Ich habe bei Julia einen Flyer und zwei Homepages in Auftrag gegeben und bin mit ihrer Arbeit und den Ergebnissen rundum zufrieden! Ich habe mich mit meinen Anliegen stets ernst genommen und wertgeschätzt gefühlt und fand ihre Anregungen und Änderungsideen sehr hilfreich. Besonders beeindruckt hat mich, wie sie aus meinen Ideen passende Formen und Farben entwickelt und das dann professionell umsetzt. Der Kontakt war immer total unkompliziert und freundlich. Ich würde sie jederzeit wieder kontaktieren und auch sehr gerne weiterempfehlen!`,
@@ -128,6 +133,7 @@ export function SectionSix() {
               letterSpacing: '-0.01em',
               color: '#d5d3e6',
               margin: 0,
+              whiteSpace: 'pre-line',
             }}>
               {t.quote}
             </p>
