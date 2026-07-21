@@ -53,7 +53,7 @@ export function SectionTwo() {
 
   const cta = (
     <a
-      href="/kontakt"
+      href="mailto:julia@weikinn.design"
       style={{
         ...ctaStyle,
         backgroundColor: ctaHover ? '#d5d3e6' : '#6759d7',

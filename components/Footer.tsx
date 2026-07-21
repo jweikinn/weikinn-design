@@ -120,9 +120,14 @@ export function Footer() {
         >
           Kontakt
         </a>
-        <p style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '14px', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '24px' }}>
-          Instagram / Linkedin
-        </p>
+        <a
+          href="https://www.linkedin.com/in/julia-weikinn"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '14px', letterSpacing: '0.06em', textTransform: 'uppercase', marginTop: '24px', display: 'block', color: 'inherit', textDecoration: 'none' }}
+        >
+          LinkedIn
+        </a>
         <div style={{ height: '1px', backgroundColor: 'rgba(255,255,255,0.4)', margin: `${px(20, 32)} 0` }} />
         <div className="text-center" style={{ marginBottom: '16px' }}>
           <Link
@@ -168,25 +173,32 @@ export function Footer() {
                 julia@weikinn.design
               </a>
             </p>
-            <button
+            <a
+              href="mailto:julia@weikinn.design"
               style={{
                 fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em',
-                borderRadius: '24px', padding: '10px 20px', cursor: 'pointer',
+                borderRadius: '24px', padding: '10px 20px',
                 backgroundColor: kontaktHover ? '#fff' : 'transparent',
                 color: kontaktHover ? '#6759d7' : '#fff',
                 border: '1.5px solid #fff',
                 transition: 'background-color 0.25s ease, color 0.25s ease',
+                textDecoration: 'none',
+                display: 'inline-block',
               }}
               onMouseEnter={() => setKontaktHover(true)}
               onMouseLeave={() => setKontaktHover(false)}
             >
               Kontakt
-            </button>
+            </a>
           </div>
-          <div style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '18px', letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1.4, textAlign: 'right' }}>
-            <div>Instagram</div>
-            <div>Linkedin</div>
-          </div>
+          <a
+            href="https://www.linkedin.com/in/julia-weikinn"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '18px', letterSpacing: '0.06em', textTransform: 'uppercase', lineHeight: 1.4, textAlign: 'right', color: 'inherit', textDecoration: 'none' }}
+          >
+            LinkedIn
+          </a>
         </div>
 
         {/* Row 2: Divider */}

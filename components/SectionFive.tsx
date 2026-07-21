@@ -286,7 +286,7 @@ export function SectionFive() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             <p style={bodyCss}>{KOMPLETT_BODY}</p>
             <a
-              href="/kontakt"
+              href="mailto:julia@weikinn.design"
               style={{ ...kontaktBtn, backgroundColor: kontaktHover ? '#fff' : '#d5d3e6', color: '#6759d7', transition: 'background-color 0.25s ease' }}
               onMouseEnter={() => setKontaktHover(true)}
               onMouseLeave={() => setKontaktHover(false)}
@@ -319,7 +319,7 @@ export function SectionFive() {
           </p>
           <p style={bodyCss}>{KOMPLETT_BODY}</p>
           <a
-            href="/kontakt"
+            href="mailto:julia@weikinn.design"
             style={{ ...kontaktBtn, backgroundColor: kontaktHover ? '#fff' : '#d5d3e6', color: '#6759d7', transition: 'background-color 0.25s ease' }}
             onMouseEnter={() => setKontaktHover(true)}
             onMouseLeave={() => setKontaktHover(false)}
