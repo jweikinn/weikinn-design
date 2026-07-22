@@ -107,11 +107,10 @@ export function Footer() {
           href="mailto:julia@weikinn.design"
           style={{
             fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em',
-            borderRadius: '24px', padding: '10px 20px',
-            backgroundColor: kontaktHover ? '#fff' : 'transparent',
-            color: kontaktHover ? '#6759d7' : '#fff',
-            border: '1.5px solid #fff',
-            transition: 'background-color 0.25s ease, color 0.25s ease',
+            borderRadius: '24px', padding: '12px 16px',
+            backgroundColor: kontaktHover ? '#fff' : '#d5d3e6',
+            color: '#6759d7',
+            transition: 'background-color 0.25s ease',
             textDecoration: 'none',
             display: 'inline-block',
           }}
@@ -177,11 +176,10 @@ export function Footer() {
               href="mailto:julia@weikinn.design"
               style={{
                 fontFamily: 'var(--font-sans)', fontWeight: 800, fontSize: '14px', letterSpacing: '-0.02em',
-                borderRadius: '24px', padding: '10px 20px',
-                backgroundColor: kontaktHover ? '#fff' : 'transparent',
-                color: kontaktHover ? '#6759d7' : '#fff',
-                border: '1.5px solid #fff',
-                transition: 'background-color 0.25s ease, color 0.25s ease',
+                borderRadius: '24px', padding: '12px 16px',
+                backgroundColor: kontaktHover ? '#fff' : '#d5d3e6',
+                color: '#6759d7',
+                transition: 'background-color 0.25s ease',
                 textDecoration: 'none',
                 display: 'inline-block',
               }}

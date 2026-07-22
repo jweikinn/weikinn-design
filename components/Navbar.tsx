@@ -4,9 +4,9 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 const NAV_LINKS = [
-  { label: 'Zu mir', href: '/about' },
-  { label: 'Arbeiten', href: '/#arbeiten' },
-  { label: 'Angebot', href: '/#angebot' },
+  { label: 'zu mir', href: '/about' },
+  { label: 'arbeiten', href: '/#arbeiten' },
+  { label: 'angebot', href: '/#angebot' },
 ]
 
 export function Navbar() {

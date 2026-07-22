@@ -21,7 +21,7 @@ const SECTIONS = [
   {
     num: '02',
     title: 'Mein Weg',
-    text: 'Aufgewachsen bin ich südlich von München. Kommunikationsdesign habe ich in Nürnberg studiert und danach acht Jahre in Hamburg gelebt. Ich liebe Hamburg bis heute – das Weltstädtische, den Hafen. Trotzdem hat mich München am Ende wieder eingesammelt: Auf Dauer fehlte mir der blaue Himmel. Seit über zwölf Jahren bin ich selbstständig.',
+    text: 'Aufgewachsen bin ich südlich von München. Kommunikationsdesign habe ich in Nürnberg studiert und danach acht Jahre in Hamburg gelebt. Ich liebe Hamburg bis heute – das Weltstädtische, den Hafen. Trotzdem hat mich München am Ende wieder eingesammelt.',
   },
   {
     num: '03',
@@ -36,15 +36,11 @@ const SECTIONS = [
   {
     num: '05',
     title: 'Was ich für nötig halte',
-    text: 'Auf beiden Seiten: Vertrauen und Wertschätzung. Und Menschenverstand. In einer Zeit, in der KI vieles gestalten kann, wird umso deutlicher, was Menschen leisten: zuhören, mitdenken, Zusammenhänge sehen, Intuition ins Handwerk übersetzen. Darauf stelle ich meine Arbeit.',
+    text: 'Auf beiden Seiten: Wertschätzung und Menschenverstand. In einer Zeit, in der KI vieles gestalten kann, wird umso deutlicher, was Menschen leisten: zuhören, mitdenken, Zusammenhänge sehen, Intuition ins Handwerk übersetzen. Darauf stelle ich meine Arbeit.',
   },
 ]
 
 const WERTE = [
-  {
-    label: 'Was zählt.',
-    items: ['Vertrauen', 'Wertschätzung', 'Klartext', 'gesunder Menschenverstand', 'Ruhe im Prozess', 'Ehrlichkeit', 'Nachhaltigkeit'],
-  },
   {
     label: 'Was mich freut.',
     items: ['Fragen, die weiterführen', 'Kund:innen, die für ihre Sache stehen', 'Gute Haptik', 'Podcasts', 'Design ohne Show', 'guter Kaffee', 'Meer und Berge', 'Rückbeugen im Yoga'],
@@ -235,19 +231,6 @@ export default function AboutPage() {
           paddingRight: `${PAD}px`,
           marginTop: '40px',
         }}>
-          <p style={{
-            fontFamily: 'var(--font-sans)',
-            fontWeight: 300,
-            fontSize: '13px',
-            letterSpacing: '0.06em',
-            textTransform: 'uppercase',
-            color: '#d5d3e6',
-            opacity: 0.6,
-            margin: '0 0 48px',
-          }}>
-            06
-          </p>
-
           <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
             {WERTE.map(({ label, items }) => (
               <div key={label} className="md:grid" style={{ gridTemplateColumns: '1fr 2fr', gap: '80px', alignItems: 'baseline' }}>

@@ -6,13 +6,13 @@ import { SectionFour } from "@/components/SectionFour";
 import { SectionFive } from "@/components/SectionFive";
 import { SectionSix } from "@/components/SectionSix";
 import { SectionFAQ } from "@/components/SectionFAQ";
-import { Footer } from "@/components/Footer";
+import { FixedFooter } from "@/components/FixedFooter";
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen">
-      {/* Sections sit above the sticky footer in z-order */}
-      <div style={{ position: 'relative', zIndex: 1 }}>
+    <main className="bg-black">
+      {/* Sections sit above the fixed footer in z-order */}
+      <div style={{ position: 'relative', zIndex: 1, paddingBottom: 'var(--footer-height, 350px)' }}>
         <Navbar />
 
         {/* Bürobezeichnung — scrollt mit dem Inhalt weg, nicht sticky; auf Mobile versteckt */}
@@ -64,10 +64,7 @@ export default function Home() {
         <SectionSix />
         <SectionFAQ />
       </div>
-      {/* Footer liegt hinter dem Content (zIndex: 0) und wird von unten enthüllt wenn der Content hochscrollt */}
-      <div style={{ position: 'sticky', bottom: 0, zIndex: 0 }}>
-        <Footer />
-      </div>
+      <FixedFooter />
     </main>
   );
 }
